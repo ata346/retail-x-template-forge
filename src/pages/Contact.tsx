@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -277,15 +276,17 @@ const Contact = () => {
           </div>
           
           <div className="overflow-hidden rounded-lg shadow-md">
-            <div className="h-[400px] w-full bg-gray-200">
-              {/* Embed an iframe map here in a real implementation */}
-              <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                <div className="text-center p-6">
-                  <MapPin className="h-12 w-12 text-retail-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-medium mb-2">Retail X Store</h3>
-                  <p className="text-gray-600">123 Commerce Street, New York, NY 10001</p>
-                </div>
-              </div>
+            <div className="h-[400px] w-full">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.4244762951826!2d75.78443507481538!3d11.449256888743397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6636db34204c5%3A0xc2fa9d054e3a60af!2sAD%20WEB%20COMIC%20Agency!5e0!3m2!1sen!2sin!4v1744436146754!5m2!1sen!2sin" 
+                width="100%" 
+                height="400" 
+                style={{ border: 0 }}
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
             </div>
           </div>
         </div>
