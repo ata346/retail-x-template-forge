@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -71,7 +70,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen max-h-[800px] flex items-center">
+      <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-to-r from-retail-600 via-retail-500 to-retail-400">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
