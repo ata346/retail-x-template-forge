@@ -1,7 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Check, Users, Award, Briefcase, Target } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   return (
@@ -121,51 +122,41 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Founder Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
+            <h2 className="text-3xl font-bold mb-4">Meet Our Founder</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The passionate experts behind Retail X dedicated to your success.
+              The visionary behind Retail X dedicated to revolutionizing e-commerce.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Alex Chen",
-                role: "Founder & CEO",
-                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=654&q=80"
-              },
-              {
-                name: "Samantha Lee",
-                role: "Head of Design",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=688&q=80"
-              },
-              {
-                name: "Michael Roberts",
-                role: "Lead Developer",
-                image: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
-              },
-              {
-                name: "Priya Sharma",
-                role: "Customer Success",
-                image: "https://images.unsplash.com/photo-1619346088889-2e3a2108ad99?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80"
-              }
-            ].map((member, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
+          <div className="flex justify-center">
+            <Card className="max-w-md overflow-hidden shadow-lg">
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/28143fe7-7eca-4b5d-94e9-c8a85bee7168.png" 
+                  alt="Muhammed Adnan" 
+                  className="w-full h-[350px] object-cover object-top bg-gradient-to-b from-purple-50 to-white"
                 />
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-gray-600">{member.role}</p>
-                </div>
               </div>
-            ))}
+              <CardContent className="p-8 text-center">
+                <h3 className="text-2xl font-bold mb-1">Muhammed Adnan</h3>
+                <p className="text-gray-600 text-lg mb-4">Founder & CEO</p>
+                <p className="text-gray-700">
+                  With a passion for technology and business, Muhammed Adnan founded Retail X with a vision to democratize e-commerce for entrepreneurs worldwide. His innovative approach has transformed how businesses establish their online presence.
+                </p>
+                <div className="flex justify-center mt-6 space-x-4">
+                  <a href="https://linkedin.com" className="text-retail-600 hover:text-retail-800 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  </a>
+                  <a href="https://twitter.com" className="text-retail-600 hover:text-retail-800 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
