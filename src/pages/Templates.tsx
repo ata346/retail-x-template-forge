@@ -1,15 +1,15 @@
-
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Store, Search, X, ChevronRight } from "lucide-react";
+import { Store, Search, X } from "lucide-react";
 
 const Templates = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   // Template categories
   const categories = [
@@ -180,19 +180,23 @@ const Templates = () => {
     });
   };
 
+  const handleTemplateSelect = (templateId: number) => {
+    navigate(`/design-requirements/${templateId}`);
+  };
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
       <section className="bg-retail-600 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">E-commerce Templates</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Select Your Design</h1>
             <p className="text-xl mb-8">
-              Choose from our collection of 20 professional templates designed for various retail niches.
+              Choose a template that best represents your business vision.
             </p>
             <div className="max-w-md mx-auto relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Search className="h-5 w-5 text-gray-400" />
+                <Search className="h-5 w-5 text-white/60" />
               </div>
               <Input
                 type="text"
@@ -257,16 +261,12 @@ const Templates = () => {
                           </Badge>
                         </div>
                         <p className="text-gray-600 mb-6">{template.description}</p>
-                        <div className="flex justify-between items-center">
-                          <Button variant="outline" asChild className="text-sm">
-                            <Link to={`/templates/${template.id}`}>
-                              Preview
-                            </Link>
-                          </Button>
-                          <Button asChild className="text-sm">
-                            <Link to="/contact">
-                              Select <ChevronRight className="ml-1 h-4 w-4" />
-                            </Link>
+                        <div className="flex justify-center">
+                          <Button 
+                            onClick={() => handleTemplateSelect(template.id)} 
+                            className="w-full"
+                          >
+                            Select Template
                           </Button>
                         </div>
                       </CardContent>
@@ -289,22 +289,6 @@ const Templates = () => {
               </TabsContent>
             ))}
           </Tabs>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Need a Custom Solution?</h2>
-            <p className="text-lg text-gray-700 mb-8">
-              Don't see a template that fits your needs? Our team can create a custom design 
-              tailored specifically for your business.
-            </p>
-            <Button size="lg" asChild>
-              <Link to="/contact">Contact Us for Custom Solutions</Link>
-            </Button>
-          </div>
         </div>
       </section>
     </div>
