@@ -36,7 +36,7 @@ const Templates = () => {
     {
       id: 2,
       name: "Tech Hub",
-      image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      image: "https://images.unsplash.com/photo-1587614382346-4ec70e3b8151?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       category: "Electronics",
       description: "Showcase your tech products with this innovative design.",
       popular: true
@@ -185,112 +185,98 @@ const Templates = () => {
   };
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="bg-retail-600 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Select Your Design</h1>
-            <p className="text-xl mb-8">
-              Choose a template that best represents your business vision.
-            </p>
-            <div className="max-w-md mx-auto relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Search className="h-5 w-5 text-white/60" />
-              </div>
-              <Input
-                type="text"
-                placeholder="Search templates..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-white/10 border-white/30 text-white placeholder:text-white/60"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute inset-y-0 right-0 flex items-center pr-3"
-                >
-                  <X className="h-5 w-5 text-white/60 hover:text-white" />
-                </button>
-              )}
-            </div>
-          </div>
+    <div className="container mx-auto px-4 py-12 mt-20">
+      {/* Search bar */}
+      <div className="max-w-md mx-auto mb-10 relative">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <Search className="h-5 w-5 text-gray-400" />
         </div>
-      </section>
+        <Input
+          type="text"
+          placeholder="Search templates..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="pl-10"
+        />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute inset-y-0 right-0 flex items-center pr-3"
+          >
+            <X className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+          </button>
+        )}
+      </div>
 
-      {/* Templates Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <Tabs defaultValue="All">
-            <div className="overflow-x-auto pb-4 mb-6">
-              <TabsList className="bg-white border border-gray-200">
-                {categories.map((category) => (
-                  <TabsTrigger 
-                    key={category} 
-                    value={category}
-                    className="px-5 py-2.5 data-[state=active]:bg-retail-600 data-[state=active]:text-white"
-                  >
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-
+      {/* Templates Grid */}
+      <Tabs defaultValue="All">
+        <div className="overflow-x-auto pb-4 mb-6">
+          <TabsList className="bg-white border border-gray-200">
             {categories.map((category) => (
-              <TabsContent key={category} value={category} className="mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filterTemplates(category, searchQuery).map((template) => (
-                    <Card key={template.id} className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
-                      <div className="relative overflow-hidden h-56">
-                        <img
-                          src={template.image}
-                          alt={template.name}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                        {template.popular && (
-                          <Badge className="absolute top-3 right-3 bg-white text-retail-600">
-                            Popular
-                          </Badge>
-                        )}
-                      </div>
-                      <CardContent className="p-6">
-                        <div className="flex justify-between items-start mb-3">
-                          <h3 className="font-bold text-xl">{template.name}</h3>
-                          <Badge variant="outline" className="text-xs">
-                            {template.category}
-                          </Badge>
-                        </div>
-                        <p className="text-gray-600 mb-6">{template.description}</p>
-                        <div className="flex justify-center">
-                          <Button 
-                            onClick={() => handleTemplateSelect(template.id)} 
-                            className="w-full"
-                          >
-                            Select Template
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                {filterTemplates(category, searchQuery).length === 0 && (
-                  <div className="text-center py-12">
-                    <Store className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold mb-2">No templates found</h3>
-                    <p className="text-gray-600 mb-6">
-                      Try adjusting your search or filter criteria
-                    </p>
-                    <Button onClick={() => setSearchQuery("")} variant="outline">
-                      Clear Search
-                    </Button>
-                  </div>
-                )}
-              </TabsContent>
+              <TabsTrigger 
+                key={category} 
+                value={category}
+                className="px-5 py-2.5 data-[state=active]:bg-retail-600 data-[state=active]:text-white"
+              >
+                {category}
+              </TabsTrigger>
             ))}
-          </Tabs>
+          </TabsList>
         </div>
-      </section>
+
+        {categories.map((category) => (
+          <TabsContent key={category} value={category} className="mt-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filterTemplates(category, searchQuery).map((template) => (
+                <Card key={template.id} className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
+                  <div className="relative overflow-hidden h-56">
+                    <img
+                      src={template.image}
+                      alt={template.name}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                    {template.popular && (
+                      <Badge className="absolute top-3 right-3 bg-white text-retail-600">
+                        Popular
+                      </Badge>
+                    )}
+                  </div>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start mb-3">
+                      <h3 className="font-bold text-xl">{template.name}</h3>
+                      <Badge variant="outline" className="text-xs">
+                        {template.category}
+                      </Badge>
+                    </div>
+                    <p className="text-gray-600 mb-6">{template.description}</p>
+                    <div className="flex justify-center">
+                      <Button 
+                        onClick={() => handleTemplateSelect(template.id)} 
+                        className="w-full"
+                      >
+                        Select Template
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {filterTemplates(category, searchQuery).length === 0 && (
+              <div className="text-center py-12">
+                <Store className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-2">No templates found</h3>
+                <p className="text-gray-600 mb-6">
+                  Try adjusting your search or filter criteria
+                </p>
+                <Button onClick={() => setSearchQuery("")} variant="outline">
+                  Clear Search
+                </Button>
+              </div>
+            )}
+          </TabsContent>
+        ))}
+      </Tabs>
     </div>
   );
 };
