@@ -77,9 +77,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-bold mb-2">Our Location</h3>
                       <address className="not-italic text-gray-700">
-                        123 Commerce Street<br />
-                        New York, NY 10001<br />
-                        United States
+                        Quilandy - Thamarassery - Balussery Road<br />
+                        Ullieryi19<br />
+                        India
                       </address>
                     </div>
                   </CardContent>
@@ -109,8 +109,8 @@ const Contact = () => {
                     <div>
                       <h3 className="font-bold mb-2">Phone</h3>
                       <p className="text-gray-700">
-                        <a href="tel:+12125551234" className="hover:text-retail-600">
-                          +1 (212) 555-1234
+                        <a href="tel:+919656778508" className="hover:text-retail-600">
+                          +91 9656778508
                         </a>
                       </p>
                       <p className="text-gray-700 text-sm mt-1">Sales & Support available</p>
@@ -278,7 +278,7 @@ const Contact = () => {
           <div className="overflow-hidden rounded-lg shadow-md">
             <div className="h-[400px] w-full">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.4244762951826!2d75.78443507481538!3d11.449256888743397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6636db34204c5%3A0xc2fa9d054e3a60af!2sAD%20WEB%20COMIC%20Agency!5e0!3m2!1sen!2sin!4v1744436146754!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.4244762951826!2d75.78443507481538!3d11.449256888743397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6636db34204c5%3A0xc2fa9d054e3a60af!2sAD%20WEB%20COMIC%20Agency!5e0!3m2!1sen!2sin!4v1744436146754!5m2!1sen!2sin!4v1744436146754!5m2!1sen!2sin" 
                 width="100%" 
                 height="400" 
                 style={{ border: 0 }}
