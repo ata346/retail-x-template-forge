@@ -11,6 +11,9 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import DesignRequirements from "./pages/DesignRequirements";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +31,9 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/templates" element={<Templates />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/design-requirements/:templateId" element={<DesignRequirements />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

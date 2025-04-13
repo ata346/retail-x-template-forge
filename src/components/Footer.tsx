@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Twitter, Instagram, Linkedin, Store, Mail } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
@@ -73,20 +73,34 @@ const Footer = () => {
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <Link to="/privacy" className="text-gray-300 hover:text-retail-400 transition-colors flex items-center gap-2">
+                  <FileText size={16} /> Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-gray-300 hover:text-retail-400 transition-colors flex items-center gap-2">
+                  <FileText size={16} /> Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Info</h3>
             <address className="not-italic text-gray-300">
-              <p>123 Commerce Street</p>
-              <p>New York, NY 10001</p>
+              <p className="flex items-center gap-2 mb-2">
+                <MapPin size={16} className="text-retail-400 flex-shrink-0" />
+                <span>Quilandy - Thamarassery - Balussery Road, Ullieryi19</span>
+              </p>
               <p className="mt-2">Monday - Friday: 9am - 6pm</p>
               <p>Saturday: 10am - 4pm</p>
-              <p className="mt-2">
-                <a href="tel:+12125551234" className="hover:text-retail-400">+1 212 555 1234</a>
+              <p className="flex items-center gap-2 mt-2">
+                <Phone size={16} className="text-retail-400 flex-shrink-0" />
+                <a href="tel:+919656778508" className="hover:text-retail-400">+91 9656778508</a>
               </p>
-              <p>
+              <p className="flex items-center gap-2">
+                <Mail size={16} className="text-retail-400 flex-shrink-0" />
                 <a href="mailto:info@retailx.com" className="hover:text-retail-400">info@retailx.com</a>
               </p>
             </address>
@@ -116,6 +130,9 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
           <p>&copy; {new Date().getFullYear()} Retail X. All rights reserved.</p>
+          <p className="mt-2">
+            Powered by <a href="https://adwebcomicagency.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-retail-400 hover:underline">Ad Web Comic Agency</a>
+          </p>
           <div className="mt-2 space-x-4">
             <Link to="/privacy" className="hover:text-retail-400 transition-colors">
               Privacy Policy
