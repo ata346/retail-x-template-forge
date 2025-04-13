@@ -306,11 +306,11 @@ const Contact = () => {
             {[
               {
                 question: "How long does it take to set up my store?",
-                answer: "We can build and deploy your custom e-commerce store in just 3 hours once you've selected a template and provided your content."
+                answer: "Setup times vary by plan:\n- Basic Plan: 5 days\n- Standard Plan: 3 days\n- Premium Plan: 2 days\n- Elite Premium Plan: 24/7 hours"
               },
               {
                 question: "Can I customize the templates to match my brand?",
-                answer: "Yes, all of our templates are fully customizable. We can adapt colors, fonts, and layouts to match your brand identity."
+                answer: "Yes, all of our templates are fully customizable. We can tailor the colors, fonts, and layouts to perfectly match your brand identity. Once you apply, you'll receive an email where you can browse and select your preferred template."
               },
               {
                 question: "Do you offer ongoing support after launch?",
@@ -318,13 +318,13 @@ const Contact = () => {
               },
               {
                 question: "How much does a custom store cost?",
-                answer: "Our standard package starts at $499, which includes template selection, customization, and product setup. Custom solutions may vary in price."
+                answer: "Our standard package starts at 499 INR, which includes template selection, customization, and product setup. Custom solutions may vary in price."
               }
             ].map((faq, index) => (
               <Card key={index}>
                 <CardContent className="p-6">
                   <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+                  <p className="text-gray-600" style={{ whiteSpace: 'pre-line' }}>{faq.answer}</p>
                 </CardContent>
               </Card>
             ))}
