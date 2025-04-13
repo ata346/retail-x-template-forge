@@ -70,31 +70,28 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-to-r from-retail-600 via-retail-500 to-retail-400">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-            alt="Modern retail space"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
-        </div>
-        
+      <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-to-r from-teal-500 via-teal-400 to-teal-300">
         <div className="container relative z-10 mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Launch Your Online Store in Just 3 Hours
-            </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl">
-              Choose from 20 professionally designed templates and transform your retail business with a custom e-commerce solution.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild className="text-base">
-                <Link to="/templates">Browse Templates</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 text-base">
-                <Link to="/contact">Visit Our Store</Link>
-              </Button>
+          <div className="max-w-3xl flex items-center">
+            <div className="w-2/3 pr-12">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                It all starts with a website
+              </h1>
+              <p className="text-xl text-white/90 mb-8 max-w-2xl">
+                Build Your Ecommerce Website! No coding needed, built-in payments, seamless checkout, automated workflows, and fast shipping.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" asChild className="text-base">
+                  <Link to="/templates">Browse Templates</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="w-1/3">
+              <img 
+                src="/lovable-uploads/15e5f579-871a-4c7c-9618-162ff708edd3.png" 
+                alt="Smiling woman in traditional attire" 
+                className="w-full h-auto rounded-lg shadow-xl"
+              />
             </div>
           </div>
         </div>
