@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface PlanFeature {
@@ -11,6 +11,7 @@ interface PlanFeature {
 interface PricingPlanProps {
   title: string;
   price: string;
+  setupTime: string;
   features: PlanFeature[];
   isPopular?: boolean;
   color?: string;
@@ -19,6 +20,7 @@ interface PricingPlanProps {
 const PricingPlan = ({ 
   title, 
   price, 
+  setupTime,
   features, 
   isPopular = false,
   color = "text-navy-800" 
@@ -31,6 +33,10 @@ const PricingPlan = ({
           <div className="mt-3">
             <span className={`text-3xl font-bold ${color}`}>₹{price}</span>
             <span className="text-gray-600 ml-1">/month</span>
+          </div>
+          <div className="mt-2 flex items-center justify-center text-sm text-gray-600">
+            <Clock className="h-4 w-4 mr-1" />
+            <span>Setup: {setupTime}</span>
           </div>
         </div>
         
@@ -62,6 +68,7 @@ const PricingSection = () => {
     {
       title: "Basic Plan",
       price: "499",
+      setupTime: "5–7 Days",
       features: [
         { text: "1 Online Store" },
         { text: "Up to 5 Products" },
@@ -73,6 +80,7 @@ const PricingSection = () => {
     {
       title: "Standard Plan",
       price: "999",
+      setupTime: "4–6 Days",
       features: [
         { text: "1 Online Store" },
         { text: "Up to 15 Products" },
@@ -86,6 +94,7 @@ const PricingSection = () => {
     {
       title: "Premium Plan",
       price: "1,999",
+      setupTime: "2–4 Days",
       features: [
         { text: "1 Online Store" },
         { text: "Up to 25 Products" },
@@ -100,6 +109,7 @@ const PricingSection = () => {
     {
       title: "Elite Premium Plan",
       price: "4,999",
+      setupTime: "1–3 Days",
       features: [
         { text: "1 Online Store" },
         { text: "Up to 50 Products" },
@@ -130,6 +140,7 @@ const PricingSection = () => {
               key={index}
               title={plan.title}
               price={plan.price}
+              setupTime={plan.setupTime}
               features={plan.features}
               isPopular={plan.isPopular}
               color={plan.color}

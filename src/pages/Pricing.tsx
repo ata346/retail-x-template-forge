@@ -1,19 +1,21 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PricingCard = ({ 
   plan, 
   price, 
   features, 
+  setupTime,
   isPopular = false,
   color = "text-foreground"
 }: { 
   plan: string; 
   price: string; 
   features: string[];
+  setupTime: string;
   isPopular?: boolean;
   color?: string;
 }) => (
@@ -23,6 +25,10 @@ const PricingCard = ({
       <div className="mt-4 text-center">
         <span className={`text-4xl font-bold ${color}`}>₹{price}</span>
         <span className="text-gray-600 ml-1 text-lg">/month</span>
+      </div>
+      <div className="mt-2 flex items-center justify-center text-sm text-gray-600">
+        <Clock className="h-4 w-4 mr-1" />
+        <span>Setup: {setupTime}</span>
       </div>
     </div>
     
@@ -60,6 +66,7 @@ const Pricing = () => {
         <PricingCard
           plan="Basic Plan"
           price="499"
+          setupTime="5–7 Days"
           features={[
             "1 Online Store",
             "Up to 5 Products",
@@ -73,6 +80,7 @@ const Pricing = () => {
         <PricingCard
           plan="Standard Plan"
           price="999"
+          setupTime="4–6 Days"
           features={[
             "1 Online Store",
             "Up to 15 Products",
@@ -88,6 +96,7 @@ const Pricing = () => {
         <PricingCard
           plan="Premium Plan"
           price="1,999"
+          setupTime="2–4 Days"
           features={[
             "1 Online Store",
             "Up to 25 Products",
@@ -104,6 +113,7 @@ const Pricing = () => {
         <PricingCard
           plan="Elite Premium Plan"
           price="4,999"
+          setupTime="1–3 Days"
           isPopular={true}
           color="text-amber-600"
           features={[
