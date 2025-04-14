@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -101,7 +100,13 @@ const Footer = () => {
               </p>
               <p className="flex items-center gap-2">
                 <Mail size={16} className="text-retail-400 flex-shrink-0" />
-                <a href="mailto:info@retailx.com" className="hover:text-retail-400">info@retailx.com</a>
+                <a href="mailto:retailx.ad@f5.si" className="hover:text-retail-400">retailx.ad@f5.si</a>
+                <span className="text-sm text-gray-400">(General Inquiries)</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <Mail size={16} className="text-retail-400 flex-shrink-0" />
+                <a href="mailto:retailx.help.ad@f5.si" className="hover:text-retail-400">retailx.help.ad@f5.si</a>
+                <span className="text-sm text-gray-400">(Technical Support)</span>
               </p>
             </address>
           </div>

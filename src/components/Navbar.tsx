@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Store } from "lucide-react";
+import { Menu, X, Store } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,12 +50,6 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              to="/templates"
-              className="text-foreground font-medium hover:text-retail-600 transition-colors"
-            >
-              Templates
-            </Link>
-            <Link
               to="/contact"
               className="text-foreground font-medium hover:text-retail-600 transition-colors"
             >
@@ -68,7 +62,7 @@ const Navbar = () => {
               <Link to="/contact">Visit Us</Link>
             </Button>
             <Button asChild>
-              <Link to="/templates">Shop Now</Link>
+              <Link to="/design-requirements/1">Get Started</Link>
             </Button>
           </div>
 
@@ -101,13 +95,6 @@ const Navbar = () => {
                 About
               </Link>
               <Link
-                to="/templates"
-                className="text-foreground text-lg font-medium py-2 border-b border-gray-100"
-                onClick={toggleMenu}
-              >
-                Templates
-              </Link>
-              <Link
                 to="/contact"
                 className="text-foreground text-lg font-medium py-2 border-b border-gray-100"
                 onClick={toggleMenu}
@@ -119,7 +106,7 @@ const Navbar = () => {
                   <Link to="/contact">Visit Us</Link>
                 </Button>
                 <Button asChild className="w-full" onClick={toggleMenu}>
-                  <Link to="/templates">Shop Now</Link>
+                  <Link to="/design-requirements/1">Get Started</Link>
                 </Button>
               </div>
             </nav>
