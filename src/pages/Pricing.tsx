@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock } from "lucide-react";
+import { Check, Clock, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PricingCard = ({ 
@@ -55,9 +55,13 @@ const Pricing = () => {
   return (
     <div className="container mx-auto px-4 py-24 mt-16">
       <div className="text-center mb-16">
+        <div className="flex items-center justify-center mb-4">
+          <Sparkles className="h-6 w-6 text-amber-500 mr-2" />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-teal-500 text-lg font-medium">AI-Powered</span>
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Retail X Pricing Plans</h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Choose the perfect plan for your business needs
+          Choose your plan, fill out a simple form, and our AI will handle the rest
         </p>
       </div>
       
@@ -72,7 +76,8 @@ const Pricing = () => {
             "Up to 5 Products",
             "Basic Themes",
             "Email Support",
-            "No Custom Domain"
+            "No Custom Domain",
+            "AI-Generated Product Descriptions"
           ]}
         />
         
@@ -88,7 +93,8 @@ const Pricing = () => {
             "Custom Domain",
             "SEO Tools",
             "Abandoned Cart Recovery",
-            "WhatsApp & Email Support"
+            "WhatsApp & Email Support",
+            "AI Product Optimization"
           ]}
         />
         
@@ -105,7 +111,8 @@ const Pricing = () => {
             "AI Store Assistant",
             "Analytics Dashboard",
             "Team Access (Up to 5 users)",
-            "Priority Support (Whatsapp + Call)"
+            "Priority Support (Whatsapp + Call)",
+            "AI-Powered Sales Insights"
           ]}
         />
         
@@ -123,9 +130,37 @@ const Pricing = () => {
             "Custom Domain",
             "Advanced Automation Features",
             "Custom Development Support",
-            "Multiple Team Member Access"
+            "Multiple Team Member Access",
+            "Complete AI Business Suite"
           ]}
         />
+      </div>
+      
+      <div className="mt-16 max-w-3xl mx-auto text-center p-8 bg-gray-50 rounded-xl">
+        <h2 className="text-2xl font-bold mb-4">How It Works</h2>
+        <div className="flex flex-col md:flex-row justify-between gap-8">
+          <div className="flex-1 flex flex-col items-center">
+            <div className="w-12 h-12 rounded-full bg-retail-100 flex items-center justify-center mb-4">
+              <span className="font-bold text-retail-600">1</span>
+            </div>
+            <h3 className="text-lg font-medium mb-2">Select a Plan</h3>
+            <p className="text-gray-600">Choose the plan that fits your business needs</p>
+          </div>
+          <div className="flex-1 flex flex-col items-center">
+            <div className="w-12 h-12 rounded-full bg-retail-100 flex items-center justify-center mb-4">
+              <span className="font-bold text-retail-600">2</span>
+            </div>
+            <h3 className="text-lg font-medium mb-2">Fill Requirements</h3>
+            <p className="text-gray-600">Complete a simple form with your store details</p>
+          </div>
+          <div className="flex-1 flex flex-col items-center">
+            <div className="w-12 h-12 rounded-full bg-retail-100 flex items-center justify-center mb-4">
+              <span className="font-bold text-retail-600">3</span>
+            </div>
+            <h3 className="text-lg font-medium mb-2">We Build It</h3>
+            <p className="text-gray-600">Our AI creates your store automatically</p>
+          </div>
+        </div>
       </div>
     </div>
   );

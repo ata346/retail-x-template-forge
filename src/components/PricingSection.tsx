@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock } from "lucide-react";
+import { Check, Clock, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface PlanFeature {
@@ -75,6 +75,7 @@ const PricingSection = () => {
         { text: "Basic Themes" },
         { text: "Email Support" },
         { text: "No Custom Domain" },
+        { text: "AI-Generated Product Descriptions" },
       ],
     },
     {
@@ -89,6 +90,7 @@ const PricingSection = () => {
         { text: "SEO Tools" },
         { text: "Abandoned Cart Recovery" },
         { text: "WhatsApp & Email Support" },
+        { text: "AI Product Optimization" },
       ],
     },
     {
@@ -104,6 +106,7 @@ const PricingSection = () => {
         { text: "Analytics Dashboard" },
         { text: "Team Access (Up to 5 users)" },
         { text: "Priority Support (Whatsapp + Call)" },
+        { text: "AI-Powered Sales Insights" },
       ],
     },
     {
@@ -118,6 +121,7 @@ const PricingSection = () => {
         { text: "Advanced Automation Features" },
         { text: "Custom Development Support" },
         { text: "Multiple Team Member Access" },
+        { text: "Complete AI Business Suite" },
       ],
       isPopular: true,
       color: "text-amber-600",
@@ -128,9 +132,13 @@ const PricingSection = () => {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <div className="flex items-center justify-center mb-2">
+            <Sparkles className="h-5 w-5 text-amber-500 mr-2" />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-teal-500 text-base font-medium">AI-Powered</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Plan</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Select the perfect pricing plan for your business needs
+            Select a plan, fill out a form, and our AI takes care of the rest
           </p>
         </div>
         
@@ -149,6 +157,9 @@ const PricingSection = () => {
         </div>
         
         <div className="text-center mt-12">
+          <p className="text-sm text-gray-500 mb-6">
+            Our AI-powered platform builds your store automatically after you submit your requirements
+          </p>
           <Button asChild size="lg" variant="outline">
             <Link to="/pricing">View Full Pricing Details</Link>
           </Button>
