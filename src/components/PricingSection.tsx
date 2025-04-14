@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles } from "lucide-react";
+import { Check, Clock, Sparkles, Zap, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface PlanFeature {
@@ -140,6 +140,34 @@ const PricingSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Select a plan, fill out a form, and our AI takes care of the rest
           </p>
+        </div>
+        
+        {/* Mission & Vision */}
+        <div className="mb-12 max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex flex-col">
+              <div className="flex items-center mb-4">
+                <Zap className="h-6 w-6 text-amber-500 mr-2" />
+                <h3 className="text-2xl font-bold">Our Mission</h3>
+              </div>
+              <p className="text-gray-600">
+                At Retail X, our mission is to empower business owners by providing a fully automated eCommerce platform. 
+                With the power of AI, we handle everything from building your website to connecting your custom domain 
+                and launching your store. All you need to do is fill out a form, and we take care of the rest.
+              </p>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center mb-4">
+                <Rocket className="h-6 w-6 text-amber-500 mr-2" />
+                <h3 className="text-2xl font-bold">Our Vision</h3>
+              </div>
+              <p className="text-gray-600">
+                Our vision is to revolutionize how businesses set up and manage their online presence. 
+                By leveraging advanced AI technology, we simplify the process so that business owners can focus 
+                on what matters most, while we handle the technical side of launching and managing their eCommerce store.
+              </p>
+            </div>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
