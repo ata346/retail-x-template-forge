@@ -13,6 +13,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import DesignRequirements from "./pages/DesignRequirements";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Pricing from "./pages/Pricing";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => {
               <Route path="/design-requirements/:templateId" element={<DesignRequirements />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/pricing" element={<Pricing />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

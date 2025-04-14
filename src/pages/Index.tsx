@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Store, Zap, Users, Clock, Star } from "lucide-react";
+import PricingSection from "@/components/PricingSection";
 
 const Index = () => {
   const { toast } = useToast();
@@ -82,7 +84,7 @@ const Index = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild className="text-base">
-                  <Link to="/templates">Browse Templates</Link>
+                  <Link to="/pricing">Browse Plans</Link>
                 </Button>
               </div>
             </div>
@@ -119,76 +121,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section - Build Your Store */}
-      <section className="bg-retail-600 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Build Your Own Store?</h2>
-              <p className="text-lg mb-6">
-                Apply now to get started with our expert team. We'll help you choose the perfect template and customize it to match your brand identity.
-              </p>
-              <Button size="lg" variant="secondary" asChild className="font-semibold text-retail-800">
-                <Link to="/contact">Apply Now <ArrowRight className="ml-2 h-5 w-5" /></Link>
-              </Button>
-            </div>
-            <div className="lg:w-5/12">
-              <Card className="bg-white text-foreground border-none shadow-lg">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="bg-retail-100 p-3 rounded-full">
-                      <Clock className="h-6 w-6 text-retail-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold">3 Hour Setup</h3>
-                      <p className="text-muted-foreground">Quick and efficient process</p>
-                    </div>
-                  </div>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-center gap-2">
-                      <div className="rounded-full bg-green-100 p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                      </div>
-                      <span>Template selection assistance</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="rounded-full bg-green-100 p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                      </div>
-                      <span>Brand customization</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="rounded-full bg-green-100 p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                      </div>
-                      <span>Product catalog setup</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="rounded-full bg-green-100 p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                      </div>
-                      <span>Payment integration</span>
-                    </li>
-                  </ul>
-                  <p className="text-center text-sm text-muted-foreground mb-1">Starting at</p>
-                  <p className="text-center text-3xl font-bold mb-6">$499</p>
-                  <Button className="w-full" asChild>
-                    <Link to="/contact">Get Started</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Pricing Section */}
+      <PricingSection />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-gray-50">

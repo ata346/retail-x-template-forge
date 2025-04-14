@@ -44,6 +44,12 @@ const Navbar = () => {
               Home
             </Link>
             <Link
+              to="/pricing"
+              className="text-foreground font-medium hover:text-retail-600 transition-colors"
+            >
+              Pricing
+            </Link>
+            <Link
               to="/about"
               className="text-foreground font-medium hover:text-retail-600 transition-colors"
             >
@@ -86,6 +92,13 @@ const Navbar = () => {
                 onClick={toggleMenu}
               >
                 Home
+              </Link>
+              <Link
+                to="/pricing"
+                className="text-foreground text-lg font-medium py-2 border-b border-gray-100"
+                onClick={toggleMenu}
+              >
+                Pricing
               </Link>
               <Link
                 to="/about"
