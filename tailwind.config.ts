@@ -82,6 +82,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// New brand colors from the logo
+				brand: {
+					purple: '#2D0A4D', // Deep purple from logo text
+					peach: '#FFB3A7',  // Light peach from dots
+					coral: '#FF6B6B',  // Coral/red from dots
 				}
 			},
 			borderRadius: {

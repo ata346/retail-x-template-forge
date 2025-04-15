@@ -48,31 +48,34 @@ const Index = () => {
 
   const features = [
     {
-      icon: <Zap className="h-10 w-10 text-retail-500" />,
-      title: "Quick Setup",
-      description: "Launch your online store in just 3 hours with our streamlined process and expert guidance."
+      icon: <Zap className="h-10 w-10 text-brand-purple" />,
+      title: "AI-Powered Setup",
+      description: "Launch your online store in just 3 hours with our AI-driven automation and expert guidance."
     },
     {
-      icon: <Users className="h-10 w-10 text-retail-500" />,
+      icon: <Users className="h-10 w-10 text-brand-purple" />,
       title: "Customer-Focused",
       description: "Create shopping experiences your customers will love with intuitive navigation and checkout flow."
     },
     {
-      icon: <Store className="h-10 w-10 text-retail-500" />,
+      icon: <Store className="h-10 w-10 text-brand-purple" />,
       title: "20+ Templates",
       description: "Choose from our diverse template library designed for various retail niches and customize to fit your brand."
     },
     {
-      icon: <Clock className="h-10 w-10 text-retail-500" />,
+      icon: <Clock className="h-10 w-10 text-brand-purple" />,
       title: "Time-Saving",
-      description: "Focus on your business while we handle the technical aspects of your online store setup."
+      description: "Focus on your business while our AI handles all technical aspects of your online store setup."
     }
   ];
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-to-r from-teal-500 via-teal-400 to-teal-300">
+      <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
+        <div className="hero-blob left-[10%] top-[20%]"></div>
+        <div className="hero-blob right-[10%] bottom-[20%]"></div>
+        
         <div className="container relative z-10 mx-auto px-4">
           <div className="max-w-3xl flex items-center">
             <div className="w-2/3 pr-12">
@@ -80,10 +83,10 @@ const Index = () => {
                 It all starts with a website
               </h1>
               <p className="text-xl text-white/90 mb-8 max-w-2xl">
-                Build Your Ecommerce Website! No coding needed, built-in payments, seamless checkout, automated workflows, and fast shipping.
+                Build Your AI-Powered Ecommerce Website! No coding needed, built-in payments, seamless checkout, automated workflows, and fast shipping.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="text-base">
+                <Button size="lg" asChild className="text-base bg-white text-brand-purple hover:bg-white/90">
                   <Link to="/pricing">Browse Plans</Link>
                 </Button>
               </div>
@@ -99,13 +102,30 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Logo Section */}
+      <section className="py-10 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center">
+            <img 
+              src="/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png"
+              alt="Retail X Logo"
+              className="h-24 mb-4"
+            />
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-brand-purple mb-2">Retail X</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            AI-Powered eCommerce Platform
+          </p>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Retail X?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">Why Choose Retail X?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We combine beautiful design with powerful e-commerce functionality to help your business thrive online.
+              We combine AI technology with beautiful design to help your business thrive online.
             </p>
           </div>
           
@@ -113,7 +133,7 @@ const Index = () => {
             {features.map((feature, index) => (
               <div key={index} className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-brand-purple">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
               </div>
             ))}
@@ -128,7 +148,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">What Our Clients Say</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover why businesses trust Retail X for their e-commerce needs.
             </p>
@@ -143,18 +163,18 @@ const Index = () => {
                       <Star
                         key={i}
                         className={`h-5 w-5 ${
-                          i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                          i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"
                         }`}
                       />
                     ))}
                   </div>
                   <p className="mb-6 text-gray-600">"{testimonial.content}"</p>
                   <div className="flex items-center">
-                    <div className="bg-retail-100 h-12 w-12 rounded-full flex items-center justify-center text-retail-600 font-bold">
+                    <div className="bg-brand-peach/20 h-12 w-12 rounded-full flex items-center justify-center text-brand-purple font-bold">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div className="ml-4">
-                      <p className="font-semibold">{testimonial.name}</p>
+                      <p className="font-semibold text-brand-purple">{testimonial.name}</p>
                       <p className="text-sm text-gray-500">{testimonial.role}</p>
                     </div>
                   </div>
@@ -166,10 +186,10 @@ const Index = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="bg-retail-900 text-white py-16">
+      <section className="bg-brand-purple text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-xl text-retail-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-brand-peach mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter for the latest template releases and retail insights.
           </p>
           <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -181,7 +201,7 @@ const Index = () => {
               required
               className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
             />
-            <Button type="submit" className="whitespace-nowrap">
+            <Button type="submit" className="whitespace-nowrap bg-brand-coral hover:bg-brand-coral/90 text-white">
               Subscribe Now
             </Button>
           </form>

@@ -252,7 +252,7 @@ const DesignRequirements = () => {
 
   return (
     <div className="pt-20">
-      <section className="bg-retail-600 text-white py-12">
+      <section className="bg-brand-purple text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Design Requirements</h1>
@@ -280,9 +280,9 @@ const DesignRequirements = () => {
                 </div>
               </div>
               <div className="md:w-2/3">
-                <h3 className="text-xl font-bold mb-2">{templateDetails.name}</h3>
+                <h3 className="text-xl font-bold mb-2 text-brand-purple">{templateDetails.name}</h3>
                 <p className="text-gray-600 mb-3">{templateDetails.description}</p>
-                <div className="inline-block bg-gray-200 px-3 py-1 text-sm rounded-full">
+                <div className="inline-block bg-brand-peach/20 text-brand-purple px-3 py-1 text-sm rounded-full">
                   {templateDetails.category}
                 </div>
               </div>
@@ -296,7 +296,7 @@ const DesignRequirements = () => {
                     name="businessName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Business Name</FormLabel>
+                        <FormLabel className="text-brand-purple">Business Name</FormLabel>
                         <FormControl>
                           <Input placeholder="Your business name" {...field} />
                         </FormControl>
@@ -309,7 +309,7 @@ const DesignRequirements = () => {
                     name="contactName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Contact Person</FormLabel>
+                        <FormLabel className="text-brand-purple">Contact Person</FormLabel>
                         <FormControl>
                           <Input placeholder="Your name" {...field} />
                         </FormControl>
@@ -325,7 +325,7 @@ const DesignRequirements = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel className="text-brand-purple">Email Address</FormLabel>
                         <FormControl>
                           <Input type="email" placeholder="your@email.com" {...field} />
                         </FormControl>
@@ -338,7 +338,7 @@ const DesignRequirements = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone Number</FormLabel>
+                        <FormLabel className="text-brand-purple">Phone Number</FormLabel>
                         <FormControl>
                           <Input placeholder="Your phone number" {...field} />
                         </FormControl>
@@ -353,7 +353,7 @@ const DesignRequirements = () => {
                   name="businessDescription"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Business Description</FormLabel>
+                      <FormLabel className="text-brand-purple">Business Description</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Tell us about your business, products/services, target audience..." 
@@ -369,8 +369,8 @@ const DesignRequirements = () => {
                   )}
                 />
                 
-                <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg mb-2">
-                  <h4 className="font-bold text-lg mb-2">Razorpay Payment Integration</h4>
+                <div className="p-4 bg-brand-peach/10 border border-brand-peach/30 rounded-lg mb-2">
+                  <h4 className="font-bold text-lg mb-2 text-brand-purple">Razorpay Payment Integration</h4>
                   <p className="text-sm text-gray-600 mb-4">
                     To integrate Razorpay with your eCommerce store, please provide your API credentials.
                     These will be used to set up secure payment processing for your customers.
@@ -382,7 +382,7 @@ const DesignRequirements = () => {
                       name="razorpayKeyId"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Razorpay Key ID</FormLabel>
+                          <FormLabel className="text-brand-purple">Razorpay Key ID</FormLabel>
                           <FormControl>
                             <Input placeholder="rzp_live_xxxxxxxxxxxx" {...field} />
                           </FormControl>
@@ -398,7 +398,7 @@ const DesignRequirements = () => {
                       name="razorpayKeySecret"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Razorpay Key Secret</FormLabel>
+                          <FormLabel className="text-brand-purple">Razorpay Key Secret</FormLabel>
                           <FormControl>
                             <Input 
                               type="password"
@@ -421,7 +421,7 @@ const DesignRequirements = () => {
                   name="specialRequirements"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Special Requirements (Optional)</FormLabel>
+                      <FormLabel className="text-brand-purple">Special Requirements (Optional)</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Any specific features, integrations, or design preferences..." 
@@ -438,7 +438,7 @@ const DesignRequirements = () => {
                 />
                 
                 <div className="flex justify-end">
-                  <Button type="submit">
+                  <Button type="submit" className="bg-brand-purple hover:bg-brand-purple/90">
                     Submit Requirements
                   </Button>
                 </div>
