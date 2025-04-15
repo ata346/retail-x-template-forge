@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -78,7 +77,7 @@ const Index = () => {
         
         <div className="container relative z-10 mx-auto px-4">
           <div className="max-w-3xl flex items-center">
-            <div className="w-2/3 pr-12">
+            <div className="w-full">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 It all starts with a website
               </h1>
@@ -90,13 +89,6 @@ const Index = () => {
                   <Link to="/pricing">Browse Plans</Link>
                 </Button>
               </div>
-            </div>
-            <div className="w-1/3">
-              <img 
-                src="/lovable-uploads/15e5f579-871a-4c7c-9618-162ff708edd3.png" 
-                alt="Smiling woman in traditional attire" 
-                className="w-full h-auto rounded-lg shadow-xl"
-              />
             </div>
           </div>
         </div>
