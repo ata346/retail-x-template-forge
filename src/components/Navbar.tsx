@@ -25,39 +25,41 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed w-full top-0 z-40 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+        isScrolled 
+          ? "bg-white/90 backdrop-blur-md shadow-md py-2" 
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <Store className="h-8 w-8 text-retail-600" />
-            <span className="font-heading font-bold text-xl text-foreground">Retail X</span>
+            <Store className="h-8 w-8 text-brand-purple" />
+            <span className="font-heading font-bold text-xl text-brand-purple hover:text-brand-purple/80 transition-colors">Retail X</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className="text-foreground font-medium hover:text-retail-600 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               Home
             </Link>
             <Link
               to="/pricing"
-              className="text-foreground font-medium hover:text-retail-600 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               Pricing
             </Link>
             <Link
               to="/about"
-              className="text-foreground font-medium hover:text-retail-600 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="text-foreground font-medium hover:text-retail-600 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               Contact
             </Link>
@@ -74,7 +76,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-foreground focus:outline-none"
+            className="md:hidden text-brand-purple focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -84,32 +86,32 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden fixed inset-0 top-16 bg-white z-40 p-4 animate-fade-in">
+          <div className="md:hidden fixed inset-0 top-16 bg-white/95 backdrop-blur-md z-40 p-4 animate-fade-in">
             <nav className="flex flex-col space-y-6 pt-8">
               <Link
                 to="/"
-                className="text-foreground text-lg font-medium py-2 border-b border-gray-100"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
                 onClick={toggleMenu}
               >
                 Home
               </Link>
               <Link
                 to="/pricing"
-                className="text-foreground text-lg font-medium py-2 border-b border-gray-100"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
                 onClick={toggleMenu}
               >
                 Pricing
               </Link>
               <Link
                 to="/about"
-                className="text-foreground text-lg font-medium py-2 border-b border-gray-100"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
                 onClick={toggleMenu}
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-foreground text-lg font-medium py-2 border-b border-gray-100"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
                 onClick={toggleMenu}
               >
                 Contact
