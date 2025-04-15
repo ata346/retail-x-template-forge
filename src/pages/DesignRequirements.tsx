@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
@@ -33,6 +34,12 @@ const formSchema = z.object({
   businessDescription: z.string().min(10, {
     message: "Please provide at least a brief description of your business.",
   }),
+  razorpayKeyId: z.string().min(10, {
+    message: "Please enter a valid Razorpay API Key ID.",
+  }),
+  razorpayKeySecret: z.string().min(10, {
+    message: "Please enter a valid Razorpay API Key Secret.",
+  }),
   specialRequirements: z.string().optional(),
 });
 
@@ -51,6 +58,8 @@ const DesignRequirements = () => {
       email: "",
       phone: "",
       businessDescription: "",
+      razorpayKeyId: "",
+      razorpayKeySecret: "",
       specialRequirements: "",
     },
   });
@@ -360,6 +369,53 @@ const DesignRequirements = () => {
                   )}
                 />
                 
+                <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg mb-2">
+                  <h4 className="font-bold text-lg mb-2">Razorpay Payment Integration</h4>
+                  <p className="text-sm text-gray-600 mb-4">
+                    To integrate Razorpay with your eCommerce store, please provide your API credentials.
+                    These will be used to set up secure payment processing for your customers.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="razorpayKeyId"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Razorpay Key ID</FormLabel>
+                          <FormControl>
+                            <Input placeholder="rzp_live_xxxxxxxxxxxx" {...field} />
+                          </FormControl>
+                          <FormDescription>
+                            Your Razorpay Live API Key ID
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="razorpayKeySecret"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Razorpay Key Secret</FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="password"
+                              placeholder="Enter your API key secret" 
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormDescription>
+                            Your Razorpay Live API Key Secret
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </div>
+                
                 <FormField
                   control={form.control}
                   name="specialRequirements"
@@ -381,10 +437,7 @@ const DesignRequirements = () => {
                   )}
                 />
                 
-                <div className="flex justify-end gap-4">
-                  <Button type="button" variant="outline" onClick={() => navigate("/templates")}>
-                    Back to Templates
-                  </Button>
+                <div className="flex justify-end">
                   <Button type="submit">
                     Submit Requirements
                   </Button>
