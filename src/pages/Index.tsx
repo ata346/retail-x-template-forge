@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -88,8 +87,13 @@ const Index = () => {
                 across your e-commerce operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="text-base bg-white text-brand-purple hover:bg-white/90">
-                  <Link to="/pricing">Explore Solutions</Link>
+                <Button 
+                  size="lg" 
+                  asChild 
+                  className="text-base bg-white text-brand-purple hover:bg-white/90"
+                  onClick={() => window.open('https://forms.gle/9SURN9WmvVM4T37P7', '_blank')}
+                >
+                  <div>Design Requirements</div>
                 </Button>
               </div>
             </div>
