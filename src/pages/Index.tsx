@@ -1,10 +1,10 @@
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, Store, Zap, Users, Clock, Star } from "lucide-react";
+import { ArrowRight, Store, Zap, Users, Clock, Star, ExternalLink } from "lucide-react";
 import PricingSection from "@/components/PricingSection";
 
 const Index = () => {
@@ -72,9 +72,6 @@ const Index = () => {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
-        <div className="hero-blob left-[10%] top-[20%]"></div>
-        <div className="hero-blob right-[10%] bottom-[20%]"></div>
-        
         <div className="container relative z-10 mx-auto px-4">
           <div className="max-w-3xl flex items-center">
             <div className="w-full">
@@ -90,9 +87,15 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   asChild 
-                  className="text-base bg-white text-brand-purple hover:bg-white/90"
+                  className="text-base bg-white text-brand-purple hover:bg-white/90 flex items-center gap-2"
                 >
-                  <a href="https://formspree.io/f/xblgelaz" target="_blank" rel="noopener noreferrer">Design Requirements</a>
+                  <a 
+                    href="https://forms.gle/8EfxuZgW5dMhondk7" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Apply for e-com <ExternalLink className="h-4 w-4" />
+                  </a>
                 </Button>
               </div>
             </div>

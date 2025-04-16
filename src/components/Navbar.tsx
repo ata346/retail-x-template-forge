@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Store } from "lucide-react";
+import { Menu, X, Store, ExternalLink } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,8 +67,15 @@ const Navbar = () => {
             <Button variant="outline" asChild>
               <Link to="/contact">Visit Us</Link>
             </Button>
-            <Button asChild>
-              <Link to="/design-requirements">Get Started</Link>
+            <Button asChild variant="default">
+              <a 
+                href="https://forms.gle/8EfxuZgW5dMhondk7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                Apply for e-com <ExternalLink className="h-4 w-4" />
+              </a>
             </Button>
           </div>
 
@@ -116,8 +123,20 @@ const Navbar = () => {
                 <Button variant="outline" asChild className="w-full" onClick={toggleMenu}>
                   <Link to="/contact">Visit Us</Link>
                 </Button>
-                <Button asChild className="w-full" onClick={toggleMenu}>
-                  <Link to="/design-requirements">Get Started</Link>
+                <Button 
+                  asChild 
+                  className="w-full" 
+                  onClick={toggleMenu}
+                  variant="default"
+                >
+                  <a 
+                    href="https://forms.gle/8EfxuZgW5dMhondk7" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    Apply for e-com <ExternalLink className="h-4 w-4" />
+                  </a>
                 </Button>
               </div>
             </nav>

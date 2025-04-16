@@ -1,8 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, Clock, Sparkles, ExternalLink } from "lucide-react";
 
 const PricingCard = ({ 
   plan, 
@@ -46,7 +45,14 @@ const PricingCard = ({
       className="mt-6" 
       variant={isPopular ? "default" : "outline"}
     >
-      <Link to="/design-requirements">Get Started</Link>
+      <a 
+        href="https://forms.gle/8EfxuZgW5dMhondk7" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="flex items-center gap-2"
+      >
+        Apply for e-com <ExternalLink className="h-4 w-4" />
+      </a>
     </Button>
   </Card>
 );

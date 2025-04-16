@@ -1,7 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles, Zap, Rocket } from "lucide-react";
+import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface PlanFeature {
@@ -55,7 +54,14 @@ const PricingPlan = ({
             className="w-full"
             variant={isPopular ? "default" : "outline"}
           >
-            <Link to="/design-requirements/1">Get Started</Link>
+            <a 
+              href="https://forms.gle/8EfxuZgW5dMhondk7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              Apply for e-com <ExternalLink className="h-4 w-4" />
+            </a>
           </Button>
         </div>
       </div>
@@ -142,7 +148,6 @@ const PricingSection = () => {
           </p>
         </div>
         
-        {/* Mission & Vision */}
         <div className="mb-12 max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-100">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col">
