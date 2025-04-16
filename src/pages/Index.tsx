@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -82,18 +83,17 @@ const Index = () => {
                 AI-Powered Business Automation
               </h1>
               <p className="text-xl text-white/90 mb-8 max-w-2xl">
-                Retail X is an advanced AI-powered system integrating over 60 workflows 
-                and 13+ AI agents to optimize and automate critical business processes 
-                across your e-commerce operations.
+                Retail X is not a no-code or low-code e-commerce builder. It's an advanced AI system integrated 
+                with over 60 workflows and 13+ AI agents, working seamlessly to optimize and automate 
+                various processes for building e-commerce stores and static websites.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
                   asChild 
                   className="text-base bg-white text-brand-purple hover:bg-white/90"
-                  onClick={() => window.open('https://forms.gle/9SURN9WmvVM4T37P7', '_blank')}
                 >
-                  <div>Design Requirements</div>
+                  <a href="https://formspree.io/f/xblgelaz" target="_blank" rel="noopener noreferrer">Design Requirements</a>
                 </Button>
               </div>
             </div>

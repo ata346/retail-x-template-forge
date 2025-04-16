@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
@@ -48,8 +47,8 @@ const DesignRequirements = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [templateDetails, setTemplateDetails] = useState<any>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // Define the form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,10 +63,7 @@ const DesignRequirements = () => {
     },
   });
 
-  // Get template details based on the ID
   useEffect(() => {
-    // This would typically be a fetch from an API
-    // For now, we'll use the template data from the Templates page
     const allTemplates = [
       {
         id: 1,
@@ -80,7 +76,7 @@ const DesignRequirements = () => {
       {
         id: 2,
         name: "Tech Hub",
-        image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+        image: "https://images.unsplash.com/photo-1587614382346-4ec70e3b8151?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
         category: "Electronics",
         description: "Showcase your tech products with this innovative design.",
         popular: true
@@ -227,19 +223,46 @@ const DesignRequirements = () => {
     setTemplateDetails(template);
   }, [templateId, navigate, toast]);
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log({ values, templateId });
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
     
-    // Here you would typically send this data to your backend
-    toast({
-      title: "Requirements submitted!",
-      description: "We'll be in touch with you soon about your project.",
-    });
-    
-    // Redirect to home page or confirmation page
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+    try {
+      const formData = {
+        ...values,
+        templateName: templateDetails?.name,
+        templateId: templateId,
+        templateCategory: templateDetails?.category,
+      };
+      
+      const response = await fetch("https://formspree.io/f/xblgelaz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Requirements submitted!",
+          description: "We'll be in touch with you soon about your project.",
+        });
+        
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission failed",
+        description: "There was a problem submitting your requirements. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!templateDetails) {
@@ -438,8 +461,12 @@ const DesignRequirements = () => {
                 />
                 
                 <div className="flex justify-end">
-                  <Button type="submit" className="bg-brand-purple hover:bg-brand-purple/90">
-                    Submit Requirements
+                  <Button 
+                    type="submit" 
+                    className="bg-brand-purple hover:bg-brand-purple/90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit Requirements"}
                   </Button>
                 </div>
               </form>
