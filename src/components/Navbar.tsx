@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -37,7 +36,6 @@ const Navbar = () => {
             <span className="font-heading font-bold text-xl text-brand-purple hover:text-brand-purple/80 transition-colors">Retail X</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
@@ -70,11 +68,10 @@ const Navbar = () => {
               <Link to="/contact">Visit Us</Link>
             </Button>
             <Button asChild>
-              <Link to="/design-requirements/1">Get Started</Link>
+              <Link to="/design-requirements">Get Started</Link>
             </Button>
           </div>
 
-          {/* Mobile menu button */}
           <button
             className="md:hidden text-brand-purple focus:outline-none"
             onClick={toggleMenu}
@@ -84,7 +81,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden fixed inset-0 top-16 bg-white/95 backdrop-blur-md z-40 p-4 animate-fade-in">
             <nav className="flex flex-col space-y-6 pt-8">
@@ -121,7 +117,7 @@ const Navbar = () => {
                   <Link to="/contact">Visit Us</Link>
                 </Button>
                 <Button asChild className="w-full" onClick={toggleMenu}>
-                  <Link to="/design-requirements/1">Get Started</Link>
+                  <Link to="/design-requirements">Get Started</Link>
                 </Button>
               </div>
             </nav>

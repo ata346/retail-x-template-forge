@@ -46,7 +46,7 @@ const PricingCard = ({
       className="mt-6" 
       variant={isPopular ? "default" : "outline"}
     >
-      <Link to="/design-requirements/1">Get Started</Link>
+      <Link to="/design-requirements">Get Started</Link>
     </Button>
   </Card>
 );
