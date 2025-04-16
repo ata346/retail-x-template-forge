@@ -129,14 +129,16 @@ const Contact = () => {
                     <div>
                       <h3 className="font-bold mb-1 md:mb-2">Email</h3>
                       <p className="text-gray-700 text-sm md:text-base">
-                        <a href="mailto:info@retailx.com" className="hover:text-brand-coral">
-                          info@retailx.com
+                        <a href="mailto:retailx.ad@f5.si
+" className="hover:text-brand-coral">
+                          retailx.ad@f5.si
+
                         </a>
                       </p>
                       <p className="text-gray-700 text-xs md:text-sm mt-1">For general inquiries</p>
                       <p className="text-gray-700 text-sm md:text-base mt-2">
-                        <a href="mailto:support@retailx.com" className="hover:text-brand-coral">
-                          support@retailx.com
+                        <a href="mailto:retailx.help.ad@f5.si" className="hover:text-brand-coral">
+                          retailx.help.ad@f5.si
                         </a>
                       </p>
                       <p className="text-gray-700 text-xs md:text-sm mt-1">For technical support</p>
