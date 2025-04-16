@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -79,14 +80,16 @@ const Index = () => {
           <div className="max-w-3xl flex items-center">
             <div className="w-full">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                It all starts with a website
+                AI-Powered Business Automation
               </h1>
               <p className="text-xl text-white/90 mb-8 max-w-2xl">
-                Build Your AI-Powered Ecommerce Website! No coding needed, built-in payments, seamless checkout, automated workflows, and fast shipping.
+                Retail X is an advanced AI-powered system integrating over 60 workflows 
+                and 13+ AI agents to optimize and automate critical business processes 
+                across your e-commerce operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild className="text-base bg-white text-brand-purple hover:bg-white/90">
-                  <Link to="/pricing">Browse Plans</Link>
+                  <Link to="/pricing">Explore Solutions</Link>
                 </Button>
               </div>
             </div>
