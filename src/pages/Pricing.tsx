@@ -97,10 +97,8 @@ const Pricing = () => {
             "Up to 15 Products",
             "Premium Themes",
             "Custom Domain",
-            "SEO Tools",
-            "Abandoned Cart Recovery",
-            "WhatsApp & Email Support",
-            "AI Product Optimization"
+            "SEO Tools"
+           
           ]}
         />
         
@@ -114,11 +112,7 @@ const Pricing = () => {
             "Up to 25 Products",
             "Advanced Premium Themes",
             "Custom Domain",
-            "AI Store Assistant",
-            "Analytics Dashboard",
-            "Team Access (Up to 5 users)",
-            "Priority Support (Whatsapp + Call)",
-            "AI-Powered Sales Insights"
+            "Priority Support (Whatsapp + Call)"
           ]}
         />
         
@@ -134,10 +128,9 @@ const Pricing = () => {
             "Up to 50 Products",
             "Exclusive Design Templates",
             "Custom Domain",
-            "Advanced Automation Features",
+            "Advanced Automation ",
             "Custom Development Support",
-            "Multiple Team Member Access",
-            "Complete AI Business Suite"
+            "AI Business Report"
           ]}
         />
       </div>
