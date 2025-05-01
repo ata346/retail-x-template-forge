@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Store, Zap, Users, Clock, Star, ExternalLink } from "lucide-react";
 import PricingSection from "@/components/PricingSection";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const { toast } = useToast();
@@ -71,33 +72,41 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
-        <div className="container relative z-10 mx-auto px-4">
-          <div className="max-w-3xl flex items-center">
-            <div className="w-full">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                AI-Powered Business Automation
-              </h1>
-              <p className="text-xl text-white/90 mb-8 max-w-2xl">
-                Retail X is not a no-code or low-code e-commerce builder. It's an advanced AI system integrated 
-                with over 60 workflows and 13+ AI agents, working seamlessly to optimize and automate 
-                various processes for building e-commerce stores and static websites.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  asChild 
-                  className="text-base bg-white text-brand-purple hover:bg-white/90 flex items-center gap-2"
+      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
+        <div className="container relative z-10 mx-auto px-4 py-16 md:py-0">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              AI-Powered Business Automation
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+              Retail X is not a no-code or low-code e-commerce builder. It's an advanced AI system integrated 
+              with over 60 workflows and 13+ AI agents, working seamlessly to optimize and automate 
+              various processes for building e-commerce stores and static websites.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                size="lg" 
+                asChild 
+                className="text-base bg-white text-brand-purple hover:bg-white/90 flex items-center gap-2"
+              >
+                <a 
+                  href="https://forms.gle/8EfxuZgW5dMhondk7" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
-                  <a 
-                    href="https://forms.gle/8EfxuZgW5dMhondk7" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    Apply for e-com <ExternalLink className="h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
+                  Apply for e-com <ExternalLink className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="text-base bg-transparent border-white text-white hover:bg-white/10"
+              >
+                <Link to="/templates">
+                  Browse Templates
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -110,7 +119,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png"
               alt="Retail X Logo"
-              className="h-24 mb-4"
+              className="h-16 md:h-24 mb-4"
             />
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-brand-purple mb-2">Retail X</h2>
@@ -121,16 +130,16 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">Why Choose Retail X?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We combine AI technology with beautiful design to help your business thrive online.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <div key={index} className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                 <div className="mb-4">{feature.icon}</div>
@@ -146,19 +155,19 @@ const Index = () => {
       <PricingSection />
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">What Our Clients Say</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover why businesses trust Retail X for their e-commerce needs.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300">
-                <CardContent className="p-8">
+              <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
+                <CardContent className="p-6 md:p-8 flex flex-col h-full">
                   <div className="flex mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -169,8 +178,8 @@ const Index = () => {
                       />
                     ))}
                   </div>
-                  <p className="mb-6 text-gray-600">"{testimonial.content}"</p>
-                  <div className="flex items-center">
+                  <p className="mb-6 text-gray-600 flex-grow">"{testimonial.content}"</p>
+                  <div className="flex items-center mt-auto">
                     <div className="bg-brand-peach/20 h-12 w-12 rounded-full flex items-center justify-center text-brand-purple font-bold">
                       {testimonial.name.charAt(0)}
                     </div>
@@ -187,10 +196,10 @@ const Index = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="bg-brand-purple text-white py-16">
+      <section className="bg-brand-purple text-white py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-xl text-brand-peach mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-brand-peach mb-6 md:mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter for the latest template releases and retail insights.
           </p>
           <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">

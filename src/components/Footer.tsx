@@ -1,12 +1,13 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText, Briefcase } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
 const Footer = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -19,9 +20,11 @@ const Footer = () => {
     });
     form.reset();
   };
-  return <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+  return (
+    <footer className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Store className="h-8 w-8 text-retail-400" />
@@ -31,16 +34,16 @@ const Footer = () => {
               Building the future of e-commerce, one store at a time.
             </p>
             <div className="flex space-x-4 mt-4">
-              <a href="https://facebook.com" className="hover:text-retail-400 transition-colors">
+              <a href="https://facebook.com" className="hover:text-retail-400 transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="https://twitter.com" className="hover:text-retail-400 transition-colors">
+              <a href="https://twitter.com" className="hover:text-retail-400 transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="https://instagram.com" className="hover:text-retail-400 transition-colors">
+              <a href="https://instagram.com" className="hover:text-retail-400 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="https://linkedin.com" className="hover:text-retail-400 transition-colors">
+              <a href="https://linkedin.com" className="hover:text-retail-400 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -60,11 +63,18 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                
+                <Link to="/pricing" className="text-gray-300 hover:text-retail-400 transition-colors">
+                  Pricing
+                </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-gray-300 hover:text-retail-400 transition-colors">
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-gray-300 hover:text-retail-400 transition-colors flex items-center gap-2">
+                  <Briefcase size={16} /> Careers
                 </Link>
               </li>
               <li>
@@ -83,8 +93,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Info</h3>
             <address className="not-italic text-gray-300">
-              <p className="flex items-center gap-2 mb-2">
-                <MapPin size={16} className="text-retail-400 flex-shrink-0" />
+              <p className="flex items-start gap-2 mb-2">
+                <MapPin size={16} className="text-retail-400 flex-shrink-0 mt-1" />
                 <span>Quilandy - Thamarassery - Balussery Road, Ullieryi19</span>
               </p>
               <p className="mt-2">Monday - Friday: 9am - 6pm</p>
@@ -93,16 +103,22 @@ const Footer = () => {
                 <Phone size={16} className="text-retail-400 flex-shrink-0" />
                 <a href="tel:+919656778508" className="hover:text-retail-400">+91 9656778508</a>
               </p>
-              <p className="flex items-center gap-2">
-                <Mail size={16} className="text-retail-400 flex-shrink-0" />
-                <a href="mailto:retailx.ad@f5.si" className="hover:text-retail-400">retailx.ad@f5.si</a>
-                <span className="text-sm text-gray-400">(General Inquiries)</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Mail size={16} className="text-retail-400 flex-shrink-0" />
-                <a href="mailto:retailx.help.ad@f5.si" className="hover:text-retail-400">retailx.help.ad@f5.si</a>
-                <span className="text-sm text-gray-400">(Technical Support)</span>
-              </p>
+              <div className="flex flex-col space-y-2 mt-2">
+                <div className="flex items-start gap-2">
+                  <Mail size={16} className="text-retail-400 flex-shrink-0 mt-1" />
+                  <div>
+                    <a href="mailto:retailx.ad@f5.si" className="hover:text-retail-400 break-all">retailx.ad@f5.si</a>
+                    <span className="text-sm text-gray-400 block">(General Inquiries)</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Mail size={16} className="text-retail-400 flex-shrink-0 mt-1" />
+                  <div>
+                    <a href="mailto:retailx.help.ad@f5.si" className="hover:text-retail-400 break-all">retailx.help.ad@f5.si</a>
+                    <span className="text-sm text-gray-400 block">(Technical Support)</span>
+                  </div>
+                </div>
+              </div>
             </address>
           </div>
           
@@ -113,7 +129,13 @@ const Footer = () => {
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
               <div className="flex">
-                <Input type="email" name="email" placeholder="Your email" required className="rounded-r-none border-gray-700 bg-gray-800 text-white" />
+                <Input 
+                  type="email" 
+                  name="email" 
+                  placeholder="Your email" 
+                  required 
+                  className="rounded-r-none border-gray-700 bg-gray-800 text-white w-full" 
+                />
                 <Button type="submit" className="rounded-l-none">
                   <Mail size={16} />
                 </Button>
@@ -122,21 +144,26 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-gray-800 mt-10 pt-8 text-center text-gray-400 text-sm">
           <p>&copy; {new Date().getFullYear()} Retail X. All rights reserved.</p>
           <p className="mt-2">
             Powered by <a href="https://adwebcomicagency.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-retail-400 hover:underline">Ad Web Comic Agency</a>
           </p>
-          <div className="mt-2 space-x-4">
+          <div className="mt-2 flex flex-wrap justify-center gap-4">
             <Link to="/privacy" className="hover:text-retail-400 transition-colors">
               Privacy Policy
             </Link>
             <Link to="/terms" className="hover:text-retail-400 transition-colors">
               Terms of Service
             </Link>
+            <Link to="/careers" className="hover:text-retail-400 transition-colors">
+              Careers
+            </Link>
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;

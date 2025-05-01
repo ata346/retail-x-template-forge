@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Store, ExternalLink } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,9 +20,31 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Close mobile menu when changing from mobile to desktop view
+    if (!isMobile && isOpen) {
+      setIsOpen(false);
+    }
+  }, [isMobile, isOpen]);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const textColor = isScrolled || isOpen ? "text-brand-purple" : "text-white";
 
   return (
     <header 
@@ -33,38 +57,38 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <Store className="h-8 w-8 text-brand-purple" />
-            <span className="font-heading font-bold text-xl text-brand-purple hover:text-brand-purple/80 transition-colors">Retail X</span>
+            <Store className={`h-7 w-7 ${textColor}`} />
+            <span className={`font-heading font-bold text-xl ${textColor} hover:opacity-80 transition-colors`}>Retail X</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className={`${textColor} font-medium hover:opacity-80 transition-colors`}
             >
               Home
             </Link>
             <Link
               to="/pricing"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className={`${textColor} font-medium hover:opacity-80 transition-colors`}
             >
               Pricing
             </Link>
             <Link
               to="/about"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className={`${textColor} font-medium hover:opacity-80 transition-colors`}
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className={`${textColor} font-medium hover:opacity-80 transition-colors`}
             >
               Contact
             </Link>
             <Link
               to="/careers"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className={`${textColor} font-medium hover:opacity-80 transition-colors`}
             >
               Careers
             </Link>
@@ -87,7 +111,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-brand-purple focus:outline-none"
+            className={`md:hidden ${textColor} focus:outline-none`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -100,35 +124,35 @@ const Navbar = () => {
             <nav className="flex flex-col space-y-6 pt-8">
               <Link
                 to="/"
-                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-gray-50 transition-colors"
                 onClick={toggleMenu}
               >
                 Home
               </Link>
               <Link
                 to="/pricing"
-                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-gray-50 transition-colors"
                 onClick={toggleMenu}
               >
                 Pricing
               </Link>
               <Link
                 to="/about"
-                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-gray-50 transition-colors"
                 onClick={toggleMenu}
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-gray-50 transition-colors"
                 onClick={toggleMenu}
               >
                 Contact
               </Link>
               <Link
                 to="/careers"
-                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-gray-50 transition-colors"
                 onClick={toggleMenu}
               >
                 Careers
@@ -147,7 +171,7 @@ const Navbar = () => {
                     href="https://forms.gle/8EfxuZgW5dMhondk7" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 justify-center"
                   >
                     Apply for e-com <ExternalLink className="h-4 w-4" />
                   </a>

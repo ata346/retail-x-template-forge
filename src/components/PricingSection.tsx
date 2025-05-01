@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink } from "lucide-react";
@@ -58,7 +59,7 @@ const PricingPlan = ({
               href="https://forms.gle/8EfxuZgW5dMhondk7" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 justify-center"
             >
               Apply for e-com <ExternalLink className="h-4 w-4" />
             </a>
@@ -148,7 +149,7 @@ const PricingSection = () => {
           </p>
         </div>
         
-        <div className="mb-12 max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+        <div className="mb-12 max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-gray-100">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col">
               <div className="flex items-center mb-4">
@@ -175,7 +176,7 @@ const PricingSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {plans.map((plan, index) => (
             <PricingPlan
               key={index}
@@ -189,12 +190,12 @@ const PricingSection = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <p className="text-sm text-gray-500 mb-6">
-            Our AI-powered platform builds your store automatically after you submit your requirements
-          </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
           <Button asChild size="lg" variant="outline">
             <Link to="/pricing">View Full Pricing Details</Link>
+          </Button>
+          <Button asChild size="lg" variant="default">
+            <Link to="/templates">Browse Templates</Link>
           </Button>
         </div>
       </div>
