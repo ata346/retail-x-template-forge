@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText, Briefcase } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
@@ -70,6 +70,11 @@ const Footer = () => {
               <li>
                 <Link to="/contact" className="text-gray-300 hover:text-retail-400 transition-colors">
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-gray-300 hover:text-retail-400 transition-colors flex items-center gap-2">
+                  <Briefcase size={16} /> Careers
                 </Link>
               </li>
               <li>
@@ -144,6 +149,9 @@ const Footer = () => {
             </Link>
             <Link to="/terms" className="hover:text-retail-400 transition-colors">
               Terms of Service
+            </Link>
+            <Link to="/careers" className="hover:text-retail-400 transition-colors">
+              Careers
             </Link>
           </div>
         </div>
