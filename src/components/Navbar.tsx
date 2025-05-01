@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -39,27 +40,33 @@ const Navbar = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
+              className="text-white font-medium hover:text-white/80 transition-colors"
             >
               Home
             </Link>
             <Link
               to="/pricing"
-              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
+              className="text-white font-medium hover:text-white/80 transition-colors"
             >
               Pricing
             </Link>
             <Link
               to="/about"
-              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
+              className="text-white font-medium hover:text-white/80 transition-colors"
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
+              className="text-white font-medium hover:text-white/80 transition-colors"
             >
               Contact
+            </Link>
+            <Link
+              to="/careers"
+              className="text-white font-medium hover:text-white/80 transition-colors"
+            >
+              Careers
             </Link>
           </nav>
 
@@ -118,6 +125,13 @@ const Navbar = () => {
                 onClick={toggleMenu}
               >
                 Contact
+              </Link>
+              <Link
+                to="/careers"
+                className="text-brand-purple text-lg font-medium py-2 border-b border-gray-100 hover:bg-soft-purple/20 transition-colors"
+                onClick={toggleMenu}
+              >
+                Careers
               </Link>
               <div className="pt-4 flex flex-col space-y-4">
                 <Button variant="outline" asChild className="w-full" onClick={toggleMenu}>
