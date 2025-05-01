@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -40,25 +39,25 @@ const Navbar = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               Home
             </Link>
             <Link
               to="/pricing"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               Pricing
             </Link>
             <Link
               to="/about"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="text-white font-medium hover:text-white/80 transition-colors"
+              className="text-brand-purple font-medium hover:text-brand-purple/80 transition-colors"
             >
               Contact
             </Link>
