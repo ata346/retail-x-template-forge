@@ -108,6 +108,23 @@ const Index = () => {
                 </Link>
               </Button>
             </div>
+            
+            {/* Product Hunt Badge */}
+            <div className="mt-8">
+              <a 
+                href="https://www.producthunt.com/posts/retail-x?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-retail-x" 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=958480&theme=light&t=1746111133099" 
+                  alt="Retail X - Empowering Your E-Commerce Journey, One Click at a Time | Product Hunt" 
+                  style={{ width: "250px", height: "54px" }} 
+                  width="250" 
+                  height="54" 
+                />
+              </a>
+            </div>
           </div>
         </div>
       </section>
