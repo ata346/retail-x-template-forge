@@ -1,28 +1,25 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText, Briefcase } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const Footer = () => {
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    
+
     // In a real app, you would send this to a backend
     toast({
       title: "Subscribed!",
-      description: `Thank you for subscribing with ${email}`,
+      description: `Thank you for subscribing with ${email}`
     });
-    
     form.reset();
   };
-
-  return (
-    <footer className="bg-gray-900 text-white">
+  return <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -63,18 +60,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/templates" className="text-gray-300 hover:text-retail-400 transition-colors">
-                  Templates
-                </Link>
+                
               </li>
               <li>
                 <Link to="/contact" className="text-gray-300 hover:text-retail-400 transition-colors">
                   Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="text-gray-300 hover:text-retail-400 transition-colors flex items-center gap-2">
-                  <Briefcase size={16} /> Careers
                 </Link>
               </li>
               <li>
@@ -123,13 +113,7 @@ const Footer = () => {
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
               <div className="flex">
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Your email"
-                  required
-                  className="rounded-r-none border-gray-700 bg-gray-800 text-white"
-                />
+                <Input type="email" name="email" placeholder="Your email" required className="rounded-r-none border-gray-700 bg-gray-800 text-white" />
                 <Button type="submit" className="rounded-l-none">
                   <Mail size={16} />
                 </Button>
@@ -150,14 +134,9 @@ const Footer = () => {
             <Link to="/terms" className="hover:text-retail-400 transition-colors">
               Terms of Service
             </Link>
-            <Link to="/careers" className="hover:text-retail-400 transition-colors">
-              Careers
-            </Link>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
