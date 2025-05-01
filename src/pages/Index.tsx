@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,70 +6,55 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Store, Zap, Users, Clock, Star, ExternalLink } from "lucide-react";
 import PricingSection from "@/components/PricingSection";
 import { Link } from "react-router-dom";
-
 const Index = () => {
-  const { toast } = useToast();
-  
+  const {
+    toast
+  } = useToast();
   const [email, setEmail] = useState("");
-
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // In a real app, you would send this to your backend
     toast({
       title: "Subscribed!",
-      description: "Thank you for subscribing to our newsletter.",
+      description: "Thank you for subscribing to our newsletter."
     });
-    
     setEmail("");
   };
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Fashion Boutique Owner",
-      content: "Retail X transformed my business. In just 3 hours, I had a stunning online store that perfectly matched my brand. Sales increased by 45% in the first month!",
-      rating: 5,
-    },
-    {
-      name: "Marcus Chen",
-      role: "Electronics Store Owner",
-      content: "The templates are incredibly professional and easy to customize. Customer support was outstanding when I needed help with product categories.",
-      rating: 5,
-    },
-    {
-      name: "Priya Patel",
-      role: "Beauty Shop Entrepreneur",
-      content: "As someone with zero technical skills, I was amazed at how quickly I could set up my store. The interface is intuitive and the results are beautiful.",
-      rating: 4,
-    },
-  ];
-
-  const features = [
-    {
-      icon: <Zap className="h-10 w-10 text-brand-purple" />,
-      title: "AI-Powered Setup",
-      description: "Launch your online store in just 3 hours with our AI-driven automation and expert guidance."
-    },
-    {
-      icon: <Users className="h-10 w-10 text-brand-purple" />,
-      title: "Customer-Focused",
-      description: "Create shopping experiences your customers will love with intuitive navigation and checkout flow."
-    },
-    {
-      icon: <Store className="h-10 w-10 text-brand-purple" />,
-      title: "20+ Templates",
-      description: "Choose from our diverse template library designed for various retail niches and customize to fit your brand."
-    },
-    {
-      icon: <Clock className="h-10 w-10 text-brand-purple" />,
-      title: "Time-Saving",
-      description: "Focus on your business while our AI handles all technical aspects of your online store setup."
-    }
-  ];
-
-  return (
-    <div className="flex flex-col min-h-screen">
+  const testimonials = [{
+    name: "Sarah Johnson",
+    role: "Fashion Boutique Owner",
+    content: "Retail X transformed my business. In just 3 hours, I had a stunning online store that perfectly matched my brand. Sales increased by 45% in the first month!",
+    rating: 5
+  }, {
+    name: "Marcus Chen",
+    role: "Electronics Store Owner",
+    content: "The templates are incredibly professional and easy to customize. Customer support was outstanding when I needed help with product categories.",
+    rating: 5
+  }, {
+    name: "Priya Patel",
+    role: "Beauty Shop Entrepreneur",
+    content: "As someone with zero technical skills, I was amazed at how quickly I could set up my store. The interface is intuitive and the results are beautiful.",
+    rating: 4
+  }];
+  const features = [{
+    icon: <Zap className="h-10 w-10 text-brand-purple" />,
+    title: "AI-Powered Setup",
+    description: "Launch your online store in just 3 hours with our AI-driven automation and expert guidance."
+  }, {
+    icon: <Users className="h-10 w-10 text-brand-purple" />,
+    title: "Customer-Focused",
+    description: "Create shopping experiences your customers will love with intuitive navigation and checkout flow."
+  }, {
+    icon: <Store className="h-10 w-10 text-brand-purple" />,
+    title: "20+ Templates",
+    description: "Choose from our diverse template library designed for various retail niches and customize to fit your brand."
+  }, {
+    icon: <Clock className="h-10 w-10 text-brand-purple" />,
+    title: "Time-Saving",
+    description: "Focus on your business while our AI handles all technical aspects of your online store setup."
+  }];
+  return <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
         <div className="container relative z-10 mx-auto px-4 py-16 md:py-0">
@@ -84,45 +68,23 @@ const Index = () => {
               various processes for building e-commerce stores and static websites.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                asChild 
-                className="text-base bg-white text-brand-purple hover:bg-white/90 flex items-center gap-2"
-              >
-                <a 
-                  href="https://forms.gle/8EfxuZgW5dMhondk7" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
+              <Button size="lg" asChild className="text-base bg-white text-brand-purple hover:bg-white/90 flex items-center gap-2">
+                <a href="https://forms.gle/8EfxuZgW5dMhondk7" target="_blank" rel="noopener noreferrer">
                   Apply for e-com <ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="text-base bg-transparent border-white text-white hover:bg-white/10"
-              >
-                <Link to="/templates">
-                  Browse Templates
-                </Link>
+              <Button size="lg" variant="outline" asChild className="text-base bg-transparent border-white text-white hover:bg-white/10">
+                
               </Button>
             </div>
             
             {/* Product Hunt Badge */}
             <div className="mt-8">
-              <a 
-                href="https://www.producthunt.com/posts/retail-x?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-retail-x" 
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img 
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=958480&theme=light&t=1746111133099" 
-                  alt="Retail X - Empowering Your E-Commerce Journey, One Click at a Time | Product Hunt" 
-                  style={{ width: "250px", height: "54px" }} 
-                  width="250" 
-                  height="54" 
-                />
+              <a href="https://www.producthunt.com/posts/retail-x?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-retail-x" target="_blank" rel="noopener noreferrer">
+                <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=958480&theme=light&t=1746111133099" alt="Retail X - Empowering Your E-Commerce Journey, One Click at a Time | Product Hunt" style={{
+                width: "250px",
+                height: "54px"
+              }} width="250" height="54" />
               </a>
             </div>
           </div>
@@ -133,11 +95,7 @@ const Index = () => {
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center">
-            <img 
-              src="/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png"
-              alt="Retail X Logo"
-              className="h-16 md:h-24 mb-4"
-            />
+            <img src="/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png" alt="Retail X Logo" className="h-16 md:h-24 mb-4" />
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-brand-purple mb-2">Retail X</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -157,13 +115,11 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+            {features.map((feature, index) => <div key={index} className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-brand-purple">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -182,18 +138,10 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
+            {testimonials.map((testimonial, index) => <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
                 <CardContent className="p-6 md:p-8 flex flex-col h-full">
                   <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-5 w-5 ${
-                          i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"
-                        }`}
-                      />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} className={`h-5 w-5 ${i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"}`} />)}
                   </div>
                   <p className="mb-6 text-gray-600 flex-grow">"{testimonial.content}"</p>
                   <div className="flex items-center mt-auto">
@@ -206,8 +154,7 @@ const Index = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -220,22 +167,13 @@ const Index = () => {
             Subscribe to our newsletter for the latest template releases and retail insights.
           </p>
           <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <Input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              required
-              className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-            />
+            <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" required className="bg-white/10 border-white/20 text-white placeholder:text-white/60" />
             <Button type="submit" className="whitespace-nowrap bg-brand-coral hover:bg-brand-coral/90 text-white">
               Subscribe Now
             </Button>
           </form>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
