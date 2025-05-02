@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles, ExternalLink } from "lucide-react";
+import { Check, Clock, Sparkles, ExternalLink, Smartphone, MessageSquare, WhatsApp, Link as LinkIcon } from "lucide-react";
 
 const PricingCard = ({ 
   plan, 
@@ -71,7 +71,38 @@ const Pricing = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8 max-w-7xl mx-auto">
+        {/* MiniSites Plan */}
+        <PricingCard
+          plan="MiniSites Plan"
+          price="299"
+          setupTime="1–2 Days"
+          features={[
+            "Single-Page Website",
+            "Mobile Responsive Design",
+            "Contact Form or WhatsApp Button",
+            "Social Media Links",
+            "Email Support"
+          ]}
+        />
+        
+        {/* Business Website Plan */}
+        <PricingCard
+          plan="Business Website Plan"
+          price="399"
+          setupTime="2–3 Days"
+          features={[
+            "1 Static Business Website",
+            "Up to 3 Pages",
+            "Mobile Responsive Design",
+            "Basic Themes",
+            "Limited Customization",
+            "Contact Form",
+            "Social Media Links",
+            "WhatsApp Integration"
+          ]}
+        />
+        
         {/* Basic Plan */}
         <PricingCard
           plan="Basic Plan"

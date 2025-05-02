@@ -1,8 +1,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Smartphone, MessageSquare, WhatsApp, Link } from "lucide-react";
+import { Link as RouterLink } from "react-router-dom";
 
 interface PlanFeature {
   text: string;
@@ -72,6 +72,33 @@ const PricingPlan = ({
 
 const PricingSection = () => {
   const plans = [
+    {
+      title: "MiniSites Plan",
+      price: "299",
+      setupTime: "1–2 Days",
+      features: [
+        { text: "Single-Page Website (Intro, Services, Contact)" },
+        { text: "Mobile Responsive Design" },
+        { text: "Contact Form or WhatsApp Button" },
+        { text: "Social Media Links" },
+        { text: "Email Support" },
+      ],
+    },
+    {
+      title: "Business Website Plan",
+      price: "399",
+      setupTime: "2–3 Days",
+      features: [
+        { text: "1 Static Business Website (Non-eCommerce)" },
+        { text: "Up to 3 Pages (e.g., Home, About, Contact)" },
+        { text: "Mobile Responsive Design" },
+        { text: "Basic Themes" },
+        { text: "Limited Customization" },
+        { text: "Contact Form" },
+        { text: "Social Media Links" },
+        { text: "WhatsApp Chat Button Integration" },
+      ],
+    },
     {
       title: "Basic Plan",
       price: "499",
@@ -176,7 +203,7 @@ const PricingSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
           {plans.map((plan, index) => (
             <PricingPlan
               key={index}
@@ -192,10 +219,10 @@ const PricingSection = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
           <Button asChild size="lg" variant="outline">
-            <Link to="/pricing">View Full Pricing Details</Link>
+            <RouterLink to="/pricing">View Full Pricing Details</RouterLink>
           </Button>
           <Button asChild size="lg" variant="default">
-            <Link to="/templates">Browse Templates</Link>
+            <RouterLink to="/templates">Browse Templates</RouterLink>
           </Button>
         </div>
       </div>
