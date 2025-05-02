@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -77,16 +78,6 @@ const Index = () => {
                 
               </Button>
             </div>
-            
-            {/* Product Hunt Badge */}
-            <div className="mt-8">
-              <a href="https://www.producthunt.com/posts/retail-x?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-retail-x" target="_blank" rel="noopener noreferrer">
-                <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=958480&theme=light&t=1746111133099" alt="Retail X - Empowering Your E-Commerce Journey, One Click at a Time | Product Hunt" style={{
-                width: "250px",
-                height: "54px"
-              }} width="250" height="54" />
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -101,6 +92,24 @@ const Index = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             AI-Powered eCommerce Platform
           </p>
+        </div>
+      </section>
+
+      {/* Product Hunt Badge Section - New central position */}
+      <section className="py-8 bg-gray-50">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex justify-center">
+            <a href="https://www.producthunt.com/posts/retail-x?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-retail-x" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=958480&theme=light&t=1746111133099" 
+                alt="Retail X - Empowering Your E-Commerce Journey, One Click at a Time | Product Hunt" 
+                style={{ width: "250px", height: "54px" }} 
+                width="250" 
+                height="54"
+                className="hover:shadow-md transition-all"
+              />
+            </a>
+          </div>
         </div>
       </section>
 
