@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,7 +39,7 @@ const Footer = () => {
               <a href="https://twitter.com" className="hover:text-retail-400 transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="https://instagram.com" className="hover:text-retail-400 transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/retailx.site/" className="hover:text-retail-400 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
               <a href="https://linkedin.com" className="hover:text-retail-400 transition-colors" aria-label="LinkedIn">
