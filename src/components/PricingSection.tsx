@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Smartphone, MessageSquare, WhatsApp, Link } from "lucide-react";
+import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Smartphone, MessageSquare, Link } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 interface PlanFeature {
   text: string;
@@ -123,7 +123,7 @@ const PricingSection = () => {
     }, {
       text: "Abandoned Cart Recovery"
     }, {
-      text: "WhatsApp & Email Support"
+      text: "MessageSquare & Email Support"
     }, {
       text: "AI Product Optimization"
     }]
