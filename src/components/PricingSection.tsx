@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Smartphone, MessageSquare, WhatsApp, Link } from "lucide-react";
@@ -79,7 +78,7 @@ const PricingSection = () => {
       features: [
         { text: "Single-Page Website (Intro, Services, Contact)" },
         { text: "Mobile Responsive Design" },
-        { text: "Contact Form or WhatsApp Button" },
+        { text: "Contact Form or MessageSquare Button" },
         { text: "Social Media Links" },
         { text: "Email Support" },
       ],
@@ -96,7 +95,7 @@ const PricingSection = () => {
         { text: "Limited Customization" },
         { text: "Contact Form" },
         { text: "Social Media Links" },
-        { text: "WhatsApp Chat Button Integration" },
+        { text: "MessageSquare Chat Button Integration" },
       ],
     },
     {

@@ -1,7 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles, ExternalLink, Smartphone, MessageSquare, WhatsApp, Link as LinkIcon } from "lucide-react";
+import { Check, Clock, Sparkles, ExternalLink, Smartphone, MessageSquare, Link as LinkIcon } from "lucide-react";
 
 const PricingCard = ({ 
   plan, 
@@ -80,7 +79,7 @@ const Pricing = () => {
           features={[
             "Single-Page Website",
             "Mobile Responsive Design",
-            "Contact Form or WhatsApp Button",
+            "Contact Form or Message Button",
             "Social Media Links",
             "Email Support"
           ]}
@@ -99,7 +98,7 @@ const Pricing = () => {
             "Limited Customization",
             "Contact Form",
             "Social Media Links",
-            "WhatsApp Integration"
+            "Message Integration"
           ]}
         />
         
