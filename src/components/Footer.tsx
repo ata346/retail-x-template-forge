@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Twitter, Instagram, Linkedin, Store, Mail, Phone, MapPin, FileText, Briefcase } from "lucide-react";
+import { Instagram, Store, Mail, Phone, MapPin, FileText, Briefcase } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
@@ -33,17 +33,8 @@ const Footer = () => {
               Building the future of e-commerce, one store at a time.
             </p>
             <div className="flex space-x-4 mt-4">
-              <a href="https://facebook.com" className="hover:text-retail-400 transition-colors" aria-label="Facebook">
-                <Facebook size={20} />
-              </a>
-              <a href="https://twitter.com" className="hover:text-retail-400 transition-colors" aria-label="Twitter">
-                <Twitter size={20} />
-              </a>
               <a href="https://www.instagram.com/retailx.site/" className="hover:text-retail-400 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
-              </a>
-              <a href="https://linkedin.com" className="hover:text-retail-400 transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
               </a>
             </div>
           </div>
