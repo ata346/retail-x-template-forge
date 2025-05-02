@@ -1,18 +1,17 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, Store, Zap, Users, Clock, Star, ExternalLink, Target, PieChart, Layers, BadgeCheck } from "lucide-react";
+import { ArrowRight, Store, Zap, Users, Clock, Star, ExternalLink } from "lucide-react";
 import PricingSection from "@/components/PricingSection";
 import { Link } from "react-router-dom";
-
 const Index = () => {
   const {
     toast
   } = useToast();
   const [email, setEmail] = useState("");
-
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -23,7 +22,6 @@ const Index = () => {
     });
     setEmail("");
   };
-
   const testimonials = [{
     name: "Sarah Johnson",
     role: "Fashion Boutique Owner",
@@ -115,86 +113,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* NEW: Hyper-Personalization Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 rounded-full bg-brand-purple/10 text-brand-purple font-medium text-sm mb-4">Tailored for Your Business</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-purple mb-6">Hyper-Personalized Experiences</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              No two businesses are alike. Our AI analyzes your unique needs and creates a customized solution that speaks directly to your brand identity and customer expectations.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1664575198308-3959904fa2d5?q=80&w=1740&auto=format&fit=crop" 
-                alt="Personalized E-commerce Experience" 
-                className="rounded-xl shadow-lg w-full h-auto object-cover"
-              />
-            </div>
-            <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 h-12 w-12 bg-brand-purple/10 rounded-lg flex items-center justify-center">
-                  <Target className="h-6 w-6 text-brand-purple" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-brand-purple">Individualized Business Analysis</h3>
-                  <p className="text-gray-600">
-                    Our AI conducts a comprehensive analysis of your business model, industry position, and growth potential to create a solution that fits like a glove.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 h-12 w-12 bg-brand-purple/10 rounded-lg flex items-center justify-center">
-                  <PieChart className="h-6 w-6 text-brand-purple" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-brand-purple">Data-Driven Customization</h3>
-                  <p className="text-gray-600">
-                    Leverage customer data and market trends to create personalized shopping experiences that increase conversion rates and customer loyalty.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 h-12 w-12 bg-brand-purple/10 rounded-lg flex items-center justify-center">
-                  <Layers className="h-6 w-6 text-brand-purple" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-brand-purple">Adaptive User Experiences</h3>
-                  <p className="text-gray-600">
-                    Create dynamic user journeys that evolve based on customer behavior and preferences, ensuring each visitor feels the experience was designed just for them.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 h-12 w-12 bg-brand-purple/10 rounded-lg flex items-center justify-center">
-                  <BadgeCheck className="h-6 w-6 text-brand-purple" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-brand-purple">Industry-Specific Solutions</h3>
-                  <p className="text-gray-600">
-                    Whether you're in fashion, electronics, beauty, or any other industry, our platform adapts to your sector's unique requirements and customer expectations.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-16 text-center">
-            <Button size="lg" asChild className="bg-brand-purple hover:bg-brand-purple/90">
-              <a href="https://forms.gle/8EfxuZgW5dMhondk7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                Get Your Personalized Solution <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -267,5 +185,4 @@ const Index = () => {
       </section>
     </div>;
 };
-
 export default Index;
