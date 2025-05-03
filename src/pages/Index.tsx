@@ -113,6 +113,61 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Urgent Call to Action Section */}
+      <section className="py-12 bg-brand-coral">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="md:w-2/3 mb-6 md:mb-0">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                Limited Time Offer! Act Now
+              </h2>
+              <p className="text-lg md:text-xl text-white mb-4">
+                Get 30% off your first 3 months when you sign up today. This exclusive offer ends in:
+              </p>
+              <div className="flex gap-3 mb-4">
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 w-16 text-center">
+                  <span className="block text-2xl font-bold text-white">48</span>
+                  <span className="text-xs text-white/80">Hours</span>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 w-16 text-center">
+                  <span className="block text-2xl font-bold text-white">12</span>
+                  <span className="text-xs text-white/80">Minutes</span>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 w-16 text-center">
+                  <span className="block text-2xl font-bold text-white">33</span>
+                  <span className="text-xs text-white/80">Seconds</span>
+                </div>
+              </div>
+            </div>
+            <div className="md:w-1/3 flex justify-center md:justify-end">
+              <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-sm">
+                <h3 className="text-xl font-bold text-brand-purple mb-4">Claim Your Discount Now</h3>
+                <p className="text-sm text-gray-600 mb-4">Enter your email to receive your exclusive discount code before time runs out!</p>
+                <form onSubmit={handleSubscribe} className="space-y-4">
+                  <Input 
+                    type="email" 
+                    placeholder="Your email" 
+                    value={email} 
+                    onChange={e => setEmail(e.target.value)} 
+                    required 
+                    className="w-full"
+                  />
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white flex items-center justify-center gap-2"
+                  >
+                    Get 30% Off Now <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </form>
+                <p className="text-xs text-gray-500 mt-4 text-center">
+                  *Offer valid for new customers only. Discount applies to the first 3 months of service.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
