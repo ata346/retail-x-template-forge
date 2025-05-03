@@ -1,14 +1,22 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
 
 User-agent: *
 Allow: /
+
+# Allow Google bot to crawl everything
+User-agent: Googlebot
+Allow: /
+
+# Allow Bing bot to crawl everything
+User-agent: Bingbot
+Allow: /
+
+# Allow Twitter bot to crawl for card previews
+User-agent: Twitterbot
+Allow: /
+
+# Allow Facebook bot to crawl for link previews
+User-agent: facebookexternalhit
+Allow: /
+
+# Sitemap location
+Sitemap: https://retailx.io/sitemap.xml

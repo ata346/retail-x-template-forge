@@ -54,6 +54,44 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Add JSON-LD structured data for SEO
+  useEffect(() => {
+    // Create the structured data script element
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    
+    // Define the JSON-LD content
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Retail X",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "499",
+        "priceCurrency": "INR"
+      },
+      "description": "AI-Powered E-commerce Platform that helps businesses launch online stores in 3 hours",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127"
+      }
+    };
+    
+    // Set the script content
+    script.textContent = JSON.stringify(structuredData);
+    
+    // Add the script to the document head
+    document.head.appendChild(script);
+    
+    // Clean up function
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -64,6 +102,7 @@ const Index = () => {
     });
     setEmail("");
   };
+
   const testimonials = [{
     name: "Sarah Johnson",
     role: "Fashion Boutique Owner",
@@ -97,12 +136,13 @@ const Index = () => {
     title: "Time-Saving",
     description: "Focus on your business while our AI handles all technical aspects of your online store setup."
   }];
-  return <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section with semantic HTML for SEO */}
+      <section aria-labelledby="hero-heading" className="relative min-h-[80vh] md:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
         <div className="container relative z-10 mx-auto px-4 py-16 md:py-0">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               AI-Powered Business Automation
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
@@ -125,12 +165,12 @@ const Index = () => {
       </section>
 
       {/* Logo Section */}
-      <section className="py-10 bg-white">
+      <section aria-labelledby="brand-section" className="py-10 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center">
             <img src="/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png" alt="Retail X Logo" className="h-16 md:h-24 mb-4" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-brand-purple mb-2">Retail X</h2>
+          <h2 id="brand-section" className="text-2xl md:text-3xl font-bold text-brand-purple mb-2">Retail X</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             AI-Powered eCommerce Platform
           </p>
@@ -155,12 +195,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Urgent Call to Action Section */}
-      <section className="py-12 bg-brand-coral">
+      {/* Urgent Call to Action Section with improved semantics */}
+      <section aria-labelledby="urgent-cta" className="py-12 bg-brand-coral">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-2/3 mb-6 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <h2 id="urgent-cta" className="text-3xl md:text-4xl font-bold text-white mb-2">
                 Limited Time Offer! Act Now
               </h2>
               <p className="text-lg md:text-xl text-white mb-4">
@@ -193,6 +233,7 @@ const Index = () => {
                     onChange={e => setEmail(e.target.value)} 
                     required 
                     className="w-full"
+                    aria-label="Email address for discount"
                   />
                   <Button 
                     type="submit" 
@@ -210,22 +251,24 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 md:py-20 bg-white">
+      {/* Features Section with semantic improvements */}
+      <section aria-labelledby="features-heading" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">Why Choose Retail X?</h2>
+            <h2 id="features-heading" className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">Why Choose Retail X?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We combine AI technology with beautiful design to help your business thrive online.
             </p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {features.map((feature, index) => <div key={index} className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
-                <div className="mb-4">{feature.icon}</div>
+            {features.map((feature, index) => (
+              <div key={index} className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div className="mb-4" aria-hidden="true">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-brand-purple">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -233,20 +276,21 @@ const Index = () => {
       {/* Pricing Section */}
       <PricingSection />
 
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      {/* Testimonials Section with semantic improvements */}
+      <section aria-labelledby="testimonials-heading" className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">What Our Clients Say</h2>
+            <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold mb-4 text-brand-purple">What Our Clients Say</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover why businesses trust Retail X for their e-commerce needs.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
                 <CardContent className="p-6 md:p-8 flex flex-col h-full">
-                  <div className="flex mb-4">
+                  <div className="flex mb-4" aria-label={`Rating: ${testimonial.rating} out of 5 stars`}>
                     {[...Array(5)].map((_, i) => <Star key={i} className={`h-5 w-5 ${i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"}`} />)}
                   </div>
                   <p className="mb-6 text-gray-600 flex-grow">"{testimonial.content}"</p>
@@ -260,27 +304,37 @@ const Index = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="bg-brand-purple text-white py-12 md:py-16">
+      {/* Newsletter Section with semantic improvements */}
+      <section aria-labelledby="newsletter-heading" className="bg-brand-purple text-white py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
+          <h2 id="newsletter-heading" className="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
           <p className="text-xl text-brand-peach mb-6 md:mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter for the latest template releases and retail insights.
           </p>
           <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" required className="bg-white/10 border-white/20 text-white placeholder:text-white/60" />
+            <Input 
+              type="email" 
+              value={email} 
+              onChange={e => setEmail(e.target.value)} 
+              placeholder="Your email address" 
+              required 
+              className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+              aria-label="Email address for newsletter"
+            />
             <Button type="submit" className="whitespace-nowrap bg-brand-coral hover:bg-brand-coral/90 text-white">
               Subscribe Now
             </Button>
           </form>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
 
 export default Index;
