@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,11 +6,54 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Store, Zap, Users, Clock, Star, ExternalLink } from "lucide-react";
 import PricingSection from "@/components/PricingSection";
 import { Link } from "react-router-dom";
+
 const Index = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [email, setEmail] = useState("");
+  
+  // Countdown timer states
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 48,
+    minutes: 0,
+    seconds: 0
+  });
+  
+  // Effect to update the countdown timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        // Calculate new time
+        let newSeconds = prev.seconds - 1;
+        let newMinutes = prev.minutes;
+        let newHours = prev.hours;
+        
+        if (newSeconds < 0) {
+          newSeconds = 59;
+          newMinutes -= 1;
+        }
+        
+        if (newMinutes < 0) {
+          newMinutes = 59;
+          newHours -= 1;
+        }
+        
+        // If countdown is finished, reset it
+        if (newHours < 0) {
+          return { hours: 48, minutes: 0, seconds: 0 };
+        }
+        
+        return {
+          hours: newHours,
+          minutes: newMinutes,
+          seconds: newSeconds
+        };
+      });
+    }, 1000);
+    
+    // Clear interval on component unmount
+    return () => clearInterval(timer);
+  }, []);
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -126,15 +168,15 @@ const Index = () => {
               </p>
               <div className="flex gap-3 mb-4">
                 <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 w-16 text-center">
-                  <span className="block text-2xl font-bold text-white">48</span>
+                  <span className="block text-2xl font-bold text-white">{timeLeft.hours}</span>
                   <span className="text-xs text-white/80">Hours</span>
                 </div>
                 <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 w-16 text-center">
-                  <span className="block text-2xl font-bold text-white">12</span>
+                  <span className="block text-2xl font-bold text-white">{timeLeft.minutes}</span>
                   <span className="text-xs text-white/80">Minutes</span>
                 </div>
                 <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 w-16 text-center">
-                  <span className="block text-2xl font-bold text-white">33</span>
+                  <span className="block text-2xl font-bold text-white">{timeLeft.seconds}</span>
                   <span className="text-xs text-white/80">Seconds</span>
                 </div>
               </div>
@@ -240,4 +282,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;
