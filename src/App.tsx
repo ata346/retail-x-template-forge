@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import Navbar from "./components/Navbar";
+import NavbarWrapper from "./components/NavbarWrapper";
 import Footer from "./components/Footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Templates from "./pages/Templates"; 
@@ -40,7 +40,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <div className="flex flex-col min-h-screen">
-            <Navbar />
+            <NavbarWrapper />
             <main className="flex-grow pt-16">
               <Routes>
                 <Route path="/" element={<Index />} />
