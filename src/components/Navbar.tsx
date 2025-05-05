@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { usePathname } from '@/hooks/use-pathname';
@@ -20,8 +21,8 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const navItems = [
+    { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Templates', href: '/templates' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Contact', href: '/contact' },
     { label: 'Careers', href: '/careers' },
