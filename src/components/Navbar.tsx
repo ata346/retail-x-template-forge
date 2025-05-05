@@ -10,7 +10,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { ModeToggle } from './ModeToggle';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
@@ -50,7 +49,6 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <Link key={item.href} to={item.href} className="block py-2 text-lg font-medium hover:text-primary">{item.label}</Link>
               ))}
-              <ModeToggle />
             </div>
           </SheetContent>
         </Sheet>
@@ -74,8 +72,6 @@ const Navbar = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Theme Toggle */}
-        <ModeToggle />
       </div>
     </div>
   );

@@ -11,7 +11,6 @@ import NotFound from "./pages/NotFound";
 import NavbarWrapper from "./components/NavbarWrapper";
 import Footer from "./components/Footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Templates from "./pages/Templates"; 
 import DesignRequirements from "./pages/DesignRequirements";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -48,7 +47,6 @@ const App = () => {
                   <Route path="/" element={<Index />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
-                  <Route path="/templates" element={<Templates />} />
                   <Route path="/design-requirements/:templateId" element={<DesignRequirements />} />
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/terms" element={<Terms />} />
