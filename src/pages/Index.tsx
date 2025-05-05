@@ -92,15 +92,34 @@ const Index = () => {
     };
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // In a real app, you would send this to your backend
-    toast({
-      title: "Subscribed!",
-      description: "Thank you for subscribing to our newsletter."
-    });
-    setEmail("");
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mnnddnyp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Subscribed!",
+          description: "Thank you for subscribing to our newsletter."
+        });
+        setEmail("");
+      } else {
+        throw new Error("Failed to subscribe");
+      }
+    } catch (error) {
+      toast({
+        title: "Subscription failed",
+        description: "There was a problem with your subscription. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const testimonials = [{
@@ -225,9 +244,10 @@ const Index = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-sm">
                 <h3 className="text-xl font-bold text-brand-purple mb-4">Claim Your Discount Now</h3>
                 <p className="text-sm text-gray-600 mb-4">Enter your email to receive your exclusive discount code before time runs out!</p>
-                <form onSubmit={handleSubscribe} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <Input 
                     type="email" 
+                    name="email"
                     placeholder="Your email" 
                     value={email} 
                     onChange={e => setEmail(e.target.value)} 
@@ -317,9 +337,10 @@ const Index = () => {
           <p className="text-xl text-brand-peach mb-6 md:mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter for the latest template releases and retail insights.
           </p>
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <Input 
               type="email" 
+              name="email"
               value={email} 
               onChange={e => setEmail(e.target.value)} 
               placeholder="Your email address" 
