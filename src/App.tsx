@@ -17,6 +17,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Pricing from "./pages/Pricing";
 import Careers from "./pages/Careers";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 // Scroll to top when navigation happens
 const ScrollToTop = () => {
@@ -35,30 +36,32 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <TooltipProvider>
-          <ScrollToTop />
-          <Toaster />
-          <Sonner />
-          <div className="flex flex-col min-h-screen">
-            <NavbarWrapper />
-            <main className="flex-grow pt-16">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/templates" element={<Templates />} />
-                <Route path="/design-requirements/:templateId" element={<DesignRequirements />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/careers" element={<Careers />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </TooltipProvider>
+        <ThemeProvider>
+          <TooltipProvider>
+            <ScrollToTop />
+            <Toaster />
+            <Sonner />
+            <div className="flex flex-col min-h-screen">
+              <NavbarWrapper />
+              <main className="flex-grow pt-16">
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/templates" element={<Templates />} />
+                  <Route path="/design-requirements/:templateId" element={<DesignRequirements />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/terms" element={<Terms />} />
+                  <Route path="/pricing" element={<Pricing />} />
+                  <Route path="/careers" element={<Careers />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          </TooltipProvider>
+        </ThemeProvider>
       </BrowserRouter>
     </QueryClientProvider>
   );

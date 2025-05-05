@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Language } from "lucide-react";
+import { Languages } from "lucide-react";
 
 const languages = [
   { code: 'en', name: 'English' },
@@ -33,7 +33,7 @@ const LanguageSelector = () => {
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full" aria-label="Select language">
-          <Language className="h-5 w-5" />
+          <Languages className="h-5 w-5" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-48 p-2">
