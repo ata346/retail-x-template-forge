@@ -123,19 +123,19 @@ const Index = () => {
     }
   };
   const testimonials = [{
-    name: "Sarah Johnson",
-    role: "Fashion Boutique Owner",
-    content: "Retail X transformed my business. In just 3 hours, I had a stunning online store that perfectly matched my brand. Sales increased by 45% in the first month!",
+    name: "Anoop Menon",
+    role: "Spice Shop Owner, Kochi",
+    content: "Retail X transformed my traditional spice business. Now customers from all over Kerala can order our authentic spices online. My sales have increased by 40% in just two months!",
     rating: 5
   }, {
-    name: "Marcus Chen",
-    role: "Electronics Store Owner",
-    content: "The templates are incredibly professional and easy to customize. Customer support was outstanding when I needed help with product categories.",
+    name: "Lakshmi Nair",
+    role: "Saree Boutique Owner, Trivandrum",
+    content: "The handloom sarees from my shop are now reaching customers across India thanks to Retail X. The platform is so easy to use, even for someone like me who isn't tech-savvy.",
     rating: 5
   }, {
-    name: "Priya Patel",
-    role: "Beauty Shop Entrepreneur",
-    content: "As someone with zero technical skills, I was amazed at how quickly I could set up my store. The interface is intuitive and the results are beautiful.",
+    name: "Rajesh Gopinathan",
+    role: "Ayurvedic Products Entrepreneur, Thrissur",
+    content: "Our family's 3-generation Ayurvedic formulations are now available worldwide. Retail X helped us preserve our tradition while embracing modern technology. Excellent support too!",
     rating: 4
   }];
   const features = [{
