@@ -1,30 +1,29 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Instagram, Store, Mail, Phone, MapPin, FileText, Briefcase, Linkedin, Twitter, Share } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-
 const Footer = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     try {
       const response = await fetch("https://formspree.io/f/mnnddnyp", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email
+        })
       });
-      
       if (response.ok) {
         toast({
           title: "Subscribed!",
@@ -44,27 +43,24 @@ const Footer = () => {
       setIsSubmitting(false);
     }
   };
-  
+
   // Referral content
   const referralLink = "www.retailx.site";
   const referralMessage = "Retail X: Everything you need to launch your store with plans starting at ₹499/month. Check it out!";
-  
+
   // Share on social media
   const shareOnLinkedIn = () => {
     const url = `https://www.linkedin.com/sharing/share-offsite/?url=https://${referralLink}`;
     window.open(url, '_blank', 'width=600,height=600');
   };
-  
   const shareOnTwitter = () => {
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(referralMessage)}&url=https://${referralLink}`;
     window.open(url, '_blank', 'width=600,height=400');
   };
-  
   const shareOnWhatsApp = () => {
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(referralMessage + " https://" + referralLink)}`;
     window.open(url, '_blank');
   };
-  
   const copyToClipboard = () => {
     navigator.clipboard.writeText(`${referralMessage} https://${referralLink}`).then(() => {
       setIsCopied(true);
@@ -75,9 +71,7 @@ const Footer = () => {
       setTimeout(() => setIsCopied(false), 3000);
     });
   };
-
-  return (
-    <footer className="bg-gray-900 text-white">
+  return <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
         {/* Referral Section - New Addition */}
         <div className="mb-12 pb-12 border-b border-gray-800">
@@ -91,12 +85,7 @@ const Footer = () => {
               <div className="bg-gray-800 p-4 rounded-lg mb-6">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-gray-300">Share this link:</span>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    onClick={copyToClipboard}
-                    className="text-retail-400 hover:text-white hover:bg-gray-700"
-                  >
+                  <Button variant="ghost" size="sm" onClick={copyToClipboard} className="text-retail-400 hover:text-white hover:bg-gray-700">
                     {isCopied ? "Copied!" : "Copy"}
                   </Button>
                 </div>
@@ -105,37 +94,18 @@ const Footer = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-4">
-                  <Button 
-                    onClick={shareOnLinkedIn}
-                    className="bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white flex items-center gap-2"
-                  >
+                  <Button onClick={shareOnLinkedIn} className="bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white flex items-center gap-2">
                     <Linkedin size={18} />
                     LinkedIn
                   </Button>
                   
-                  <Button 
-                    onClick={shareOnTwitter}
-                    className="bg-[#1DA1F2] hover:bg-[#1DA1F2]/90 text-white flex items-center gap-2"
-                  >
+                  <Button onClick={shareOnTwitter} className="bg-[#1DA1F2] hover:bg-[#1DA1F2]/90 text-white flex items-center gap-2">
                     <Twitter size={18} />
                     X (Twitter)
                   </Button>
                   
-                  <Button 
-                    onClick={shareOnWhatsApp}
-                    className="bg-[#25D366] hover:bg-[#25D366]/90 text-white flex items-center gap-2"
-                  >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="18" 
-                      height="18" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    >
+                  <Button onClick={shareOnWhatsApp} className="bg-[#25D366] hover:bg-[#25D366]/90 text-white flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
                       <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
                       <path d="M14 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
@@ -144,10 +114,7 @@ const Footer = () => {
                     WhatsApp
                   </Button>
                   
-                  <Button 
-                    onClick={copyToClipboard}
-                    className="bg-gray-600 hover:bg-gray-600/90 text-white flex items-center gap-2"
-                  >
+                  <Button onClick={copyToClipboard} className="bg-gray-600 hover:bg-gray-600/90 text-white flex items-center gap-2">
                     <Share size={18} />
                     Copy Text
                   </Button>
@@ -160,13 +127,7 @@ const Footer = () => {
             </div>
             
             <div className="flex justify-center md:justify-end">
-              <div className="bg-[#FFF8EE] p-4 rounded-lg shadow-lg max-w-xs">
-                <img 
-                  src="/lovable-uploads/9f068502-adb1-4796-bdd8-a148b48a4914.png" 
-                  alt="Retail X - Everything you need to launch your store" 
-                  className="w-full h-auto rounded"
-                />
-              </div>
+              
             </div>
           </div>
         </div>
@@ -267,28 +228,12 @@ const Footer = () => {
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
               <div className="flex">
-                <Input 
-                  type="email" 
-                  name="email" 
-                  placeholder="Your email" 
-                  required 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="rounded-r-none border-gray-700 bg-gray-800 text-white w-full" 
-                />
-                <Button 
-                  type="submit" 
-                  className="rounded-l-none"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                <Input type="email" name="email" placeholder="Your email" required value={email} onChange={e => setEmail(e.target.value)} className="rounded-r-none border-gray-700 bg-gray-800 text-white w-full" />
+                <Button type="submit" className="rounded-l-none" disabled={isSubmitting}>
+                  {isSubmitting ? <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                  ) : (
-                    <Mail size={16} />
-                  )}
+                    </svg> : <Mail size={16} />}
                 </Button>
               </div>
             </form>
@@ -313,8 +258,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
