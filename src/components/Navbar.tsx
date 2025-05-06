@@ -55,8 +55,8 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to="/" className="font-bold text-xl md:text-2xl flex items-center gap-2">
-          <Icons.logo className="h-6 w-6" />
-          {siteConfig.name}
+          <Icons.logo className="h-8 w-auto" />
+          <span className="sr-only">{siteConfig.name}</span>
         </Link>
 
         {/* Desktop Menu */}
