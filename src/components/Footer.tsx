@@ -77,10 +77,8 @@ const Footer = () => {
         <div className="mb-12 pb-12 border-b border-gray-800">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Refer & Earn Rewards</h2>
-              <p className="text-gray-300 mb-6">
-                Love Retail X? Share it with your network and help fellow entrepreneurs transform their businesses.
-              </p>
+              <h2 className="text-2xl font-bold mb-4 text-white md:text-xl"> Share it with your network </h2>
+              <p className="text-gray-300 mb-6">Love Retail X ? help fellow entrepreneurs transform their businesses.</p>
               
               <div className="bg-gray-800 p-4 rounded-lg mb-6">
                 <div className="flex items-center justify-between mb-2">
