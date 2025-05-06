@@ -122,39 +122,50 @@ const Index = () => {
     }
   };
 
-  const testimonials = [{
-    name: "Sarah Johnson",
-    role: "Fashion Boutique Owner",
-    content: "Retail X transformed my business. In just 3 hours, I had a stunning online store that perfectly matched my brand. Sales increased by 45% in the first month!",
-    rating: 5
-  }, {
-    name: "Marcus Chen",
-    role: "Electronics Store Owner",
-    content: "The templates are incredibly professional and easy to customize. Customer support was outstanding when I needed help with product categories.",
-    rating: 5
-  }, {
-    name: "Priya Patel",
-    role: "Beauty Shop Entrepreneur",
-    content: "As someone with zero technical skills, I was amazed at how quickly I could set up my store. The interface is intuitive and the results are beautiful.",
-    rating: 4
-  }];
-  const features = [{
-    icon: <Zap className="h-10 w-10 text-brand-purple" />,
-    title: "AI-Powered Setup",
-    description: "Launch your online store in just 3 hours with our AI-driven automation and expert guidance."
-  }, {
-    icon: <Users className="h-10 w-10 text-brand-purple" />,
-    title: "Customer-Focused",
-    description: "Create shopping experiences your customers will love with intuitive navigation and checkout flow."
-  }, {
-    icon: <Store className="h-10 w-10 text-brand-purple" />,
-    title: "20+ Templates",
-    description: "Choose from our diverse template library designed for various retail niches and customize to fit your brand."
-  }, {
-    icon: <Clock className="h-10 w-10 text-brand-purple" />,
-    title: "Time-Saving",
-    description: "Focus on your business while our AI handles all technical aspects of your online store setup."
-  }];
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "Fashion Boutique Owner",
+      content: "Retail X transformed my business. In just 3 hours, I had a stunning online store that perfectly matched my brand. Sales increased by 45% in the first month!",
+      rating: 5
+    }, 
+    {
+      name: "Marcus Chen",
+      role: "Electronics Store Owner",
+      content: "The templates are incredibly professional and easy to customize. Customer support was outstanding when I needed help with product categories.",
+      rating: 5
+    }, 
+    {
+      name: "Priya Patel",
+      role: "Beauty Shop Entrepreneur",
+      content: "As someone with zero technical skills, I was amazed at how quickly I could set up my store. The interface is intuitive and the results are beautiful.",
+      rating: 4
+    }
+  ];
+  
+  const features = [
+    {
+      icon: <Zap className="h-10 w-10 text-brand-purple" />,
+      title: "AI-Powered Setup",
+      description: "Launch your online store in just 3 hours with our AI-driven automation and expert guidance."
+    }, 
+    {
+      icon: <Users className="h-10 w-10 text-brand-purple" />,
+      title: "Customer-Focused",
+      description: "Create shopping experiences your customers will love with intuitive navigation and checkout flow."
+    }, 
+    {
+      icon: <Store className="h-10 w-10 text-brand-purple" />,
+      title: "20+ Templates",
+      description: "Choose from our diverse template library designed for various retail niches and customize to fit your brand."
+    }, 
+    {
+      icon: <Clock className="h-10 w-10 text-brand-purple" />,
+      title: "Time-Saving",
+      description: "Focus on your business while our AI handles all technical aspects of your online store setup."
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section with semantic HTML for SEO */}
@@ -187,7 +198,7 @@ const Index = () => {
       <section aria-labelledby="brand-section" className="py-10 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center">
-            <img src="/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png" alt="Retail X Logo" className="h-16 md:h-24 mb-4" />
+            <img src="/uploads/retail-x-logo.png" alt="Retail X Logo" className="h-16 md:h-24 mb-4" />
           </div>
           <h2 id="brand-section" className="text-2xl md:text-3xl font-bold text-brand-purple mb-2">Retail X</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
