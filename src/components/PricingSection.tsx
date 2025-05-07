@@ -55,7 +55,7 @@ const PricingPlan = ({
 const PricingSection = () => {
   const plans = [{
     title: "MiniSites Plan",
-    price: "299",
+    price: "399",
     setupTime: "1–2 Days",
     features: [{
       text: "Single-Page Website (Intro, Services, Contact)"
@@ -70,7 +70,7 @@ const PricingSection = () => {
     }]
   }, {
     title: "Business Website Plan",
-    price: "399",
+    price: "599",
     setupTime: "2–3 Days",
     features: [{
       text: "1 Static Business Website (Non-eCommerce)"
@@ -152,7 +152,7 @@ const PricingSection = () => {
     }]
   }, {
     title: "Elite Premium Plan",
-    price: "4,999",
+    price: "6,999",
     setupTime: "1–3 Days",
     features: [{
       text: "1 Online Store"
