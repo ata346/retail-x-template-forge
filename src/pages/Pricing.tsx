@@ -81,7 +81,7 @@ const Pricing = () => {
         {/* MiniSites Plan */}
         <PricingCard
           plan="MiniSites Plan"
-          price="299"
+          price="399"
           setupTime="1–2 Days"
           features={[
             "Single-Page Website",
@@ -95,7 +95,7 @@ const Pricing = () => {
         {/* Business Website Plan */}
         <PricingCard
           plan="Business Website Plan"
-          price="399"
+          price="599"
           setupTime="2–3 Days"
           features={[
             "1 Static Business Website",
@@ -156,7 +156,7 @@ const Pricing = () => {
         {/* Elite Premium Plan */}
         <PricingCard
           plan="Elite Premium Plan"
-          price="4,999"
+          price="6,999"
           setupTime="1–3 Days"
           isPopular={true}
           color="text-amber-600"

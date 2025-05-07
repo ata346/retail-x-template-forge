@@ -18,15 +18,15 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "MiniSites Plan",
-    monthlyPrice: 299,
-    yearlyPrice: 3288,
+    monthlyPrice: 399, // Updated price
+    yearlyPrice: 4388, // Updated yearly price (399 * 11)
     description: "Single-Page Website",
     color: "text-blue-500"
   },
   {
     name: "Business Website Plan",
-    monthlyPrice: 399,
-    yearlyPrice: 4388,
+    monthlyPrice: 599, // Updated price
+    yearlyPrice: 6589, // Updated yearly price (599 * 11)
     description: "Up to 3 Pages",
     color: "text-green-500"
   },
@@ -53,8 +53,8 @@ const plans: Plan[] = [
   },
   {
     name: "Elite Premium Plan",
-    monthlyPrice: 4999,
-    yearlyPrice: 54988,
+    monthlyPrice: 6999, // Updated price
+    yearlyPrice: 76989, // Updated yearly price (6999 * 11)
     description: "Up to 50 Products",
     color: "text-amber-600"
   }
