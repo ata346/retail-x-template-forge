@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Smartphone, MessageSquare, Link } from "lucide-react";
+import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Calculator } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 interface PlanFeature {
   text: string;
@@ -223,7 +223,10 @@ const PricingSection = () => {
             <RouterLink to="/pricing">View Full Pricing Details</RouterLink>
           </Button>
           <Button asChild size="lg" variant="default">
-            
+            <RouterLink to="/pricing" className="flex items-center gap-2">
+              <Calculator className="h-5 w-5" />
+              Use Pricing Calculator
+            </RouterLink>
           </Button>
         </div>
       </div>

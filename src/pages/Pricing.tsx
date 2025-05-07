@@ -1,6 +1,8 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, Sparkles, ExternalLink, Smartphone, MessageSquare, Link as LinkIcon } from "lucide-react";
+import { Check, Clock, Sparkles, ExternalLink } from "lucide-react";
+import PricingCalculator from "@/components/PricingCalculator";
 
 const PricingCard = ({ 
   plan, 
@@ -68,6 +70,11 @@ const Pricing = () => {
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Choose your plan, fill out a simple form, and our AI will handle the rest
         </p>
+      </div>
+
+      {/* Add pricing calculator */}
+      <div className="mb-20">
+        <PricingCalculator />
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8 max-w-7xl mx-auto">
