@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Clock, Sparkles, ExternalLink } from "lucide-react";
@@ -134,8 +133,7 @@ const Pricing = () => {
             "Up to 15 Products",
             "Premium Themes",
             "Custom Domain",
-            "SEO Tools"
-           
+            "MessageSquare & Email Support"
           ]}
         />
         
@@ -149,6 +147,7 @@ const Pricing = () => {
             "Up to 25 Products",
             "Advanced Premium Themes",
             "Custom Domain",
+            "AI Store Assistant",
             "Priority Support (Whatsapp + Call)"
           ]}
         />
@@ -166,8 +165,7 @@ const Pricing = () => {
             "Exclusive Design Templates",
             "Custom Domain",
             "Advanced Automation ",
-            "Custom Development Support",
-            "AI Business Report"
+            "Custom Development Support"
           ]}
         />
       </div>

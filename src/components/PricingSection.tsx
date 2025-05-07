@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Calculator } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
+
 interface PlanFeature {
   text: string;
 }
+
 interface PricingPlanProps {
   title: string;
   price: string;
@@ -13,6 +15,7 @@ interface PricingPlanProps {
   isPopular?: boolean;
   color?: string;
 }
+
 const PricingPlan = ({
   title,
   price,
@@ -52,6 +55,7 @@ const PricingPlan = ({
       </div>
     </Card>;
 };
+
 const PricingSection = () => {
   const plans = [{
     title: "MiniSites Plan",
@@ -119,10 +123,6 @@ const PricingSection = () => {
     }, {
       text: "Custom Domain"
     }, {
-      text: "SEO Tools"
-    }, {
-      text: "Abandoned Cart Recovery"
-    }, {
       text: "MessageSquare & Email Support"
     }, {
       text: "AI Product Optimization"
@@ -141,10 +141,6 @@ const PricingSection = () => {
       text: "Custom Domain"
     }, {
       text: "AI Store Assistant"
-    }, {
-      text: "Analytics Dashboard"
-    }, {
-      text: "Team Access (Up to 5 users)"
     }, {
       text: "Priority Support (Whatsapp + Call)"
     }, {
@@ -166,10 +162,6 @@ const PricingSection = () => {
       text: "Advanced Automation Features"
     }, {
       text: "Custom Development Support"
-    }, {
-      text: "Multiple Team Member Access"
-    }, {
-      text: "Complete AI Business Suite"
     }],
     isPopular: true,
     color: "text-amber-600"
@@ -232,4 +224,5 @@ const PricingSection = () => {
       </div>
     </section>;
 };
+
 export default PricingSection;
