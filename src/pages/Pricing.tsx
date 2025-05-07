@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Clock, Sparkles, ExternalLink } from "lucide-react";
@@ -76,7 +77,7 @@ const Pricing = () => {
         <PricingCalculator />
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-8 max-w-7xl mx-auto">
         {/* MiniSites Plan */}
         <PricingCard
           plan="MiniSites Plan"
@@ -166,6 +167,24 @@ const Pricing = () => {
             "Custom Domain",
             "Advanced Automation ",
             "Custom Development Support"
+          ]}
+        />
+
+        {/* New Ecom Growth Plan */}
+        <PricingCard
+          plan="Ecom Growth Plan"
+          price="12,999"
+          setupTime="1–2 Days"
+          color="text-emerald-600"
+          features={[
+            "1 Online Store",
+            "Up to 88 Products",
+            "Exclusive Design Templates",
+            "Custom Domain",
+            "Advanced Automation",
+            "Custom Development Support",
+            "Google Ads – ₹1,000/mo + 25% fee",
+            "Facebook & Instagram Ads – ₹1,000/mo + 25% fee"
           ]}
         />
       </div>

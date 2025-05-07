@@ -18,15 +18,15 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "MiniSites Plan",
-    monthlyPrice: 399, // Updated price
-    yearlyPrice: 4388, // Updated yearly price (399 * 11)
+    monthlyPrice: 399,
+    yearlyPrice: 4388,
     description: "Single-Page Website",
     color: "text-blue-500"
   },
   {
     name: "Business Website Plan",
-    monthlyPrice: 599, // Updated price
-    yearlyPrice: 6589, // Updated yearly price (599 * 11)
+    monthlyPrice: 599,
+    yearlyPrice: 6589,
     description: "Up to 3 Pages",
     color: "text-green-500"
   },
@@ -53,10 +53,17 @@ const plans: Plan[] = [
   },
   {
     name: "Elite Premium Plan",
-    monthlyPrice: 6999, // Updated price
-    yearlyPrice: 76989, // Updated yearly price (6999 * 11)
+    monthlyPrice: 6999,
+    yearlyPrice: 76989,
     description: "Up to 50 Products",
     color: "text-amber-600"
+  },
+  {
+    name: "Ecom Growth Plan",
+    monthlyPrice: 12999,
+    yearlyPrice: 142989, // (12999 * 11)
+    description: "Up to 88 Products",
+    color: "text-emerald-600"
   }
 ];
 
@@ -115,14 +122,14 @@ const PricingCalculator = () => {
             <Slider 
               id="plan-slider"
               min={0}
-              max={5}
+              max={6}
               step={1}
               value={[sliderValue]} 
               onValueChange={handleSliderChange}
               className="my-6"
             />
             
-            <div className="grid grid-cols-6 text-xs text-center gap-0 px-2">
+            <div className="grid grid-cols-7 text-xs text-center gap-0 px-2">
               {plans.map((plan, index) => (
                 <div 
                   key={index} 
@@ -161,7 +168,7 @@ const PricingCalculator = () => {
             <Button 
               asChild 
               className="w-full mt-4" 
-              variant={selectedPlan === 5 ? "default" : "outline"}
+              variant={selectedPlan === 5 || selectedPlan === 6 ? "default" : "outline"}
             >
               <a 
                 href="https://forms.gle/8EfxuZgW5dMhondk7" 

@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Clock, Sparkles, Zap, Rocket, ExternalLink, Calculator } from "lucide-react";
@@ -165,7 +166,30 @@ const PricingSection = () => {
     }],
     isPopular: true,
     color: "text-amber-600"
+  }, {
+    title: "Ecom Growth Plan",
+    price: "12,999",
+    setupTime: "1–2 Days",
+    features: [{
+      text: "1 Online Store"
+    }, {
+      text: "Up to 88 Products"
+    }, {
+      text: "Exclusive Design Templates"
+    }, {
+      text: "Custom Domain"
+    }, {
+      text: "Advanced Automation Features"
+    }, {
+      text: "Custom Development Support"
+    }, {
+      text: "Google Ads – ₹1,000/mo + 25% fee"
+    }, {
+      text: "Facebook & Instagram Ads – ₹1,000/mo + 25% fee"
+    }],
+    color: "text-emerald-600"
   }];
+  
   return <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
@@ -206,7 +230,7 @@ const PricingSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-6">
           {plans.map((plan, index) => <PricingPlan key={index} title={plan.title} price={plan.price} setupTime={plan.setupTime} features={plan.features} isPopular={plan.isPopular} color={plan.color} />)}
         </div>
         
