@@ -203,7 +203,8 @@ const Pricing = () => {
             "Advanced Automation",
             "Custom Development Support",
             "Google Ads – ₹1,000/mo + 25% fee",
-            "Facebook & Instagram Ads – ₹1,000/mo + 25% fee"
+            "Facebook & Instagram Ads – ₹1,000/mo + 25% fee",
+            " Invoice creating tool with Printing system "
           ]}
         />
       </div>
