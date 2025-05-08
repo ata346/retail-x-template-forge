@@ -31,6 +31,13 @@ const plans: Plan[] = [
     color: "text-green-500"
   },
   {
+    name: "Business Website Pro Plan",
+    monthlyPrice: 2499,
+    yearlyPrice: 27489, // (2499 * 11)
+    description: "Up to 6 Pages",
+    color: "text-teal-600"
+  },
+  {
     name: "Basic Plan",
     monthlyPrice: 499,
     yearlyPrice: 5488,
@@ -68,9 +75,9 @@ const plans: Plan[] = [
 ];
 
 const PricingCalculator = () => {
-  const [selectedPlan, setSelectedPlan] = useState<number>(2); // Default to Basic Plan (index 2)
+  const [selectedPlan, setSelectedPlan] = useState<number>(3); // Default to Basic Plan (now index 3)
   const [duration, setDuration] = useState<"monthly" | "yearly">("monthly");
-  const [sliderValue, setSliderValue] = useState(2); // Default to Basic Plan
+  const [sliderValue, setSliderValue] = useState(3); // Default to Basic Plan
 
   const handleSliderChange = (value: number[]) => {
     const planIndex = value[0];
@@ -122,14 +129,14 @@ const PricingCalculator = () => {
             <Slider 
               id="plan-slider"
               min={0}
-              max={6}
+              max={7}
               step={1}
               value={[sliderValue]} 
               onValueChange={handleSliderChange}
               className="my-6"
             />
             
-            <div className="grid grid-cols-7 text-xs text-center gap-0 px-2">
+            <div className="grid grid-cols-8 text-xs text-center gap-0 px-2">
               {plans.map((plan, index) => (
                 <div 
                   key={index} 
@@ -168,7 +175,7 @@ const PricingCalculator = () => {
             <Button 
               asChild 
               className="w-full mt-4" 
-              variant={selectedPlan === 5 || selectedPlan === 6 ? "default" : "outline"}
+              variant={selectedPlan === 5 || selectedPlan === 6 || selectedPlan === 7 ? "default" : "outline"}
             >
               <a 
                 href="https://forms.gle/8EfxuZgW5dMhondk7" 

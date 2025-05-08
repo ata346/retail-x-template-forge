@@ -95,6 +95,30 @@ const PricingSection = () => {
       text: "MessageSquare Chat Button Integration"
     }]
   }, {
+    title: "Business Website Pro Plan",
+    price: "2,499",
+    setupTime: "3–5 Days",
+    features: [{
+      text: "1 Custom Static Website"
+    }, {
+      text: "Up to 6 Pages (Home, About, Services, Portfolio, Blog, Contact)"
+    }, {
+      text: "Premium Design Templates"
+    }, {
+      text: "Custom Domain Integration"
+    }, {
+      text: "Mobile-Optimized Design"
+    }, {
+      text: "Basic SEO Setup"
+    }, {
+      text: "Google Maps Integration"
+    }, {
+      text: "Contact Form + WhatsApp Chat Button"
+    }, {
+      text: "WhatsApp & Email Support"
+    }],
+    color: "text-teal-600"
+  }, {
     title: "Basic Plan",
     price: "499",
     setupTime: "5–7 Days",
@@ -230,7 +254,7 @@ const PricingSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 gap-6">
           {plans.map((plan, index) => <PricingPlan key={index} title={plan.title} price={plan.price} setupTime={plan.setupTime} features={plan.features} isPopular={plan.isPopular} color={plan.color} />)}
         </div>
         

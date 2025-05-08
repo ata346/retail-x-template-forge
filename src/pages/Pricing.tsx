@@ -77,7 +77,7 @@ const Pricing = () => {
         <PricingCalculator />
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 gap-8 max-w-7xl mx-auto">
         {/* MiniSites Plan */}
         <PricingCard
           plan="MiniSites Plan"
@@ -106,6 +106,25 @@ const Pricing = () => {
             "Contact Form",
             "Social Media Links",
             "Message Integration"
+          ]}
+        />
+        
+        {/* Business Website Pro Plan */}
+        <PricingCard
+          plan="Business Website Pro Plan"
+          price="2,499"
+          setupTime="3–5 Days"
+          color="text-teal-600"
+          features={[
+            "1 Custom Static Website",
+            "Up to 6 Pages",
+            "Premium Design Templates",
+            "Custom Domain Integration",
+            "Mobile-Optimized Design",
+            "Basic SEO Setup",
+            "Google Maps Integration",
+            "Contact Form + WhatsApp Chat",
+            "WhatsApp & Email Support"
           ]}
         />
         
@@ -170,7 +189,7 @@ const Pricing = () => {
           ]}
         />
 
-        {/* New Ecom Growth Plan */}
+        {/* Ecom Growth Plan */}
         <PricingCard
           plan="Ecom Growth Plan"
           price="12,999"
