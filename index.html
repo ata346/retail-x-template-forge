@@ -38,22 +38,105 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://retailx.io/" />
-    
-    <!-- Google Translate -->
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- Google Translate Widget Element -->
-    <div id="google_translate_element" style="position: fixed; bottom: 120px; right: 20px; z-index: 1000;"></div>
-    <div style="position: fixed; bottom: 100px; right: 20px; font-size: 10px; opacity: 0.7; z-index: 1000;">
-      <a href="https://widgetify.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+    
+    <!-- Widgetify Google Translate Widget v2 -->
+    <div id="widgetify-google-translate" 
+         style="position: fixed; 
+                bottom: 20px; 
+                right: 20px;
+                z-index: 9999;">
+      <!-- Widgetify google-translate Widget -->
+    </div>
+
+    <script>
+      (function() {
+        const widget = document.createElement('div');
+        widget.innerHTML = `
+          <div style="width: 60px; 
+                      height: 60px; 
+                      background-color: #4285F4; 
+                      border-radius: 50%; 
+                      display: flex; 
+                      justify-content: center; 
+                      align-items: center;
+                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                      cursor: pointer;
+                      transition: transform 0.3s ease, box-shadow 0.3s ease;"
+               onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(0, 0, 0, 0.2)';"
+               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';"
+               onclick="handleWidgetClick()"
+               class="widgetify-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 4.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+        </svg>
+          </div>
+        `;
+
+        document.getElementById('widgetify-google-translate').appendChild(widget);
+
+        window.handleWidgetClick = function() {
+          
+          if (!window.googleTranslateElementInit) {
+            const translatePopup = document.createElement('div');
+            translatePopup.style.position = 'absolute';
+            translatePopup.style.bottom = '90px';
+            translatePopup.style.right = '20px';
+            translatePopup.style.width = '280px';
+            translatePopup.style.backgroundColor = 'white';
+            translatePopup.style.borderRadius = '10px';
+            translatePopup.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            translatePopup.style.zIndex = '9999';
+            translatePopup.style.overflow = 'hidden';
+            
+            translatePopup.innerHTML = `
+              <div style="background-color: #f3f4f6; padding: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb;">
+                <div style="font-weight: 500;">Google Translate</div>
+                <button style="background: none; border: none; font-size: 20px; cursor: pointer; color: #6b7280;">×</button>
+              </div>
+              <div style="padding: 12px;">
+                <div id="google_translate_element"></div>
+              </div>
+              <div style="font-size: 10px; text-align: center; margin-top: 5px; padding: 8px;">
+                <a href="https://widgetify-two.vercel.app/" target="_blank" style="color: #666; text-decoration: none;">
+                  Powered by Widgetify
+                </a>
+              </div>
+            `;
+            
+            translatePopup.querySelector('button').onclick = function() {
+              translatePopup.remove();
+            };
+            
+            document.getElementById('widgetify-google-translate').appendChild(translatePopup);
+            
+            window.googleTranslateElementInit = function() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'auto',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+              }, 'google_translate_element');
+            };
+            
+            const script = document.createElement('script');
+            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.body.appendChild(script);
+          } else {
+            const existingPopup = document.querySelector('#widgetify-google-translate > div:not(.widgetify-button)');
+            if (existingPopup) {
+              existingPopup.remove();
+            } else {
+              googleTranslateElementInit();
+            }
+          }
+        }
+      })();
+    </script>
+
+    <div style="position: fixed; bottom: 100px; right: 20px; font-size: 10px; text-align: center; margin-top: 5px; opacity: 0.7; z-index: 1000;">
+      <a href="https://widgetify-two.vercel.app/" target="_blank" style="color: #666; text-decoration: none;">
         Powered by Widgetify
       </a>
     </div>
