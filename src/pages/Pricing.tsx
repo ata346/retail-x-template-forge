@@ -1,8 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Clock, Sparkles, ExternalLink } from "lucide-react";
 import PricingCalculator from "@/components/PricingCalculator";
+import IntegrationsSection from "@/components/IntegrationsSection";
 
 const PricingCard = ({ 
   plan, 
@@ -81,7 +81,7 @@ const Pricing = () => {
         {/* MiniSites Plan */}
         <PricingCard
           plan="MiniSites Plan"
-          price="399"
+          price="479"
           setupTime="1–2 Days"
           features={[
             "Single-Page Website",
@@ -95,7 +95,7 @@ const Pricing = () => {
         {/* Business Website Plan */}
         <PricingCard
           plan="Business Website Plan"
-          price="599"
+          price="719"
           setupTime="2–3 Days"
           features={[
             "1 Static Business Website",
@@ -112,7 +112,7 @@ const Pricing = () => {
         {/* Business Website Pro Plan */}
         <PricingCard
           plan="Business Website Pro Plan"
-          price="2,499"
+          price="2,999"
           setupTime="3–5 Days"
           color="text-teal-600"
           features={[
@@ -131,7 +131,7 @@ const Pricing = () => {
         {/* Basic Plan */}
         <PricingCard
           plan="Basic Plan"
-          price="499"
+          price="599"
           setupTime="5–7 Days"
           features={[
             "1 Online Store",
@@ -146,7 +146,7 @@ const Pricing = () => {
         {/* Standard Plan */}
         <PricingCard
           plan="Standard Plan"
-          price="999"
+          price="1,199"
           setupTime="4–6 Days"
           features={[
             "1 Online Store",
@@ -160,7 +160,7 @@ const Pricing = () => {
         {/* Premium Plan */}
         <PricingCard
           plan="Premium Plan"
-          price="1,999"
+          price="2,399"
           setupTime="2–4 Days"
           features={[
             "1 Online Store",
@@ -175,7 +175,7 @@ const Pricing = () => {
         {/* Elite Premium Plan */}
         <PricingCard
           plan="Elite Premium Plan"
-          price="6,999"
+          price="8,399"
           setupTime="1–3 Days"
           isPopular={true}
           color="text-amber-600"
@@ -192,7 +192,7 @@ const Pricing = () => {
         {/* Ecom Growth Plan */}
         <PricingCard
           plan="Ecom Growth Plan"
-          price="12,999"
+          price="15,599"
           setupTime="1–2 Days"
           color="text-emerald-600"
           features={[
@@ -207,6 +207,11 @@ const Pricing = () => {
             " Invoice creating tool with Printing system "
           ]}
         />
+      </div>
+      
+      {/* Add Integrations Section */}
+      <div className="mt-20">
+        <IntegrationsSection />
       </div>
       
       <div className="mt-16 max-w-3xl mx-auto text-center p-8 bg-gray-50 rounded-xl">

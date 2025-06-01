@@ -18,57 +18,57 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "MiniSites Plan",
-    monthlyPrice: 399,
-    yearlyPrice: 4388,
+    monthlyPrice: 479, // 399 + 20%
+    yearlyPrice: 5265, // 4388 + 20%
     description: "Single-Page Website",
     color: "text-blue-500"
   },
   {
     name: "Business Website Plan",
-    monthlyPrice: 599,
-    yearlyPrice: 6589,
+    monthlyPrice: 719, // 599 + 20%
+    yearlyPrice: 7907, // 6589 + 20%
     description: "Up to 3 Pages",
     color: "text-green-500"
   },
   {
     name: "Business Website Pro Plan",
-    monthlyPrice: 2499,
-    yearlyPrice: 27489, // (2499 * 11)
+    monthlyPrice: 2999, // 2499 + 20%
+    yearlyPrice: 32987, // 27489 + 20%
     description: "Up to 6 Pages",
     color: "text-teal-600"
   },
   {
     name: "Basic Plan",
-    monthlyPrice: 499,
-    yearlyPrice: 5488,
+    monthlyPrice: 599, // 499 + 20%
+    yearlyPrice: 6586, // 5488 + 20%
     description: "Up to 5 Products",
     color: "text-amber-500"
   },
   {
     name: "Standard Plan",
-    monthlyPrice: 999,
-    yearlyPrice: 10988,
+    monthlyPrice: 1199, // 999 + 20%
+    yearlyPrice: 13186, // 10988 + 20%
     description: "Up to 15 Products",
     color: "text-purple-500"
   },
   {
     name: "Premium Plan",
-    monthlyPrice: 1999,
-    yearlyPrice: 21988,
+    monthlyPrice: 2399, // 1999 + 20%
+    yearlyPrice: 26386, // 21988 + 20%
     description: "Up to 25 Products",
     color: "text-red-500"
   },
   {
     name: "Elite Premium Plan",
-    monthlyPrice: 6999,
-    yearlyPrice: 76989,
+    monthlyPrice: 8399, // 6999 + 20%
+    yearlyPrice: 92387, // 76989 + 20%
     description: "Up to 50 Products",
     color: "text-amber-600"
   },
   {
     name: "Ecom Growth Plan",
-    monthlyPrice: 12999,
-    yearlyPrice: 142989, // (12999 * 11)
+    monthlyPrice: 15599, // 12999 + 20%
+    yearlyPrice: 171587, // 142989 + 20%
     description: "Up to 88 Products",
     color: "text-emerald-600"
   }

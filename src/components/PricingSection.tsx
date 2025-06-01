@@ -60,7 +60,7 @@ const PricingPlan = ({
 const PricingSection = () => {
   const plans = [{
     title: "MiniSites Plan",
-    price: "399",
+    price: "479", // Updated with 20% increase
     setupTime: "1–2 Days",
     features: [{
       text: "Single-Page Website (Intro, Services, Contact)"
@@ -75,7 +75,7 @@ const PricingSection = () => {
     }]
   }, {
     title: "Business Website Plan",
-    price: "599",
+    price: "719", // Updated with 20% increase
     setupTime: "2–3 Days",
     features: [{
       text: "1 Static Business Website (Non-eCommerce)"
@@ -96,7 +96,7 @@ const PricingSection = () => {
     }]
   }, {
     title: "Business Website Pro Plan",
-    price: "2,499",
+    price: "2,999", // Updated with 20% increase
     setupTime: "3–5 Days",
     features: [{
       text: "1 Custom Static Website"
@@ -120,7 +120,7 @@ const PricingSection = () => {
     color: "text-teal-600"
   }, {
     title: "Basic Plan",
-    price: "499",
+    price: "599", // Updated with 20% increase
     setupTime: "5–7 Days",
     features: [{
       text: "1 Online Store"
@@ -137,7 +137,7 @@ const PricingSection = () => {
     }]
   }, {
     title: "Standard Plan",
-    price: "999",
+    price: "1,199", // Updated with 20% increase
     setupTime: "4–6 Days",
     features: [{
       text: "1 Online Store"
@@ -154,7 +154,7 @@ const PricingSection = () => {
     }]
   }, {
     title: "Premium Plan",
-    price: "1,999",
+    price: "2,399", // Updated with 20% increase
     setupTime: "2–4 Days",
     features: [{
       text: "1 Online Store"
@@ -173,7 +173,7 @@ const PricingSection = () => {
     }]
   }, {
     title: "Elite Premium Plan",
-    price: "6,999",
+    price: "8,399", // Updated with 20% increase
     setupTime: "1–3 Days",
     features: [{
       text: "1 Online Store"
@@ -192,7 +192,7 @@ const PricingSection = () => {
     color: "text-amber-600"
   }, {
     title: "Ecom Growth Plan",
-    price: "12,999",
+    price: "15,599", // Updated with 20% increase
     setupTime: "1–2 Days",
     features: [{
       text: "1 Online Store"
