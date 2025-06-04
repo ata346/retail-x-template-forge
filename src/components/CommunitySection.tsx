@@ -26,10 +26,7 @@ const CommunitySection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Join Our Thriving E-commerce Community
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Connect with 2,500+ successful business owners, e-commerce entrepreneurs, and retail experts. 
-            Share insights, get support, and grow your online business together.
-          </p>
+          <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Connect with successful business owners, e-commerce entrepreneurs, and retail experts. Share insights, get support, and grow your online business together.</p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {communityStats.map((stat, index) => <Card key={index} className="bg-white/80 backdrop-blur-sm border-0 shadow-md">
