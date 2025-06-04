@@ -4,6 +4,16 @@
  * Helper functions to manage and optimize SEO across the platform
  */
 
+import { seoKeywords, getMetaKeywords } from './seo-keywords';
+
+// Official Retail X social media and website links
+export const officialLinks = {
+  website: "https://www.retailx.site/",
+  instagram: "https://www.instagram.com/retailx.site/",
+  linkedin: "http://linkedin.com/company/retailx-site/",
+  twitter: "https://twitter.com/retail_x"
+};
+
 /**
  * Sets the page title with proper formatting for SEO
  * @param title - The page-specific title
@@ -16,18 +26,44 @@ export const setPageTitle = (title: string, includeTagline = true): void => {
 };
 
 /**
- * Updates meta description tag content
+ * Updates meta description tag content with SEO keywords
  * @param description - The page-specific description
+ * @param keywordCategory - Category of keywords to integrate
  */
-export const setMetaDescription = (description: string): void => {
+export const setMetaDescription = (description: string, keywordCategory?: keyof typeof seoKeywords): void => {
+  let optimizedDescription = description;
+  
+  if (keywordCategory) {
+    const keywords = seoKeywords[keywordCategory].slice(0, 2);
+    optimizedDescription = `${description} ${keywords.join(', ')} - Enhanced with AI technology.`;
+  }
+  
   const metaDescription = document.querySelector('meta[name="description"]');
   
   if (metaDescription) {
-    metaDescription.setAttribute('content', description);
+    metaDescription.setAttribute('content', optimizedDescription);
   } else {
     const meta = document.createElement('meta');
     meta.name = 'description';
-    meta.content = description;
+    meta.content = optimizedDescription;
+    document.head.appendChild(meta);
+  }
+};
+
+/**
+ * Adds meta keywords tag with SEO optimization
+ */
+export const setMetaKeywords = (categories: (keyof typeof seoKeywords)[] = ['primary', 'secondary']): void => {
+  const keywords = getMetaKeywords(categories);
+  
+  let metaKeywords = document.querySelector('meta[name="keywords"]');
+  
+  if (metaKeywords) {
+    metaKeywords.setAttribute('content', keywords);
+  } else {
+    const meta = document.createElement('meta');
+    meta.name = 'keywords';
+    meta.content = keywords;
     document.head.appendChild(meta);
   }
 };
@@ -51,22 +87,25 @@ export const injectStructuredData = (data: object): void => {
 };
 
 /**
- * Generates common structured data types
+ * Generates common structured data types with SEO keywords
  */
 export const structuredData = {
   /**
-   * Creates Organization structured data
+   * Creates Organization structured data with backlinks
    */
   organization: () => ({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Retail X",
-    "url": "https://retailx.io",
+    "url": officialLinks.website,
     "logo": "https://retailx.io/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png",
     "sameAs": [
-      "https://twitter.com/retail_x",
-      "https://www.linkedin.com/company/retail-x"
-    ]
+      officialLinks.instagram,
+      officialLinks.linkedin,
+      officialLinks.twitter
+    ],
+    "keywords": seoKeywords.primary.join(', '),
+    "description": "AI-Powered E-commerce Platform for creating online stores in 3 hours"
   }),
   
   /**
@@ -83,11 +122,12 @@ export const structuredData = {
       "priceCurrency": "INR",
       "availability": "https://schema.org/InStock"
     },
-    "image": imageUrl
+    "image": imageUrl,
+    "keywords": seoKeywords.features.slice(0, 10).join(', ')
   }),
   
   /**
-   * Creates Software Application structured data
+   * Creates Software Application structured data with enhanced SEO
    */
   softwareApplication: () => ({
     "@context": "https://schema.org",
@@ -105,7 +145,13 @@ export const structuredData = {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
       "ratingCount": "127"
-    }
+    },
+    "keywords": [...seoKeywords.primary, ...seoKeywords.technical].slice(0, 15).join(', '),
+    "sameAs": [
+      officialLinks.website,
+      officialLinks.instagram,
+      officialLinks.linkedin
+    ]
   }),
   
   /**
@@ -121,7 +167,29 @@ export const structuredData = {
         "@type": "Answer",
         "text": q.answer
       }
-    }))
+    })),
+    "keywords": seoKeywords.longTail.slice(0, 10).join(', ')
+  }),
+
+  /**
+   * Creates WebSite structured data with search functionality
+   */
+  website: () => ({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Retail X",
+    "url": officialLinks.website,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": `${officialLinks.website}search?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    },
+    "sameAs": [
+      officialLinks.instagram,
+      officialLinks.linkedin,
+      officialLinks.twitter
+    ],
+    "keywords": seoKeywords.primary.join(', ')
   })
 };
 
@@ -140,4 +208,44 @@ export const setCanonicalUrl = (url: string): void => {
   link.rel = 'canonical';
   link.href = url;
   document.head.appendChild(link);
+};
+
+/**
+ * Adds social media meta tags with backlinks
+ */
+export const setSocialMetaTags = (title: string, description: string, imageUrl: string, url: string): void => {
+  const socialTags = [
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:image', content: imageUrl },
+    { property: 'og:url', content: url },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: imageUrl },
+    { name: 'twitter:site', content: '@retail_x' }
+  ];
+
+  socialTags.forEach(tag => {
+    let existingTag;
+    if (tag.property) {
+      existingTag = document.querySelector(`meta[property="${tag.property}"]`);
+    } else {
+      existingTag = document.querySelector(`meta[name="${tag.name}"]`);
+    }
+
+    if (existingTag) {
+      existingTag.setAttribute('content', tag.content);
+    } else {
+      const meta = document.createElement('meta');
+      if (tag.property) {
+        meta.setAttribute('property', tag.property);
+      } else {
+        meta.setAttribute('name', tag.name!);
+      }
+      meta.setAttribute('content', tag.content);
+      document.head.appendChild(meta);
+    }
+  });
 };
