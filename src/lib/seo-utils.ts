@@ -1,4 +1,3 @@
-
 /**
  * SEO Utilities for Retail X
  * Helper functions to manage and optimize SEO across the platform
@@ -11,7 +10,8 @@ export const officialLinks = {
   website: "https://www.retailx.site/",
   instagram: "https://www.instagram.com/retailx.site/",
   linkedin: "http://linkedin.com/company/retailx-site/",
-  twitter: "https://twitter.com/retail_x"
+  twitter: "https://twitter.com/retail_x",
+  community: "https://www.facebook.com/share/g/12LSEquUXL7/"
 };
 
 /**
@@ -211,7 +211,7 @@ export const setCanonicalUrl = (url: string): void => {
 };
 
 /**
- * Adds social media meta tags with backlinks
+ * Enhanced social media meta tags with community link
  */
 export const setSocialMetaTags = (title: string, description: string, imageUrl: string, url: string): void => {
   const socialTags = [
@@ -224,7 +224,10 @@ export const setSocialMetaTags = (title: string, description: string, imageUrl: 
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
     { name: 'twitter:image', content: imageUrl },
-    { name: 'twitter:site', content: '@retail_x' }
+    { name: 'twitter:site', content: '@retail_x' },
+    // Add community-specific meta tags
+    { property: 'article:author', content: 'Retail X Community' },
+    { property: 'og:community', content: officialLinks.community }
   ];
 
   socialTags.forEach(tag => {

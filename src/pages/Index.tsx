@@ -8,6 +8,9 @@ import PricingSection from "@/components/PricingSection";
 import { Link } from "react-router-dom";
 import { setPageTitle, setMetaDescription, setMetaKeywords, injectStructuredData, structuredData, setSocialMetaTags, officialLinks } from "@/lib/seo-utils";
 import { seoKeywords } from "@/lib/seo-keywords";
+import CommunitySection from "@/components/CommunitySection";
+import CommunityJoinButton from "@/components/CommunityJoinButton";
+
 const Index = () => {
   const {
     toast
@@ -193,6 +196,7 @@ const Index = () => {
                   Start Your AI Store <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
                 </a>
               </Button>
+              <CommunityJoinButton variant="secondary" className="h-12 sm:h-auto" />
             </div>
           </div>
         </div>
@@ -305,6 +309,9 @@ const Index = () => {
       {/* Pricing Section */}
       <PricingSection />
 
+      {/* Community Section - Strategic placement for maximum engagement */}
+      <CommunitySection />
+
       {/* Testimonials Section with mobile-optimized cards */}
       <section aria-labelledby="testimonials-heading" className="py-12 sm:py-14 md:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
@@ -344,23 +351,32 @@ const Index = () => {
           <p className="text-base sm:text-lg md:text-xl text-brand-peach mb-6 sm:mb-7 md:mb-8 max-w-2xl mx-auto px-4">
             Subscribe to our newsletter for the latest AI-powered template releases, automation insights, and retail technology updates.
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto mb-6">
             <Input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" required className="bg-white/10 border-white/20 text-white placeholder:text-white/60 h-10 sm:h-auto text-sm sm:text-base" aria-label="Email address for newsletter" />
             <Button type="submit" className="whitespace-nowrap bg-brand-coral hover:bg-brand-coral/90 text-white h-10 sm:h-auto text-sm sm:text-base touch-target">
               Subscribe Now
             </Button>
           </form>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8">
+          
+          {/* Community join button in newsletter section */}
+          <div className="mb-6">
+            <CommunityJoinButton variant="secondary" className="bg-white/10 border-white/20 text-white hover:bg-white/20" />
+          </div>
+          
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             <a href={officialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors text-sm sm:text-base touch-target">
               Follow us on Instagram
             </a>
             <a href={officialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors text-sm sm:text-base touch-target">
               Connect on LinkedIn
             </a>
-            
           </div>
         </div>
       </section>
+
+      {/* Floating Community Button for persistent engagement */}
+      <CommunityJoinButton variant="floating" />
     </div>;
 };
+
 export default Index;
