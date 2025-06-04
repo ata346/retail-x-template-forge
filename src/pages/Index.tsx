@@ -309,7 +309,7 @@ const Index = () => {
       <section aria-labelledby="testimonials-heading" className="py-12 sm:py-14 md:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">What Our  Clients Say About Our AI Platform</h2>
+            <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">What Our Clients Say About us</h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               Discover why businesses across India trust Retail X's AI-powered automation for their online store creation and digital commerce needs.
             </p>
