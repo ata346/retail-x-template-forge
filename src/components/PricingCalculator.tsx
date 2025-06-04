@@ -100,33 +100,34 @@ const PricingCalculator = () => {
 
   return (
     <Card className="w-full max-w-4xl mx-auto bg-white shadow-lg">
-      <CardContent className="p-4 sm:p-6 lg:p-8">
-        <div className="flex items-center justify-center mb-6 sm:mb-8">
-          <Calculator className="h-5 w-5 sm:h-6 sm:w-6 text-amber-500 mr-2" />
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center">Pricing Calculator</h2>
+      <CardContent className="p-3 sm:p-4 md:p-6 lg:p-8">
+        <div className="flex items-center justify-center mb-4 sm:mb-6 md:mb-8">
+          <Calculator className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-amber-500 mr-2" />
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center">Pricing Calculator</h2>
         </div>
         
-        <div className="space-y-6 sm:space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <Label htmlFor="duration" className="text-base font-medium">Billing Cycle</Label>
-            <div className="flex items-center justify-center sm:justify-end space-x-3">
-              <span className={`text-sm ${duration === "monthly" ? "font-bold" : "text-muted-foreground"}`}>
+        <div className="space-y-4 sm:space-y-6 md:space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+            <Label htmlFor="duration" className="text-sm sm:text-base font-medium">Billing Cycle</Label>
+            <div className="flex items-center justify-center sm:justify-end space-x-2 sm:space-x-3">
+              <span className={`text-xs sm:text-sm ${duration === "monthly" ? "font-bold" : "text-muted-foreground"}`}>
                 Monthly
               </span>
               <Switch
                 id="duration"
                 checked={duration === "yearly"}
                 onCheckedChange={toggleDuration}
+                className="scale-90 sm:scale-100"
               />
-              <span className={`text-sm ${duration === "yearly" ? "font-bold" : "text-muted-foreground"}`}>
+              <span className={`text-xs sm:text-sm ${duration === "yearly" ? "font-bold" : "text-muted-foreground"}`}>
                 Yearly <span className="text-xs text-green-600 font-normal block sm:inline">(Save 2 months)</span>
               </span>
             </div>
           </div>
           
-          <div className="space-y-4 sm:space-y-6">
-            <Label htmlFor="plan-slider" className="text-base font-medium">Select Your Plan</Label>
-            <div className="px-2 sm:px-4">
+          <div className="space-y-3 sm:space-y-4 md:space-y-6">
+            <Label htmlFor="plan-slider" className="text-sm sm:text-base font-medium">Select Your Plan</Label>
+            <div className="px-2 sm:px-3 md:px-4">
               <Slider 
                 id="plan-slider"
                 min={0}
@@ -134,15 +135,15 @@ const PricingCalculator = () => {
                 step={1}
                 value={[sliderValue]} 
                 onValueChange={handleSliderChange}
-                className="my-6"
+                className="my-4 sm:my-6"
               />
             </div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 text-xs text-center gap-2 px-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 text-xs sm:text-sm text-center gap-1 sm:gap-2 px-1 sm:px-2">
               {plans.map((plan, index) => (
                 <div 
                   key={index} 
-                  className={`cursor-pointer p-2 rounded transition-colors ${
+                  className={`cursor-pointer p-1.5 sm:p-2 rounded transition-colors touch-target ${
                     selectedPlan === index 
                       ? 'font-bold bg-accent text-accent-foreground' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
@@ -152,8 +153,8 @@ const PricingCalculator = () => {
                     setSliderValue(index);
                   }}
                 >
-                  <div className="truncate">{plan.name.split(" ")[0]}</div>
-                  <div className="hidden sm:block text-[10px] opacity-75 mt-1">
+                  <div className="truncate text-xs sm:text-sm">{plan.name.split(" ")[0]}</div>
+                  <div className="hidden sm:block text-xs opacity-75 mt-0.5 sm:mt-1">
                     {plan.name.split(" ")[1]}
                   </div>
                 </div>
@@ -161,25 +162,25 @@ const PricingCalculator = () => {
             </div>
           </div>
           
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 sm:p-6 lg:p-8 rounded-xl border border-gray-200 mt-6 sm:mt-8">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6 gap-4">
-              <div className="space-y-2">
-                <h3 className={`text-lg sm:text-xl lg:text-2xl font-bold ${selectedPlanData.color}`}>
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl border border-gray-200 mt-4 sm:mt-6 md:mt-8">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 md:mb-6 gap-3 sm:gap-4">
+              <div className="space-y-1 sm:space-y-2">
+                <h3 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-bold ${selectedPlanData.color}`}>
                   {selectedPlanData.name}
                 </h3>
-                <p className="text-sm sm:text-base text-muted-foreground">
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
                   {selectedPlanData.description}
                 </p>
               </div>
               <div className="text-center sm:text-right shrink-0">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
                   ₹{price.toLocaleString()}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-xs sm:text-sm text-muted-foreground">
                   {duration === "monthly" ? "per month" : "per year"}
                 </div>
                 {savings > 0 && (
-                  <div className="text-xs sm:text-sm text-green-600 font-medium mt-1">
+                  <div className="text-xs sm:text-sm text-green-600 font-medium mt-0.5 sm:mt-1">
                     Save ₹{savings.toLocaleString()} yearly
                   </div>
                 )}
@@ -188,7 +189,7 @@ const PricingCalculator = () => {
             
             <Button 
               asChild 
-              className="w-full text-sm sm:text-base py-2 sm:py-3" 
+              className="w-full text-xs sm:text-sm md:text-base py-2 sm:py-3 h-10 sm:h-auto touch-target" 
               variant={selectedPlan === 5 || selectedPlan === 6 || selectedPlan === 7 ? "default" : "outline"}
             >
               <a 

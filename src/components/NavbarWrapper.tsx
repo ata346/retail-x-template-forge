@@ -7,7 +7,7 @@ const NavbarWrapper = () => {
   return (
     <div className="relative">
       <Navbar />
-      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10">
+      <div className="absolute top-1/2 right-2 sm:right-3 md:right-4 transform -translate-y-1/2 z-10">
         <LanguageSelector />
       </div>
     </div>
