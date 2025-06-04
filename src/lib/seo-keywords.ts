@@ -97,16 +97,21 @@ export const seoKeywords = {
   ],
   
   business: [
-    "startup ecommerce platform",
-    "enterprise retail solution",
-    "SME online store",
-    "freelancer ecommerce tools",
-    "agency white label platform",
-    "dropshipping automation",
-    "wholesale ecommerce portal",
-    "B2B marketplace creation",
-    "B2C online store",
-    "multi-vendor marketplace"
+    "business website builder",
+    "corporate website platform",
+    "company website creator",
+    "professional business site",
+    "business landing page builder",
+    "portfolio website creator",
+    "small business website solution",
+    "corporate web design platform",
+    "professional web presence",
+    "business web portal creator",
+    "corporate digital presence",
+    "enterprise website solution",
+    "business homepage builder",
+    "professional site creator",
+    "company web portal platform"
   ],
   
   conversion: [
@@ -171,15 +176,42 @@ export const getMetaKeywords = (categories: (keyof typeof seoKeywords)[] = ['pri
  */
 export const generateKeywordRichSchema = (type: string, data: any) => {
   const primaryKeywords = seoKeywords.primary.slice(0, 5);
+  const businessKeywords = seoKeywords.business.slice(0, 5);
   
   return {
     "@context": "https://schema.org",
     "@type": type,
     ...data,
-    "keywords": primaryKeywords.join(', '),
-    "about": primaryKeywords.map(keyword => ({
+    "keywords": [...primaryKeywords, ...businessKeywords].join(', '),
+    "about": [...primaryKeywords, ...businessKeywords].map(keyword => ({
       "@type": "Thing",
       "name": keyword
     }))
   };
+};
+
+/**
+ * Generate dual platform content with balanced keywords
+ */
+export const generateDualPlatformContent = (baseContent: string): string => {
+  const ecommerceKeywords = seoKeywords.primary.slice(0, 3);
+  const businessKeywords = seoKeywords.business.slice(0, 3);
+  
+  let optimizedContent = baseContent;
+  
+  // Insert e-commerce keywords
+  ecommerceKeywords.forEach((keyword) => {
+    if (!optimizedContent.toLowerCase().includes(keyword.toLowerCase())) {
+      optimizedContent = optimizedContent.replace(/\.\s+/, `. ${keyword} `);
+    }
+  });
+  
+  // Insert business website keywords
+  businessKeywords.forEach((keyword) => {
+    if (!optimizedContent.toLowerCase().includes(keyword.toLowerCase())) {
+      optimizedContent = optimizedContent.replace(/\.\s+/, `. ${keyword} `);
+    }
+  });
+  
+  return optimizedContent;
 };

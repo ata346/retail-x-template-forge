@@ -1,3 +1,4 @@
+
 /**
  * SEO Utilities for Retail X
  * Helper functions to manage and optimize SEO across the platform
@@ -21,7 +22,7 @@ export const officialLinks = {
  */
 export const setPageTitle = (title: string, includeTagline = true): void => {
   document.title = includeTagline 
-    ? `${title} | Retail X - AI-Powered E-commerce Platform` 
+    ? `${title} | Retail X - AI-Powered Website & E-commerce Platform` 
     : title;
 };
 
@@ -72,7 +73,7 @@ export const setMetaKeywords = (categories: (keyof typeof seoKeywords)[] = ['pri
  * Creates and injects structured data for various page types
  * @param data - The structured data object to inject
  */
-export const injectStructuredData = (data: object): void => {
+export const injectStructuredData = (data: any): void => {
   // Remove any existing structured data with the same ID if present
   const existingScript = document.querySelector(`script[data-structured-id="${data['@type']}"]`);
   if (existingScript) {
@@ -102,10 +103,11 @@ export const structuredData = {
     "sameAs": [
       officialLinks.instagram,
       officialLinks.linkedin,
-      officialLinks.twitter
+      officialLinks.twitter,
+      officialLinks.community
     ],
-    "keywords": seoKeywords.primary.join(', '),
-    "description": "AI-Powered E-commerce Platform for creating online stores in 3 hours"
+    "keywords": [...seoKeywords.primary, ...seoKeywords.business].slice(0, 15).join(', '),
+    "description": "AI-Powered Website Platform for creating business websites and e-commerce stores in 3 hours"
   }),
   
   /**
@@ -123,7 +125,7 @@ export const structuredData = {
       "availability": "https://schema.org/InStock"
     },
     "image": imageUrl,
-    "keywords": seoKeywords.features.slice(0, 10).join(', ')
+    "keywords": [...seoKeywords.features, ...seoKeywords.business].slice(0, 15).join(', ')
   }),
   
   /**
@@ -140,18 +142,20 @@ export const structuredData = {
       "price": "499",
       "priceCurrency": "INR"
     },
-    "description": "AI-Powered E-commerce Platform that helps businesses launch online stores in 3 hours",
+    "description": "AI-Powered Website Platform that helps businesses create professional business websites and e-commerce stores in 3 hours",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
       "ratingCount": "127"
     },
-    "keywords": [...seoKeywords.primary, ...seoKeywords.technical].slice(0, 15).join(', '),
+    "keywords": [...seoKeywords.primary, ...seoKeywords.technical, ...seoKeywords.business].slice(0, 20).join(', '),
     "sameAs": [
       officialLinks.website,
       officialLinks.instagram,
-      officialLinks.linkedin
-    ]
+      officialLinks.linkedin,
+      officialLinks.community
+    ],
+    "applicationSubCategory": ["E-commerce Platform", "Business Website Builder"]
   }),
   
   /**
@@ -168,7 +172,7 @@ export const structuredData = {
         "text": q.answer
       }
     })),
-    "keywords": seoKeywords.longTail.slice(0, 10).join(', ')
+    "keywords": [...seoKeywords.longTail, ...seoKeywords.business].slice(0, 15).join(', ')
   }),
 
   /**
@@ -187,9 +191,46 @@ export const structuredData = {
     "sameAs": [
       officialLinks.instagram,
       officialLinks.linkedin,
-      officialLinks.twitter
+      officialLinks.twitter,
+      officialLinks.community
     ],
-    "keywords": seoKeywords.primary.join(', ')
+    "keywords": [...seoKeywords.primary, ...seoKeywords.business].slice(0, 15).join(', '),
+    "description": "Create professional business websites and e-commerce stores with AI-powered automation"
+  }),
+  
+  /**
+   * Creates WebPage structured data for business website pages
+   */
+  webPage: (title: string, description: string, url: string, imageUrl: string) => ({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": url,
+    "image": imageUrl,
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Retail X",
+      "url": officialLinks.website
+    },
+    "keywords": [...seoKeywords.primary, ...seoKeywords.business].slice(0, 15).join(', ')
+  }),
+  
+  /**
+   * Creates Service structured data for business services
+   */
+  service: (name: string, description: string, provider: string = "Retail X") => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": name,
+    "description": description,
+    "provider": {
+      "@type": "Organization",
+      "name": provider,
+      "url": officialLinks.website
+    },
+    "serviceType": "Website Development",
+    "keywords": [...seoKeywords.business, ...seoKeywords.features].slice(0, 10).join(', ')
   })
 };
 
@@ -251,4 +292,22 @@ export const setSocialMetaTags = (title: string, description: string, imageUrl: 
       document.head.appendChild(meta);
     }
   });
+};
+
+/**
+ * Optimize specific page for business website SEO
+ */
+export const optimizeForBusinessWebsite = (pageTitle: string, pageDescription: string): void => {
+  setPageTitle(pageTitle);
+  setMetaDescription(pageDescription, 'business');
+  setMetaKeywords(['business', 'primary', 'features']);
+};
+
+/**
+ * Optimize specific page for e-commerce website SEO
+ */
+export const optimizeForEcommerceWebsite = (pageTitle: string, pageDescription: string): void => {
+  setPageTitle(pageTitle);
+  setMetaDescription(pageDescription, 'primary');
+  setMetaKeywords(['primary', 'features', 'conversion']);
 };

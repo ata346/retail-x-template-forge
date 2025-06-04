@@ -10,6 +10,7 @@ import { setPageTitle, setMetaDescription, setMetaKeywords, injectStructuredData
 import { seoKeywords } from "@/lib/seo-keywords";
 import CommunitySection from "@/components/CommunitySection";
 import CommunityJoinButton from "@/components/CommunityJoinButton";
+import DualPlatformSection from "@/components/DualPlatformSection";
 
 const Index = () => {
   const {
@@ -24,26 +25,31 @@ const Index = () => {
     seconds: 0
   });
 
-  // Enhanced SEO setup with keywords integration
+  // Enhanced SEO setup with dual platform keywords
   useEffect(() => {
-    // Set enhanced page title with keywords
-    setPageTitle("AI-Powered E-commerce Platform | Launch Your Store in 3 Hours");
+    // Enhanced page title for dual platform support
+    setPageTitle("AI-Powered Website Builder | E-commerce & Business Websites | Launch in 3 Hours");
 
-    // Set meta description with primary keywords
-    setMetaDescription("Create your perfect online store with Retail X - Choose from 20+ templates and launch your AI-powered e-commerce business in just 3 hours. Best-in-class automation for small businesses.", "primary");
+    // Enhanced meta description covering both platform types
+    setMetaDescription("Create professional business websites and e-commerce stores with Retail X - AI-powered platform supporting static websites and online stores. 20+ templates, advanced SEO, and 3-hour deployment for modern businesses.", "primary");
 
-    // Set meta keywords from multiple categories
-    setMetaKeywords(['primary', 'secondary', 'longTail', 'features']);
+    // Enhanced meta keywords including business website keywords
+    setMetaKeywords(['primary', 'secondary', 'longTail', 'features', 'business']);
 
-    // Set social media tags with backlinks
-    setSocialMetaTags("Retail X - AI-Powered E-commerce Platform | Launch Your Store in 3 Hours", "Create your perfect online store with AI automation. 20+ templates, 3-hour setup, and powerful features for modern e-commerce businesses.", "/lovable-uploads/f6a19bd5-5b25-47bb-9a9c-e9531f6650ce.png", officialLinks.website);
+    // Enhanced social media tags
+    setSocialMetaTags(
+      "Retail X - AI Website Builder | E-commerce & Business Websites", 
+      "Create professional business websites and e-commerce stores with AI automation. Supporting both static business sites and dynamic online stores with advanced SEO optimization.", 
+      "/lovable-uploads/f6a19bd5-5b25-47bb-9a9c-e9531f6650ce.png", 
+      officialLinks.website
+    );
 
-    // Inject comprehensive structured data
+    // Enhanced structured data for dual platform support
     injectStructuredData(structuredData.organization());
     injectStructuredData(structuredData.softwareApplication());
     injectStructuredData(structuredData.website());
 
-    // Enhanced JSON-LD with SEO keywords
+    // Enhanced JSON-LD with business website keywords
     const enhancedStructuredData = {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -55,25 +61,35 @@ const Index = () => {
         "price": "499",
         "priceCurrency": "INR"
       },
-      "description": "AI-Powered E-commerce Platform that helps businesses launch online stores in 3 hours with automated workflows and intelligent design templates",
+      "description": "AI-Powered Website Builder supporting both e-commerce stores and business websites with automated workflows, professional templates, and advanced SEO optimization",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
         "ratingCount": "127"
       },
-      "keywords": [...seoKeywords.primary, ...seoKeywords.secondary, ...seoKeywords.technical].slice(0, 20).join(', '),
+      "keywords": [
+        ...seoKeywords.primary, 
+        ...seoKeywords.secondary, 
+        ...seoKeywords.business,
+        "business website builder",
+        "corporate website platform",
+        "professional website creator"
+      ].slice(0, 25).join(', '),
       "sameAs": [officialLinks.website, officialLinks.instagram, officialLinks.linkedin],
       "provider": {
         "@type": "Organization",
         "name": "Retail X",
         "url": officialLinks.website,
         "sameAs": [officialLinks.instagram, officialLinks.linkedin]
-      }
+      },
+      "applicationSubCategory": ["E-commerce Platform", "Business Website Builder", "Corporate Website Creator"]
     };
+    
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(enhancedStructuredData);
     document.head.appendChild(script);
+    
     return () => {
       if (document.head.contains(script)) {
         document.head.removeChild(script);
@@ -162,38 +178,39 @@ const Index = () => {
   }];
   const features = [{
     icon: <Zap className="h-10 w-10 text-brand-purple" />,
-    title: "AI-Powered Automation & Smart Store Setup",
-    description: "Launch your professional online store in just 3 hours with our advanced AI-driven ecommerce automation, intelligent product management, and expert guidance for modern retail businesses."
+    title: "AI-Powered Dual Platform Builder",
+    description: "Create both professional business websites and e-commerce stores in just 3 hours with our advanced AI automation, supporting corporate sites, portfolios, and online stores."
   }, {
     icon: <Users className="h-10 w-10 text-brand-purple" />,
-    title: "Customer-Focused Design & UX Optimization",
-    description: "Create exceptional shopping experiences your customers will love with intuitive navigation, optimized checkout flow, mobile-responsive design, and conversion-focused ecommerce templates."
+    title: "Versatile Design Templates",
+    description: "Choose from 20+ professional templates designed for business websites, corporate portfolios, and e-commerce stores with mobile-responsive design and conversion optimization."
   }, {
     icon: <Store className="h-10 w-10 text-brand-purple" />,
-    title: "20+ Professional Templates & Industry Solutions",
-    description: "Choose from our diverse template library designed for various retail niches including fashion, electronics, beauty, and more. Customize to fit your brand with AI-powered design automation."
+    title: "Complete Website Solutions",
+    description: "From simple business landing pages to complex e-commerce platforms - our AI handles everything including SEO optimization, content management, and automated workflows."
   }, {
     icon: <Clock className="h-10 w-10 text-brand-purple" />,
-    title: "Time-Saving Automation & Business Intelligence",
-    description: "Focus on growing your business while our AI handles all technical aspects of your online store setup, inventory management, customer analytics, and automated marketing workflows."
+    title: "Rapid Deployment Technology",
+    description: "Launch professional websites and online stores faster than ever with our intelligent automation handling technical setup, SEO configuration, and business optimization."
   }];
-  return <div className="flex flex-col min-h-screen">
-      {/* Enhanced Hero Section with better mobile responsiveness */}
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Enhanced Hero Section for dual platform support */}
       <section aria-labelledby="hero-heading" className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
         <div className="container relative z-10 mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-0">
           <div className="max-w-3xl">
             <h1 id="hero-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 leading-tight">
-              AI-Powered E-commerce Platform & Business Automation Solutions
+              AI Website Builder for Business & E-commerce
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-7 md:mb-8 max-w-2xl leading-relaxed">
-              Retail X is not just another online store builder - it's an advanced AI-powered ecommerce platform integrated 
-              with 60+ automated workflows and 13+ intelligent agents, working seamlessly to optimize and automate 
-              various processes for building professional ecommerce stores, digital marketplaces, and responsive websites with cutting-edge retail technology.
+              Retail X creates both professional business websites and powerful e-commerce stores with AI automation. 
+              From corporate portfolios to online marketplaces - our platform supports all website types with 
+              advanced SEO optimization and intelligent business workflows.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button size="lg" asChild className="text-sm sm:text-base bg-white text-brand-purple hover:bg-white/90 flex items-center justify-center gap-2 h-12 sm:h-auto touch-target">
                 <a href="https://forms.gle/8EfxuZgW5dMhondk7" target="_blank" rel="noopener noreferrer">
-                  Start Your AI Store <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+                  Create Your Website <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
                 </a>
               </Button>
               <CommunityJoinButton variant="secondary" className="h-12 sm:h-auto" />
@@ -220,9 +237,9 @@ const Index = () => {
               <ExternalLink className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
             </a>
           </div>
-          <h2 id="brand-section" className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-purple mb-1 sm:mb-2 px-2">Retail X - Leading AI E-commerce Platform</h2>
+          <h2 id="brand-section" className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-purple mb-1 sm:mb-2 px-2">Retail X - AI Website Builder Platform</h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Advanced AI-Powered E-commerce Solutions for Modern Online Businesses | Automated Store Builder & Digital Commerce Platform
+            Professional Business Websites & E-commerce Stores | AI-Powered Platform with Advanced SEO Optimization
           </p>
         </div>
       </section>
@@ -286,25 +303,30 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section with enhanced mobile grid */}
+      {/* Updated Features Section */}
       <section aria-labelledby="features-heading" className="py-12 sm:py-14 md:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <h2 id="features-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">Why Choose Retail X AI E-commerce Platform?</h2>
+            <h2 id="features-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">Why Choose Retail X for All Website Types?</h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-              We combine cutting-edge AI technology with beautiful responsive design to help your online business thrive with automated workflows and intelligent optimization.
+              Supporting both business websites and e-commerce platforms with cutting-edge AI technology, beautiful responsive design, and comprehensive SEO optimization.
             </p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            {features.map((feature, index) => <div key={index} className="p-4 sm:p-5 md:p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+            {features.map((feature, index) => (
+              <div key={index} className="p-4 sm:p-5 md:p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                 <div className="mb-3 sm:mb-4" aria-hidden="true">{feature.icon}</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-brand-purple">{feature.title}</h3>
                 <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* New Dual Platform Section */}
+      <DualPlatformSection />
 
       {/* Pricing Section */}
       <PricingSection />
@@ -323,10 +345,13 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
                 <CardContent className="p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col h-full">
                   <div className="flex mb-3 sm:mb-4" aria-label={`Rating: ${testimonial.rating} out of 5 stars`}>
-                    {[...Array(5)].map((_, i) => <Star key={i} className={`h-4 w-4 sm:h-5 sm:w-5 ${i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"}`} />)}
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className={`h-4 w-4 sm:h-5 sm:w-5 ${i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"}`} />
+                    ))}
                   </div>
                   <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base text-gray-600 flex-grow">"{testimonial.content}"</p>
                   <div className="flex items-center mt-auto">
@@ -339,7 +364,8 @@ const Index = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -347,9 +373,9 @@ const Index = () => {
       {/* Newsletter Section with mobile-first form */}
       <section aria-labelledby="newsletter-heading" className="bg-brand-purple text-white py-10 sm:py-12 md:py-16">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center">
-          <h2 id="newsletter-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-2">Stay Updated with AI E-commerce Trends</h2>
+          <h2 id="newsletter-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-2">Stay Updated with Website Design Trends</h2>
           <p className="text-base sm:text-lg md:text-xl text-brand-peach mb-6 sm:mb-7 md:mb-8 max-w-2xl mx-auto px-4">
-            Subscribe to our newsletter for the latest AI-powered template releases, automation insights, and retail technology updates.
+            Subscribe to our newsletter for the latest AI-powered template releases, website optimization tips, and business growth insights.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto mb-6">
             <Input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" required className="bg-white/10 border-white/20 text-white placeholder:text-white/60 h-10 sm:h-auto text-sm sm:text-base" aria-label="Email address for newsletter" />
@@ -376,7 +402,8 @@ const Index = () => {
 
       {/* Floating Community Button for persistent engagement */}
       <CommunityJoinButton variant="floating" />
-    </div>;
+    </div>
+  );
 };
 
 export default Index;

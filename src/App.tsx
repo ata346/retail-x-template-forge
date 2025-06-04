@@ -16,6 +16,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Pricing from "./pages/Pricing";
 import Careers from "./pages/Careers";
+import Templates from "./pages/Templates";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ViewportOptimizer from "./components/ViewportOptimizer";
 
@@ -56,6 +57,7 @@ const App = () => {
                   <Route path="/" element={<Index />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/templates" element={<Templates />} />
                   <Route path="/design-requirements/:templateId" element={<DesignRequirements />} />
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/terms" element={<Terms />} />
