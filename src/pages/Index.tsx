@@ -357,9 +357,7 @@ const Index = () => {
             <a href={officialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors text-sm sm:text-base touch-target">
               Connect on LinkedIn
             </a>
-            <a href={officialLinks.website} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors text-sm sm:text-base touch-target">
-              Visit Our Website
-            </a>
+            
           </div>
         </div>
       </section>
