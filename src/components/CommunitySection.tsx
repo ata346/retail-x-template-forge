@@ -41,13 +41,7 @@ const CommunitySection: React.FC = () => {
             </p>
           </div>
           
-          <div className="mt-8 p-4 bg-white/50 backdrop-blur-sm rounded-lg max-w-lg mx-auto">
-            <p className="text-sm text-gray-600 italic">
-              "Being part of the Retail X community has connected me with other business owners facing similar challenges. 
-              The insights I've gained have helped me improve both my business website and e-commerce performance." 
-              <span className="font-semibold block mt-2">— Ravi Patel, Success Story</span>
-            </p>
-          </div>
+          
         </div>
       </div>
     </section>;
