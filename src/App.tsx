@@ -17,6 +17,7 @@ import Terms from "./pages/Terms";
 import Pricing from "./pages/Pricing";
 import Careers from "./pages/Careers";
 import { ThemeProvider } from "./components/ThemeProvider";
+import ViewportOptimizer from "./components/ViewportOptimizer";
 
 // Scroll to top when navigation happens
 const ScrollToTop = () => {
@@ -29,7 +30,14 @@ const ScrollToTop = () => {
   return null;
 };
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes
+    },
+  },
+});
 
 const App = () => {
   return (
@@ -37,12 +45,13 @@ const App = () => {
       <BrowserRouter>
         <ThemeProvider>
           <TooltipProvider>
+            <ViewportOptimizer />
             <ScrollToTop />
             <Toaster />
             <Sonner />
             <div className="flex flex-col min-h-screen">
               <NavbarWrapper />
-              <main className="flex-grow pt-16">
+              <main className="flex-grow pt-16 critical-above-fold">
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/about" element={<About />} />
