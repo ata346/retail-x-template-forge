@@ -8,11 +8,11 @@ const StaticWebsiteExplanation: React.FC = () => {
     icon: <Zap className="h-5 w-5 text-yellow-500" />
   }, {
     feature: "Hosting",
-    benefit: "Hosted on affordable, reliable platforms (Netlify, Vercel).",
+    benefit: "Hosted on affordable, reliable platforms (Netlify, Vercel,Hostiger,Godaddy).",
     icon: <Server className="h-5 w-5 text-blue-500" />
   }, {
     feature: "Database",
-    benefit: "No complex, costly backend needed—simplifies management.",
+    benefit: "No live database,",
     icon: <Shield className="h-5 w-5 text-green-500" />
   }, {
     feature: "Security",
@@ -28,19 +28,19 @@ const StaticWebsiteExplanation: React.FC = () => {
     icon: <DollarSign className="h-5 w-5 text-green-600" />
   }, {
     feature: "Updates",
-    benefit: "Easy content/product updates with simple redeploys.",
+    benefit: "Easy content/products images updates with simple redeploys.",
     icon: <Globe className="h-5 w-5 text-indigo-500" />
   }, {
     feature: "Features",
-    benefit: "Essential cart functions and clean, user-friendly design.",
+    benefit: "Mobile friendly and Injected Keywords based your business types",
     icon: <Check className="h-5 w-5 text-teal-500" />
   }, {
     feature: "Best For",
-    benefit: "Small to medium catalogs, fixed pricing, portfolio-style shops.",
+    benefit: "Small businesses with limited products like : Handmade crafts and art sellers,Small-scale food or beverage brands,Personalized gift shops",
     icon: <Globe className="h-5 w-5 text-orange-500" />
   }, {
-    feature: "SEO Friendly",
-    benefit: "Optimized for search engines to drive organic traffic.",
+    feature: "AI Friendly",
+    benefit: "Optimized for AI engines to drive organic reach.",
     icon: <Search className="h-5 w-5 text-pink-500" />
   }];
   const staticWebsiteBenefits = [{
@@ -55,9 +55,6 @@ const StaticWebsiteExplanation: React.FC = () => {
   }, {
     title: "Easy Maintenance",
     description: "Minimal ongoing updates needed — perfect if your services and pricing don't change daily."
-  }, {
-    title: "Perfect for Service Businesses",
-    description: "Showcase your services, team, testimonials, and contact info clearly and efficiently without complex backend systems."
   }];
   return <section className="py-12 sm:py-16 bg-white">
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
