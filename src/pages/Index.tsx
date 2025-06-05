@@ -25,31 +25,31 @@ const Index = () => {
     seconds: 0
   });
 
-  // Enhanced SEO setup with dual platform keywords
+  // Enhanced SEO setup with static website focus
   useEffect(() => {
-    // Enhanced page title for dual platform support
-    setPageTitle("AI-Powered Website Builder | E-commerce & Business Websites | Launch in 3 Hours");
+    // Enhanced page title for static website building
+    setPageTitle("Retail X - AI System for Static Websites & Static E-commerce | Build in 3 Hours");
 
-    // Enhanced meta description covering both platform types
-    setMetaDescription("Create professional business websites and e-commerce stores with Retail X - AI-powered platform supporting static websites and online stores. 20+ templates, advanced SEO, and 3-hour deployment for modern businesses.", "primary");
+    // Enhanced meta description for static website focus
+    setMetaDescription("Retail X is an AI system that builds static websites and static e-commerce websites. Create professional static business sites and static online stores with advanced SEO optimization in just 3 hours.", "primary");
 
-    // Enhanced meta keywords including business website keywords
+    // Enhanced meta keywords including static website keywords
     setMetaKeywords(['primary', 'secondary', 'longTail', 'features', 'business']);
 
     // Enhanced social media tags
     setSocialMetaTags(
-      "Retail X - AI Website Builder | E-commerce & Business Websites", 
-      "Create professional business websites and e-commerce stores with AI automation. Supporting both static business sites and dynamic online stores with advanced SEO optimization.", 
+      "Retail X - AI System for Static Websites & Static E-commerce", 
+      "Retail X is an AI system that builds static websites and static e-commerce websites with advanced automation and SEO optimization.", 
       "/lovable-uploads/f6a19bd5-5b25-47bb-9a9c-e9531f6650ce.png", 
       officialLinks.website
     );
 
-    // Enhanced structured data for dual platform support
+    // Enhanced structured data for static website focus
     injectStructuredData(structuredData.organization());
     injectStructuredData(structuredData.softwareApplication());
     injectStructuredData(structuredData.website());
 
-    // Enhanced JSON-LD with business website keywords
+    // Enhanced JSON-LD with static website keywords
     const enhancedStructuredData = {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -61,7 +61,7 @@ const Index = () => {
         "price": "499",
         "priceCurrency": "INR"
       },
-      "description": "AI-Powered Website Builder supporting both e-commerce stores and business websites with automated workflows, professional templates, and advanced SEO optimization",
+      "description": "Retail X is an AI system that builds static websites and static e-commerce websites with automated workflows, professional templates, and advanced SEO optimization",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
@@ -71,9 +71,9 @@ const Index = () => {
         ...seoKeywords.primary, 
         ...seoKeywords.secondary, 
         ...seoKeywords.business,
-        "business website builder",
-        "corporate website platform",
-        "professional website creator"
+        "static website builder",
+        "static e-commerce platform",
+        "AI static website creator"
       ].slice(0, 25).join(', '),
       "sameAs": [officialLinks.website, officialLinks.instagram, officialLinks.linkedin],
       "provider": {
@@ -82,7 +82,7 @@ const Index = () => {
         "url": officialLinks.website,
         "sameAs": [officialLinks.instagram, officialLinks.linkedin]
       },
-      "applicationSubCategory": ["E-commerce Platform", "Business Website Builder", "Corporate Website Creator"]
+      "applicationSubCategory": ["Static E-commerce Platform", "Static Website Builder", "AI Static Site Generator"]
     };
     
     const script = document.createElement('script');
@@ -163,54 +163,54 @@ const Index = () => {
   const testimonials = [{
     name: "Anoop Menon",
     role: "Spice Shop Owner, Kochi",
-    content: "Retail X transformed my traditional spice business with AI-powered ecommerce automation. Now customers from all over Kerala can order our authentic spices online through our professional online store. My sales have increased by 40% in just two months using this intelligent retail platform!",
+    content: "Retail X's AI system transformed my traditional spice business with a fast static e-commerce website. Now customers from all over Kerala can order our authentic spices through our professional static online store. My sales have increased by 40% in just two months using this intelligent static website platform!",
     rating: 5
   }, {
     name: "Lakshmi Nair",
     role: "Saree Boutique Owner, Trivandrum",
-    content: "The handloom sarees from my shop are now reaching customers across India thanks to Retail X's AI-driven ecommerce solution. The automated store builder platform is so easy to use, even for someone like me who isn't tech-savvy. Best online store creation experience!",
+    content: "The handloom sarees from my shop are now reaching customers across India thanks to Retail X's AI-powered static e-commerce solution. The static website builder is so easy to use, even for someone like me who isn't tech-savvy. Best static online store creation experience!",
     rating: 5
   }, {
     name: "Rajesh Gopinathan",
     role: "Ayurvedic Products Entrepreneur, Thrissur",
-    content: "Our family's 3-generation Ayurvedic formulations are now available worldwide through our AI-powered online marketplace. Retail X's automated ecommerce platform helped us preserve our tradition while embracing modern digital commerce technology. Excellent customer support and retail automation!",
+    content: "Our family's 3-generation Ayurvedic formulations are now available worldwide through our AI-built static e-commerce website. Retail X's static website platform helped us preserve our tradition while embracing modern digital commerce. Excellent static site performance!",
     rating: 4
   }];
   const features = [{
     icon: <Zap className="h-10 w-10 text-brand-purple" />,
-    title: "AI-Powered Dual Platform Builder",
-    description: "Create both professional business websites and e-commerce stores in just 3 hours with our advanced AI automation, supporting corporate sites, portfolios, and online stores."
+    title: "AI-Powered Static Website Builder",
+    description: "Retail X is an AI system that builds both static business websites and static e-commerce stores in just 3 hours with advanced automation and lightning-fast performance."
   }, {
     icon: <Users className="h-10 w-10 text-brand-purple" />,
-    title: "Versatile Design Templates",
-    description: "Choose from 20+ professional templates designed for business websites, corporate portfolios, and e-commerce stores with mobile-responsive design and conversion optimization."
+    title: "Static Website Templates",
+    description: "Choose from 20+ professional static website templates designed for business sites and e-commerce stores with mobile-responsive design and SEO optimization."
   }, {
     icon: <Store className="h-10 w-10 text-brand-purple" />,
-    title: "Complete Website Solutions",
-    description: "From simple business landing pages to complex e-commerce platforms - our AI handles everything including SEO optimization, content management, and automated workflows."
+    title: "Complete Static Solutions",
+    description: "From simple static business pages to complex static e-commerce platforms - our AI system handles everything with superior performance and security."
   }, {
     icon: <Clock className="h-10 w-10 text-brand-purple" />,
-    title: "Rapid Deployment Technology",
-    description: "Launch professional websites and online stores faster than ever with our intelligent automation handling technical setup, SEO configuration, and business optimization."
+    title: "Rapid Static Deployment",
+    description: "Launch static websites and static online stores faster than ever with our intelligent AI system handling technical setup and optimization automatically."
   }];
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Enhanced Hero Section for dual platform support */}
+      {/* Enhanced Hero Section for static website focus */}
       <section aria-labelledby="hero-heading" className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
         <div className="container relative z-10 mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-0">
           <div className="max-w-3xl">
             <h1 id="hero-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 leading-tight">
-              AI Website Builder for Business & E-commerce
+              AI System for Static Websites & Static E-commerce
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-7 md:mb-8 max-w-2xl leading-relaxed">
-              Retail X creates both professional business websites and powerful e-commerce stores with AI automation. 
-              From corporate portfolios to online marketplaces - our platform supports all website types with 
-              advanced SEO optimization and intelligent business workflows.
+              Retail X is an AI system that builds static websites and static e-commerce stores with superior performance. 
+              Create fast, secure static business sites and static online stores with advanced SEO optimization and 
+              intelligent automation - all deployed in just 3 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button size="lg" asChild className="text-sm sm:text-base bg-white text-brand-purple hover:bg-white/90 flex items-center justify-center gap-2 h-12 sm:h-auto touch-target">
                 <a href="https://forms.gle/8EfxuZgW5dMhondk7" target="_blank" rel="noopener noreferrer">
-                  Create Your Website <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+                  Build Static Website <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
                 </a>
               </Button>
               <CommunityJoinButton variant="secondary" className="h-12 sm:h-auto" />
@@ -219,7 +219,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Logo Section with better mobile layout */}
+      {/* Enhanced Logo Section */}
       <section aria-labelledby="brand-section" className="py-6 sm:py-8 md:py-10 bg-white">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-3 sm:mb-4 gap-4 sm:gap-6">
@@ -237,9 +237,9 @@ const Index = () => {
               <ExternalLink className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
             </a>
           </div>
-          <h2 id="brand-section" className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-purple mb-1 sm:mb-2 px-2">Retail X - AI Website Builder Platform</h2>
+          <h2 id="brand-section" className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-purple mb-1 sm:mb-2 px-2">Retail X - AI System for Static Websites</h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Professional Business Websites & E-commerce Stores | AI-Powered Platform with Advanced SEO Optimization
+            AI System Building Static Business Websites & Static E-commerce Stores | Advanced SEO & Performance Optimization
           </p>
         </div>
       </section>
@@ -258,16 +258,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Urgent Call to Action Section with mobile-first design */}
+      {/* Enhanced CTA Section */}
       <section aria-labelledby="urgent-cta" className="py-8 sm:py-10 md:py-12 bg-brand-coral">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
             <div className="w-full lg:w-2/3 text-center lg:text-left">
               <h2 id="urgent-cta" className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">
-                Limited Time Offer! Act Now
+                Limited Time Offer! Build Static Websites Now
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-white mb-4 sm:mb-5">
-                Get 30% off your first 3 months when you sign up today. This exclusive offer ends in:
+                Get 30% off your first 3 months when you use our AI system to build static websites today. This exclusive offer ends in:
               </p>
               <div className="flex justify-center lg:justify-start gap-2 sm:gap-3 mb-4 sm:mb-5">
                 <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 sm:p-3 w-12 sm:w-16 text-center">
@@ -307,9 +307,9 @@ const Index = () => {
       <section aria-labelledby="features-heading" className="py-12 sm:py-14 md:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <h2 id="features-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">Why Choose Retail X for All Website Types?</h2>
+            <h2 id="features-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">Why Choose Retail X AI System for Static Websites?</h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-              Supporting both business websites and e-commerce platforms with cutting-edge AI technology, beautiful responsive design, and comprehensive SEO optimization.
+              Our AI system specializes in building high-performance static websites and static e-commerce stores with cutting-edge technology and comprehensive SEO optimization.
             </p>
           </div>
           
@@ -338,9 +338,9 @@ const Index = () => {
       <section aria-labelledby="testimonials-heading" className="py-12 sm:py-14 md:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">What Our Clients Say About us</h2>
+            <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand-purple px-2">What Our Clients Say About Our AI System</h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-              Discover why businesses across India trust Retail X's AI-powered automation for their online store creation and digital commerce needs.
+              Discover why businesses across India trust Retail X's AI system for building static websites and static e-commerce stores.
             </p>
           </div>
           
@@ -373,9 +373,9 @@ const Index = () => {
       {/* Newsletter Section with mobile-first form */}
       <section aria-labelledby="newsletter-heading" className="bg-brand-purple text-white py-10 sm:py-12 md:py-16">
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center">
-          <h2 id="newsletter-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-2">Stay Updated with Website Design Trends</h2>
+          <h2 id="newsletter-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-2">Stay Updated with Static Website AI Trends</h2>
           <p className="text-base sm:text-lg md:text-xl text-brand-peach mb-6 sm:mb-7 md:mb-8 max-w-2xl mx-auto px-4">
-            Subscribe to our newsletter for the latest AI-powered template releases, website optimization tips, and business growth insights.
+            Subscribe to our newsletter for the latest AI system updates, static website optimization tips, and business growth insights.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto mb-6">
             <Input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" required className="bg-white/10 border-white/20 text-white placeholder:text-white/60 h-10 sm:h-auto text-sm sm:text-base" aria-label="Email address for newsletter" />

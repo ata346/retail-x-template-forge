@@ -18,7 +18,7 @@ const CommunityJoinButton: React.FC<CommunityJoinButtonProps> = ({
 }) => {
   const handleClick = () => {
     // Track community engagement for analytics
-    console.log('Community join button clicked - Business owners engagement');
+    console.log('Community join button clicked - Static website AI system engagement');
     // Open the community link
     window.open(officialLinks.community, '_blank', 'noopener,noreferrer');
   };
@@ -35,14 +35,14 @@ const CommunityJoinButton: React.FC<CommunityJoinButtonProps> = ({
     <Button
       className={cn(baseClasses, variantClasses[variant], className)}
       onClick={handleClick}
-      aria-label="Join Retail X Community for Business Owners and E-commerce Entrepreneurs"
+      aria-label="Join Retail X Community for Static Website AI System Users and E-commerce Entrepreneurs"
     >
       {variant === 'floating' ? (
         <Users className="h-6 w-6" />
       ) : (
         <>
           {showIcon && <Users className="mr-2 h-4 w-4" />}
-          <span>Join Business Community</span>
+          <span>Join Static Website Community</span>
           <ExternalLink className="ml-2 h-3 w-3" />
         </>
       )}
