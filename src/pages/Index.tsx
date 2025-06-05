@@ -11,6 +11,7 @@ import { seoKeywords } from "@/lib/seo-keywords";
 import CommunitySection from "@/components/CommunitySection";
 import CommunityJoinButton from "@/components/CommunityJoinButton";
 import DualPlatformSection from "@/components/DualPlatformSection";
+import StaticWebsiteExplanation from "@/components/StaticWebsiteExplanation";
 
 const Index = () => {
   const {
@@ -327,6 +328,9 @@ const Index = () => {
 
       {/* New Dual Platform Section */}
       <DualPlatformSection />
+
+      {/* New Static Website Explanation Section */}
+      <StaticWebsiteExplanation />
 
       {/* Pricing Section */}
       <PricingSection />
