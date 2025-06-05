@@ -34,9 +34,7 @@ const DualPlatformSection: React.FC = () => {
             </Card>)}
         </div>
 
-        <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
-          
-        </div>
+        
       </div>
     </section>;
 };
