@@ -60,34 +60,7 @@ const DualPlatformSection: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {platformTypes.map((platform, index) => <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardContent className="p-6 lg:p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 rounded-lg bg-${platform.color}-50`}>
-                    {platform.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2">
-                      {platform.title}
-                    </h3>
-                    <p className="text-base lg:text-lg font-semibold text-green-600">
-                      {platform.pricing}
-                    </p>
-                  </div>
-                </div>
-                
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {platform.description}
-                </p>
-                
-                <div className="space-y-3 mb-8">
-                  {platform.features.map((feature, featureIndex) => <div key={featureIndex} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-gray-700">{feature}</span>
-                    </div>)}
-                </div>
-                
-                
-              </CardContent>
+              
             </Card>)}
         </div>
 
