@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -133,7 +134,7 @@
   <body>
     <div id="root"></div>
     
-    <!-- Widgetify WhatsApp Widget -->
+    <!-- Enhanced Widgetify WhatsApp Widget -->
     <div id="widgetify-whatsapp" 
          style="position: fixed; 
                 bottom: 20px; 
@@ -142,35 +143,210 @@
       <!-- Widgetify whatsapp Widget -->
     </div>
 
+    <!-- WhatsApp Chat Popup -->
+    <div id="whatsapp-popup" 
+         style="position: fixed; 
+                bottom: 90px; 
+                right: 20px;
+                z-index: 9998;
+                width: 320px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                display: none;
+                opacity: 0;
+                transform: translateY(10px) scale(0.95);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+      <div style="padding: 20px; background: #25D366; color: white; border-radius: 12px 12px 0 0; display: flex; align-items: center; gap: 12px;">
+        <div style="width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M17.6 6.32A7.85 7.85 0 0 0 12 4.02a7.95 7.95 0 0 0-6.9 12.07L4 20.02l4.05-1.06A8.02 8.02 0 0 0 12 20.02a7.98 7.98 0 0 0 8-7.93c0-2.12-.83-4.12-2.4-5.62V6.32zm-5.6 12.2c-1.18 0-2.33-.32-3.33-.92l-.24-.14-2.47.65.66-2.41-.16-.25a6.63 6.63 0 0 1-1.02-3.52 6.57 6.57 0 0 1 11.29-4.57 6.45 6.45 0 0 1 2 4.55 6.57 6.57 0 0 1-6.57 6.57l-.16.04zm3.6-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.06-.31-.1-.44.1-.13.2-.5.64-.61.77-.11.13-.23.15-.42.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.24-.02-.34-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33-.11 0-.24-.02-.37-.02-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.62 0 .96.7 1.88.8 2 .1.14 1.4 2.16 3.42 3.02.48.2.85.33 1.14.43.48.15.91.13 1.26.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.08-.18-.12-.37-.21z"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight: 600; font-size: 16px;">Retail X Support</div>
+          <div style="font-size: 12px; opacity: 0.9;">Online now</div>
+        </div>
+        <button onclick="closeWhatsAppPopup()" 
+                style="margin-left: auto; background: none; border: none; color: white; font-size: 20px; cursor: pointer; padding: 4px; line-height: 1;">×</button>
+      </div>
+      <div style="padding: 20px; background: #f0f0f0;">
+        <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; color: #333;">
+          👋 Hi there! Welcome to Retail X. How can we help you build your website today?
+        </div>
+        <button onclick="handleWhatsAppChat()" 
+                style="width: 100%; 
+                       background: #25D366; 
+                       color: white; 
+                       border: none; 
+                       padding: 12px 20px; 
+                       border-radius: 8px; 
+                       font-size: 14px; 
+                       font-weight: 600; 
+                       cursor: pointer;
+                       transition: all 0.2s ease;
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       gap: 8px;"
+                onmouseover="this.style.background='#22C55E'"
+                onmouseout="this.style.background='#25D366'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+            <path d="M17.6 6.32A7.85 7.85 0 0 0 12 4.02a7.95 7.95 0 0 0-6.9 12.07L4 20.02l4.05-1.06A8.02 8.02 0 0 0 12 20.02a7.98 7.98 0 0 0 8-7.93c0-2.12-.83-4.12-2.4-5.62V6.32zm-5.6 12.2c-1.18 0-2.33-.32-3.33-.92l-.24-.14-2.47.65.66-2.41-.16-.25a6.63 6.63 0 0 1-1.02-3.52 6.57 6.57 0 0 1 11.29-4.57 6.45 6.45 0 0 1 2 4.55 6.57 6.57 0 0 1-6.57 6.57l-.16.04zm3.6-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.06-.31-.1-.44.1-.13.2-.5.64-.61.77-.11.13-.23.15-.42.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.24-.02-.34-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33-.11 0-.24-.02-.37-.02-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.62 0 .96.7 1.88.8 2 .1.14 1.4 2.16 3.42 3.02.48.2.85.33 1.14.43.48.15.91.13 1.26.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.08-.18-.12-.37-.21z"/>
+          </svg>
+          Start Chat
+        </button>
+      </div>
+    </div>
+
     <script>
       (function() {
         const widget = document.createElement('div');
         widget.innerHTML = `
           <div style="width: 60px; 
                       height: 60px; 
-                      background-color: #25D366; 
+                      background: linear-gradient(135deg, #25D366 0%, #22C55E 100%);
                       border-radius: 50%; 
                       display: flex; 
                       justify-content: center; 
                       align-items: center;
-                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
                       cursor: pointer;
-                      transition: transform 0.3s ease, box-shadow 0.3s ease;"
-               onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(0, 0, 0, 0.2)';"
-               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';"
-               onclick="handleWidgetClick()"
+                      position: relative;
+                      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                      animation: widgetPulse 2s infinite;"
+               onmouseover="this.style.transform='scale(1.1) translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(37, 211, 102, 0.4)';"
+               onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 4px 20px rgba(37, 211, 102, 0.3)';"
+               onclick="toggleWhatsAppPopup()"
                class="widgetify-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.6 6.32A7.85 7.85 0 0 0 12 4.02a7.95 7.95 0 0 0-6.9 12.07L4 20.02l4.05-1.06A8.02 8.02 0 0 0 12 20.02a7.98 7.98 0 0 0 8-7.93c0-2.12-.83-4.12-2.4-5.62V6.32zm-5.6 12.2c-1.18 0-2.33-.32-3.33-.92l-.24-.14-2.47.65.66-2.41-.16-.25a6.63 6.63 0 0 1-1.02-3.52 6.57 6.57 0 0 1 11.29-4.57 6.45 6.45 0 0 1 2 4.55 6.57 6.57 0 0 1-6.57 6.57l-.16.04zm3.6-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.06-.31-.1-.44.1-.13.2-.5.64-.61.77-.11.13-.23.15-.42.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.24-.02-.34-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33-.11 0-.24-.02-.37-.02-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.62 0 .96.7 1.88.8 2 .1.14 1.4 2.16 3.42 3.02.48.2.85.33 1.14.43.48.15.91.13 1.26.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.08-.18-.12-.37-.21z" fill="white"/>
-        </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6 6.32A7.85 7.85 0 0 0 12 4.02a7.95 7.95 0 0 0-6.9 12.07L4 20.02l4.05-1.06A8.02 8.02 0 0 0 12 20.02a7.98 7.98 0 0 0 8-7.93c0-2.12-.83-4.12-2.4-5.62V6.32zm-5.6 12.2c-1.18 0-2.33-.32-3.33-.92l-.24-.14-2.47.65.66-2.41-.16-.25a6.63 6.63 0 0 1-1.02-3.52 6.57 6.57 0 0 1 11.29-4.57 6.45 6.45 0 0 1 2 4.55 6.57 6.57 0 0 1-6.57 6.57l-.16.04zm3.6-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.06-.31-.1-.44.1-.13.2-.5.64-.61.77-.11.13-.23.15-.42.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.24-.02-.34-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33-.11 0-.24-.02-.37-.02-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.62 0 .96.7 1.88.8 2 .1.14 1.4 2.16 3.42 3.02.48.2.85.33 1.14.43.48.15.91.13 1.26.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.08-.18-.12-.37-.21z" fill="white"/>
+            </svg>
+            <div style="position: absolute; 
+                        top: -2px; 
+                        right: -2px; 
+                        width: 12px; 
+                        height: 12px; 
+                        background: #FF4444; 
+                        border-radius: 50%; 
+                        border: 2px solid white;
+                        animation: notificationPulse 1.5s infinite;"></div>
           </div>
         `;
 
         document.getElementById('widgetify-whatsapp').appendChild(widget);
 
-        window.handleWidgetClick = function() {
-          window.open('https://wa.me/919656778508?text=Hello!%20can%20you%20help%20me%20to%20building%20a%20Website%20today%20%3F', '_blank');
+        // Add keyframe animations
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes widgetPulse {
+            0%, 100% { 
+              box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3), 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            50% { 
+              box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3), 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+          }
+          
+          @keyframes notificationPulse {
+            0%, 100% { 
+              transform: scale(1);
+              opacity: 1;
+            }
+            50% { 
+              transform: scale(1.2);
+              opacity: 0.8;
+            }
+          }
+          
+          @keyframes slideInUp {
+            from {
+              opacity: 0;
+              transform: translateY(10px) scale(0.95);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+          
+          @keyframes slideOutDown {
+            from {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+            to {
+              opacity: 0;
+              transform: translateY(10px) scale(0.95);
+            }
+          }
+        `;
+        document.head.appendChild(style);
+
+        let isPopupOpen = false;
+
+        window.toggleWhatsAppPopup = function() {
+          const popup = document.getElementById('whatsapp-popup');
+          
+          if (!isPopupOpen) {
+            popup.style.display = 'block';
+            setTimeout(() => {
+              popup.style.opacity = '1';
+              popup.style.transform = 'translateY(0) scale(1)';
+            }, 10);
+            isPopupOpen = true;
+          } else {
+            popup.style.opacity = '0';
+            popup.style.transform = 'translateY(10px) scale(0.95)';
+            setTimeout(() => {
+              popup.style.display = 'none';
+            }, 300);
+            isPopupOpen = false;
+          }
         }
+
+        window.closeWhatsAppPopup = function() {
+          const popup = document.getElementById('whatsapp-popup');
+          popup.style.opacity = '0';
+          popup.style.transform = 'translateY(10px) scale(0.95)';
+          setTimeout(() => {
+            popup.style.display = 'none';
+          }, 300);
+          isPopupOpen = false;
+        }
+
+        window.handleWhatsAppChat = function() {
+          window.open('https://wa.me/919656778508?text=Hello!%20can%20you%20help%20me%20to%20building%20a%20Website%20today%20%3F', '_blank');
+          window.closeWhatsAppPopup();
+        }
+
+        window.handleWidgetClick = function() {
+          window.toggleWhatsAppPopup();
+        }
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(event) {
+          const popup = document.getElementById('whatsapp-popup');
+          const widget = document.getElementById('widgetify-whatsapp');
+          
+          if (isPopupOpen && !popup.contains(event.target) && !widget.contains(event.target)) {
+            window.closeWhatsAppPopup();
+          }
+        });
+
+        // Auto-show popup after 10 seconds (optional)
+        setTimeout(() => {
+          if (!isPopupOpen) {
+            window.toggleWhatsAppPopup();
+            
+            // Auto-close after 5 seconds
+            setTimeout(() => {
+              if (isPopupOpen) {
+                window.closeWhatsAppPopup();
+              }
+            }, 5000);
+          }
+        }, 10000);
       })();
     </script>
 
