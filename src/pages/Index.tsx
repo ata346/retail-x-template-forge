@@ -12,6 +12,7 @@ import CommunitySection from "@/components/CommunitySection";
 import CommunityJoinButton from "@/components/CommunityJoinButton";
 import DualPlatformSection from "@/components/DualPlatformSection";
 import StaticWebsiteExplanation from "@/components/StaticWebsiteExplanation";
+import OfferWidget from "@/components/OfferWidget";
 
 const Index = () => {
   const {
@@ -199,6 +200,11 @@ const Index = () => {
       {/* Enhanced Hero Section for static website focus */}
       <section aria-labelledby="hero-heading" className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
         <div className="container relative z-10 mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-0">
+          {/* Add OfferWidget at the top */}
+          <div className="mb-6 sm:mb-8">
+            <OfferWidget className="max-w-4xl mx-auto" />
+          </div>
+          
           <div className="max-w-3xl">
             <h1 id="hero-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 leading-tight">
               AI System for Static Websites & Static E-commerce
