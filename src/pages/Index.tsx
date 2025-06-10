@@ -12,6 +12,7 @@ import CommunitySection from "@/components/CommunitySection";
 import CommunityJoinButton from "@/components/CommunityJoinButton";
 import DualPlatformSection from "@/components/DualPlatformSection";
 import StaticWebsiteExplanation from "@/components/StaticWebsiteExplanation";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const Index = () => {
   const {
@@ -196,6 +197,11 @@ const Index = () => {
   }];
   return (
     <div className="flex flex-col min-h-screen">
+      {/* WhatsApp Widget - positioned at top */}
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3">
+        <WhatsAppWidget className="max-w-md mx-auto" />
+      </div>
+
       {/* Enhanced Hero Section for static website focus */}
       <section aria-labelledby="hero-heading" className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
         <div className="container relative z-10 mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-0">
