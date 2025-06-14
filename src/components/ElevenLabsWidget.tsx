@@ -23,14 +23,25 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
   }, []);
 
   return (
-    <div className={`elevenlabs-widget-container ${className}`}>
-      <div 
-        dangerouslySetInnerHTML={{
-          __html: '<elevenlabs-convai agent-id="agent_01jxh9kgtcev59ntdy90jcg59v"></elevenlabs-convai>'
-        }}
-      />
+    <div className={`relative bg-white rounded-xl shadow-lg border border-gray-200 p-6 ${className}`}>
+      {/* Header for the widget */}
+      <div className="mb-4 text-center">
+        <h3 className="text-lg font-semibold text-brand-purple mb-2">AI Assistant</h3>
+        <p className="text-sm text-gray-600">Chat with our AI assistant for instant help</p>
+      </div>
+      
+      {/* Widget container with natural styling */}
+      <div className="elevenlabs-widget-container rounded-lg overflow-hidden border border-gray-100">
+        <div 
+          dangerouslySetInnerHTML={{
+            __html: '<elevenlabs-convai agent-id="agent_01jxh9kgtcev59ntdy90jcg59v"></elevenlabs-convai>'
+          }}
+        />
+      </div>
+      
       <style dangerouslySetInnerHTML={{
         __html: `
+          /* Hide all watermarks and branding */
           .elevenlabs-widget-container [data-testid="watermark"],
           .elevenlabs-widget-container .watermark,
           .elevenlabs-widget-container *[class*="watermark"],
@@ -61,20 +72,50 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
             left: -9999px !important;
           }
           
-          /* Additional observer to remove dynamically added watermarks */
+          /* Style the widget to look natural */
           .elevenlabs-widget-container {
             position: relative;
+            min-height: 400px;
+            background: #fafafa;
+            border-radius: 8px;
           }
           
-          .elevenlabs-widget-container::after {
+          /* Style the embedded widget */
+          .elevenlabs-widget-container elevenlabs-convai {
+            width: 100% !important;
+            height: 400px !important;
+            border: none !important;
+            border-radius: 8px !important;
+            background: transparent !important;
+          }
+          
+          /* Override any iframe styling if present */
+          .elevenlabs-widget-container iframe {
+            width: 100% !important;
+            height: 400px !important;
+            border: none !important;
+            border-radius: 8px !important;
+            background: transparent !important;
+          }
+          
+          /* Additional styling for natural appearance */
+          .elevenlabs-widget-container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border-radius: 8px;
             pointer-events: none;
-            z-index: 1000;
+            z-index: 0;
+          }
+          
+          /* Ensure content is above the gradient */
+          .elevenlabs-widget-container > * {
+            position: relative;
+            z-index: 1;
           }
         `
       }} />
