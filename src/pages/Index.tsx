@@ -13,6 +13,7 @@ import CommunityJoinButton from "@/components/CommunityJoinButton";
 import DualPlatformSection from "@/components/DualPlatformSection";
 import StaticWebsiteExplanation from "@/components/StaticWebsiteExplanation";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import ElevenLabsWidget from "@/components/ElevenLabsWidget";
 
 const Index = () => {
   const {
@@ -197,9 +198,9 @@ const Index = () => {
   }];
   return (
     <div className="flex flex-col min-h-screen">
-      {/* WhatsApp Widget - positioned at top */}
+      {/* ElevenLabs Widget - positioned at top */}
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3">
-        <WhatsAppWidget className="max-w-md mx-auto" />
+        <ElevenLabsWidget className="max-w-md mx-auto" />
       </div>
 
       {/* Enhanced Hero Section for static website focus */}
