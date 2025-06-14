@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,7 +13,6 @@ import CommunitySection from "@/components/CommunitySection";
 import CommunityJoinButton from "@/components/CommunityJoinButton";
 import DualPlatformSection from "@/components/DualPlatformSection";
 import StaticWebsiteExplanation from "@/components/StaticWebsiteExplanation";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ElevenLabsWidget from "@/components/ElevenLabsWidget";
 
 const Index = () => {

@@ -24,18 +24,24 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
 
   return (
     <div className={`elevenlabs-widget-container ${className}`}>
-      <elevenlabs-convai agent-id="agent_01jxh9kgtcev59ntdy90jcg59v"></elevenlabs-convai>
-      <style jsx>{`
-        .elevenlabs-widget-container [data-testid="watermark"],
-        .elevenlabs-widget-container .watermark,
-        .elevenlabs-widget-container *[class*="watermark"],
-        .elevenlabs-widget-container *[class*="powered"],
-        .elevenlabs-widget-container *[contains(text(), "powered by ElevenLabs")] {
-          display: none !important;
-          visibility: hidden !important;
-          opacity: 0 !important;
-        }
-      `}</style>
+      <div 
+        dangerouslySetInnerHTML={{
+          __html: '<elevenlabs-convai agent-id="agent_01jxh9kgtcev59ntdy90jcg59v"></elevenlabs-convai>'
+        }}
+      />
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .elevenlabs-widget-container [data-testid="watermark"],
+          .elevenlabs-widget-container .watermark,
+          .elevenlabs-widget-container *[class*="watermark"],
+          .elevenlabs-widget-container *[class*="powered"],
+          .elevenlabs-widget-container *[contains(text(), "powered by ElevenLabs")] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+          }
+        `
+      }} />
     </div>
   );
 };
