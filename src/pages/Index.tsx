@@ -38,7 +38,12 @@ const Index = () => {
     setMetaKeywords(['primary', 'secondary', 'longTail', 'features', 'business']);
 
     // Enhanced social media tags
-    setSocialMetaTags("Retail X - AI System for Static Websites & Static E-commerce", "Retail X is an AI system that builds static websites and static e-commerce websites with advanced automation and SEO optimization.", "/lovable-uploads/f6a19bd5-5b25-47bb-9a9c-e9531f6650ce.png", officialLinks.website);
+    setSocialMetaTags(
+      "Retail X - AI System for Static Websites & Static E-commerce", 
+      "Retail X is an AI system that builds static websites and static e-commerce websites with advanced automation and SEO optimization.", 
+      "/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png", 
+      officialLinks.website
+    );
 
     // Enhanced structured data for static website focus
     injectStructuredData(structuredData.organization());
