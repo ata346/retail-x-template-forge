@@ -53,7 +53,6 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
   // Toggle mute functionality
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    // You can add actual mute functionality here when ElevenLabs API supports it
     toast({
       title: isMuted ? "Audio Enabled" : "Audio Muted",
       description: isMuted ? "You can now hear the AI assistant." : "AI assistant audio is muted.",
@@ -207,23 +206,34 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
       
       <style dangerouslySetInnerHTML={{
         __html: `
-          /* Enhanced watermark removal with more selectors */
-          .elevenlabs-widget-container [data-testid="watermark"],
-          .elevenlabs-widget-container .watermark,
-          .elevenlabs-widget-container *[class*="watermark" i],
-          .elevenlabs-widget-container *[class*="powered" i],
-          .elevenlabs-widget-container *[class*="branding" i],
-          .elevenlabs-widget-container *[class*="logo" i],
-          .elevenlabs-widget-container *[class*="attribution" i],
+          /* Comprehensive watermark removal with aggressive targeting */
+          .elevenlabs-widget-container [data-testid*="watermark" i],
+          .elevenlabs-widget-container [class*="watermark" i],
+          .elevenlabs-widget-container [id*="watermark" i],
+          .elevenlabs-widget-container [class*="powered" i],
+          .elevenlabs-widget-container [class*="branding" i],
+          .elevenlabs-widget-container [class*="logo" i],
+          .elevenlabs-widget-container [class*="attribution" i],
+          .elevenlabs-widget-container [class*="footer" i],
+          .elevenlabs-widget-container [class*="credit" i],
           .elevenlabs-widget-container a[href*="elevenlabs" i],
+          .elevenlabs-widget-container a[href*="11labs" i],
           .elevenlabs-widget-container *:contains("powered by"),
           .elevenlabs-widget-container *:contains("ElevenLabs"),
           .elevenlabs-widget-container *:contains("Conversational AI"),
+          .elevenlabs-widget-container *:contains("11labs"),
           .elevenlabs-widget-container small,
+          .elevenlabs-widget-container footer,
+          .elevenlabs-widget-container [role="contentinfo"],
           .elevenlabs-widget-container [style*="position: absolute"][style*="bottom"],
           .elevenlabs-widget-container [style*="position: fixed"][style*="bottom"],
-          .elevenlabs-widget-container footer,
-          .elevenlabs-widget-container [role="contentinfo"] {
+          .elevenlabs-widget-container [style*="z-index"][style*="999"],
+          .elevenlabs-widget-container div[style*="font-size: 10px"],
+          .elevenlabs-widget-container div[style*="font-size: 11px"],
+          .elevenlabs-widget-container div[style*="font-size: 12px"][style*="opacity"],
+          .elevenlabs-widget-container span[style*="font-size: 10px"],
+          .elevenlabs-widget-container span[style*="font-size: 11px"],
+          .elevenlabs-widget-container span[style*="font-size: 12px"][style*="opacity"] {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
@@ -232,7 +242,17 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
             overflow: hidden !important;
             position: absolute !important;
             left: -9999px !important;
+            top: -9999px !important;
             z-index: -1 !important;
+            pointer-events: none !important;
+            user-select: none !important;
+          }
+          
+          /* Additional aggressive watermark removal */
+          .elevenlabs-widget-container *[style*="text-align: center"][style*="font-size"],
+          .elevenlabs-widget-container *[style*="text-align: right"][style*="font-size"],
+          .elevenlabs-widget-container div:last-child:not(:first-child) {
+            display: none !important;
           }
           
           /* Enhanced widget styling with protective design */
@@ -242,6 +262,7 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
             background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
             border-radius: 8px;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
           }
           
           /* Enhanced embedded widget styling */
@@ -252,6 +273,7 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
             border-radius: 8px !important;
             background: transparent !important;
             box-shadow: none !important;
+            display: block !important;
           }
           
           /* Enhanced iframe protection */
@@ -265,18 +287,17 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
             pointer-events: auto !important;
           }
           
-          /* Protective overlay gradient */
-          .elevenlabs-widget-container::before {
+          /* Protective overlay to prevent watermark injection */
+          .elevenlabs-widget-container::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(236, 72, 153, 0.03) 100%);
-            border-radius: 8px;
+            height: 30px;
+            background: linear-gradient(to top, #fafafa, transparent);
             pointer-events: none;
-            z-index: 0;
+            z-index: 100;
           }
           
           /* Content layer protection */
@@ -285,14 +306,27 @@ const ElevenLabsWidget: React.FC<ElevenLabsWidgetProps> = ({ className = "" }) =
             z-index: 1;
           }
           
-          /* Additional protection against dynamic content */
+          /* Enhanced protection against dynamic watermark injection */
           .elevenlabs-widget-container * {
             font-family: inherit !important;
+          }
+          
+          /* Block any text that might be watermarks */
+          .elevenlabs-widget-container *:before,
+          .elevenlabs-widget-container *:after {
+            display: none !important;
           }
           
           /* Hover effects for better interactivity */
           .elevenlabs-widget-container:hover {
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+          }
+          
+          /* Force hide any remaining watermark elements */
+          .elevenlabs-widget-container [style*="position"][style*="bottom"][style*="right"],
+          .elevenlabs-widget-container [style*="position"][style*="bottom"][style*="left"],
+          .elevenlabs-widget-container [style*="position"][style*="bottom"][style*="center"] {
+            display: none !important;
           }
         `
       }} />
