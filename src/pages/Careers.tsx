@@ -38,7 +38,7 @@ const Careers = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                   <div>
                     <h3 className="text-xl font-semibold text-brand-purple">Telecaller (Cold Caller) – Freelance</h3>
-                    <p className="text-gray-500 mt-1">5 Openings</p>
+                    <p className="text-gray-500 mt-1">25 Openings</p>
                   </div>
                   <div className="flex gap-2 flex-wrap">
                     <span className="bg-brand-purple/10 text-brand-purple px-3 py-1 rounded-full text-sm font-medium">
