@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { siteConfig } from '@/config/site';
 import { Icons } from './icons';
+import { ThemeSelector } from './ThemeSelector';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -90,7 +91,14 @@ const Navbar = () => {
         </NavigationMenu>
 
         {/* Spacer for mobile to balance the hamburger menu */}
-        <div className="w-9 sm:w-10 lg:hidden"></div>
+        <div className="w-9 sm:w-10 lg:hidden flex justify-end">
+          <ThemeSelector />
+        </div>
+
+        {/* Desktop Theme Selector */}
+        <div className="hidden lg:block">
+          <ThemeSelector />
+        </div>
 
       </div>
     </div>

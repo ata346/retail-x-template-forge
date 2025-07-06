@@ -8,34 +8,24 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 275 76% 17%;
-
     --card: 0 0% 100%;
     --card-foreground: 275 76% 17%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 275 76% 17%;
-
     --primary: 275 76% 17%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 12 100% 83%;
     --secondary-foreground: 275 76% 17%;
-
     --muted: 270 20% 96%;
     --muted-foreground: 275 40% 30%;
-
     --accent: 0 85% 70%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 270 20% 90%;
     --input: 270 20% 90%;
     --ring: 275 76% 30%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 275 76% 17%;
     --sidebar-primary: 275 76% 17%;
@@ -44,6 +34,78 @@
     --sidebar-accent-foreground: 275 76% 17%;
     --sidebar-border: 270 20% 90%;
     --sidebar-ring: 275 76% 30%;
+  }
+
+  /* Sketch Theme */
+  [data-theme="sketch"] {
+    --background: 0 0% 95%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 250 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 271 76% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 271 76% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 0%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 0%;
+    --radius: 1rem;
+  }
+
+  /* Colorful Theme */
+  [data-theme="colorful"] {
+    --background: 253 61% 85%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 3 87% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 53% 73%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 3 87% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 100%;
+    --ring: 3 87% 67%;
+    --radius: 1rem;
+  }
+
+  /* Dark Neon Theme */
+  [data-theme="dark-neon"] {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 151 100% 45%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 189 100% 60%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 189 100% 60%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 10%;
+    --ring: 151 100% 45%;
+    --radius: 0.5rem;
   }
 }
 
@@ -221,6 +283,36 @@
   /* Performance optimized components */
   .performance-optimized {
     @apply will-change-transform transform-gpu;
+  }
+
+  /* Theme-specific styles */
+  [data-theme="sketch"] .sketch-card {
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px 0px black;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  [data-theme="sketch"] .sketch-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px black;
+  }
+
+  [data-theme="sketch"] .sketch-button {
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px 0px black;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  [data-theme="sketch"] .sketch-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px black;
+  }
+
+  [data-theme="sketch"] body {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
 
