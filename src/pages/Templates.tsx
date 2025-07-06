@@ -6,10 +6,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Store, Search, X } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Templates = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   // Template categories
   const categories = [
@@ -180,8 +184,44 @@ const Templates = () => {
     });
   };
 
-  const handleTemplateSelect = (templateId: number) => {
-    navigate(`/design-requirements/${templateId}`);
+  const handleTemplateSelect = async (templateId: number) => {
+    const { user } = useAuth();
+    
+    if (!user) {
+      navigate('/auth');
+      return;
+    }
+
+    try {
+      // Create a new store with the selected template
+      const { data, error } = await supabase
+        .from('stores')
+        .insert({
+          user_id: user.id,
+          name: `My Store ${Date.now()}`,
+          template_id: templateId,
+          configuration: {},
+          content: {},
+        })
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      toast({
+        title: "Store created!",
+        description: "Your new store has been created successfully.",
+      });
+
+      navigate(`/store-builder/${data.id}`);
+    } catch (error) {
+      console.error('Error creating store:', error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to create store. Please try again.",
+      });
+    }
   };
 
   return (

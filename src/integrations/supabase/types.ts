@@ -9,7 +9,193 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      deployments: {
+        Row: {
+          created_at: string | null
+          deployment_url: string
+          id: string
+          status: string | null
+          store_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          deployment_url: string
+          id?: string
+          status?: string | null
+          store_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          deployment_url?: string
+          id?: string
+          status?: string | null
+          store_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deployments_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          email: string
+          full_name: string | null
+          id: string
+          role: string | null
+          subscription_active: boolean | null
+          subscription_tier: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          subscription_active?: boolean | null
+          subscription_tier?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          subscription_active?: boolean | null
+          subscription_tier?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      store_assets: {
+        Row: {
+          created_at: string | null
+          file_name: string
+          file_path: string
+          file_size: number | null
+          file_type: string
+          id: string
+          store_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          file_name: string
+          file_path: string
+          file_size?: number | null
+          file_type: string
+          id?: string
+          store_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          file_name?: string
+          file_path?: string
+          file_size?: number | null
+          file_type?: string
+          id?: string
+          store_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "store_assets_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      store_templates: {
+        Row: {
+          category: string
+          configuration: Json | null
+          created_at: string | null
+          description: string | null
+          id: number
+          image_url: string | null
+          is_premium: boolean | null
+          name: string
+        }
+        Insert: {
+          category: string
+          configuration?: Json | null
+          created_at?: string | null
+          description?: string | null
+          id?: number
+          image_url?: string | null
+          is_premium?: boolean | null
+          name: string
+        }
+        Update: {
+          category?: string
+          configuration?: Json | null
+          created_at?: string | null
+          description?: string | null
+          id?: number
+          image_url?: string | null
+          is_premium?: boolean | null
+          name?: string
+        }
+        Relationships: []
+      }
+      stores: {
+        Row: {
+          configuration: Json | null
+          content: Json | null
+          created_at: string | null
+          custom_domain: string | null
+          id: string
+          is_published: boolean | null
+          name: string
+          subdomain: string | null
+          template_id: number | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          configuration?: Json | null
+          content?: Json | null
+          created_at?: string | null
+          custom_domain?: string | null
+          id?: string
+          is_published?: boolean | null
+          name: string
+          subdomain?: string | null
+          template_id?: number | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          configuration?: Json | null
+          content?: Json | null
+          created_at?: string | null
+          custom_domain?: string | null
+          id?: string
+          is_published?: boolean | null
+          name?: string
+          subdomain?: string | null
+          template_id?: number | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
