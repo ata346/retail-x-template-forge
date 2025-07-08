@@ -41,6 +41,7 @@ const StoreBuilder = () => {
   const [storeDescription, setStoreDescription] = useState('');
   const [primaryColor, setPrimaryColor] = useState('#3b82f6');
   const [logoUrl, setLogoUrl] = useState('');
+  const [selectedTheme, setSelectedTheme] = useState('default');
 
   useEffect(() => {
     if (!user) {
@@ -70,6 +71,7 @@ const StoreBuilder = () => {
       setStoreDescription((data.content as any)?.description || '');
       setPrimaryColor((data.configuration as any)?.primaryColor || '#3b82f6');
       setLogoUrl((data.content as any)?.logoUrl || '');
+      setSelectedTheme((data.configuration as any)?.theme || 'default');
     } catch (error) {
       console.error('Error fetching store:', error);
       toast({
@@ -97,6 +99,7 @@ const StoreBuilder = () => {
           configuration: {
             ...store.configuration,
             primaryColor,
+            theme: selectedTheme,
           },
           content: {
             ...store.content,
@@ -348,52 +351,85 @@ const StoreBuilder = () => {
                   Customize the look and feel of your store
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="logo-upload">Store Logo</Label>
-                  <div className="flex items-center gap-4">
-                    {logoUrl && (
-                      <img 
-                        src={logoUrl} 
-                        alt="Store logo" 
-                        className="w-16 h-16 object-cover rounded-md border"
-                      />
-                    )}
-                    <div>
-                      <Input
-                        id="logo-upload"
-                        type="file"
-                        accept="image/*"
-                        onChange={handleFileUpload}
-                        className="hidden"
-                      />
-                      <Button 
-                        variant="outline" 
-                        onClick={() => document.getElementById('logo-upload')?.click()}
-                      >
-                        <Upload className="h-4 w-4 mr-2" />
-                        Upload Logo
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="primary-color">Primary Color</Label>
-                  <div className="flex items-center gap-4">
-                    <Input
-                      id="primary-color"
-                      type="color"
-                      value={primaryColor}
-                      onChange={(e) => setPrimaryColor(e.target.value)}
-                      className="w-16 h-10"
-                    />
-                    <Input
-                      value={primaryColor}
-                      onChange={(e) => setPrimaryColor(e.target.value)}
-                      placeholder="#3b82f6"
-                    />
-                  </div>
-                </div>
+               <CardContent className="space-y-6">
+                 <div className="space-y-2">
+                   <Label htmlFor="theme-selector">Store Theme</Label>
+                   <div className="space-y-3">
+                     <div className="grid grid-cols-2 gap-3">
+                       {[
+                         { value: 'default', label: 'Default', preview: 'bg-gradient-to-r from-purple-900 to-pink-600' },
+                         { value: 'sketch', label: 'Sketch', preview: 'bg-gray-200 border-2 border-black' },
+                         { value: 'colorful', label: 'Colorful', preview: 'bg-gradient-to-r from-purple-300 via-red-400 to-green-300' },
+                         { value: 'dark-neon', label: 'Dark Neon', preview: 'bg-gradient-to-r from-black via-green-400 to-cyan-400' },
+                       ].map((theme) => (
+                         <div
+                           key={theme.value}
+                           className={`cursor-pointer p-3 rounded-lg border-2 transition-all ${
+                             selectedTheme === theme.value
+                               ? 'border-primary bg-primary/5'
+                               : 'border-border hover:border-primary/50'
+                           }`}
+                           onClick={() => setSelectedTheme(theme.value)}
+                         >
+                           <div className={`w-full h-8 rounded-md mb-2 ${theme.preview}`} />
+                           <p className="text-sm font-medium text-center">{theme.label}</p>
+                           {selectedTheme === theme.value && (
+                             <div className="text-center mt-1">
+                               <span className="text-xs text-primary">✓ Selected</span>
+                             </div>
+                           )}
+                         </div>
+                       ))}
+                     </div>
+                   </div>
+                 </div>
+                 
+                 <div className="space-y-2">
+                   <Label htmlFor="logo-upload">Store Logo</Label>
+                   <div className="flex items-center gap-4">
+                     {logoUrl && (
+                       <img 
+                         src={logoUrl} 
+                         alt="Store logo" 
+                         className="w-16 h-16 object-cover rounded-md border"
+                       />
+                     )}
+                     <div>
+                       <Input
+                         id="logo-upload"
+                         type="file"
+                         accept="image/*"
+                         onChange={handleFileUpload}
+                         className="hidden"
+                       />
+                       <Button 
+                         variant="outline" 
+                         onClick={() => document.getElementById('logo-upload')?.click()}
+                       >
+                         <Upload className="h-4 w-4 mr-2" />
+                         Upload Logo
+                       </Button>
+                     </div>
+                   </div>
+                 </div>
+                 
+                 <div className="space-y-2">
+                   <Label htmlFor="primary-color">Primary Color</Label>
+                   <div className="flex items-center gap-4">
+                     <Input
+                       id="primary-color"
+                       type="color"
+                       value={primaryColor}
+                       onChange={(e) => setPrimaryColor(e.target.value)}
+                       className="w-16 h-10"
+                     />
+                     <Input
+                       value={primaryColor}
+                       onChange={(e) => setPrimaryColor(e.target.value)}
+                       placeholder="#3b82f6"
+                     />
+                   </div>
+                 </div>
               </CardContent>
             </Card>
           </TabsContent>
