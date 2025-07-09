@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
-import { ArrowLeft, Save, Globe, Upload, Settings, Palette } from 'lucide-react';
+import { ArrowLeft, Save, Globe, Upload, Settings, Palette, Package } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -290,10 +290,12 @@ const StoreBuilder = () => {
 
       <div className="container mx-auto px-4 py-8">
         <Tabs defaultValue="general" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="general">General</TabsTrigger>
             <TabsTrigger value="design">Design</TabsTrigger>
             <TabsTrigger value="content">Content</TabsTrigger>
+            <TabsTrigger value="products">Products</TabsTrigger>
+            <TabsTrigger value="integrations">Integrations</TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
 
@@ -452,6 +454,65 @@ const StoreBuilder = () => {
                     placeholder="Describe your store and what you sell..."
                     rows={4}
                   />
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="products">
+            <Card>
+              <CardHeader>
+                <CardTitle>Product Management</CardTitle>
+                <CardDescription>
+                  Manage your store's product catalog
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex gap-4">
+                  <Button onClick={() => navigate(`/products/${storeId}`)}>
+                    <Package className="h-4 w-4 mr-2" />
+                    Manage Products
+                  </Button>
+                  <Button variant="outline" onClick={() => navigate(`/orders/${storeId}`)}>
+                    <Settings className="h-4 w-4 mr-2" />
+                    View Orders
+                  </Button>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Add, edit, and organize your products. Manage inventory and pricing.
+                </p>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="integrations">
+            <Card>
+              <CardHeader>
+                <CardTitle>Integrations</CardTitle>
+                <CardDescription>
+                  Configure payment gateways and third-party integrations
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex gap-4">
+                  <Button onClick={() => navigate(`/store-settings/${storeId}`)}>
+                    <Settings className="h-4 w-4 mr-2" />
+                    Store Settings
+                  </Button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-4 border rounded-lg">
+                    <h4 className="font-semibold mb-2">Razorpay Payment</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Accept online payments securely with Razorpay
+                    </p>
+                  </div>
+                  <div className="p-4 border rounded-lg">
+                    <h4 className="font-semibold mb-2">WhatsApp Integration</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Add WhatsApp chat widget for customer support
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>

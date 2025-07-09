@@ -46,6 +46,151 @@ export type Database = {
           },
         ]
       }
+      orders: {
+        Row: {
+          created_at: string
+          customer_address: Json | null
+          customer_email: string
+          customer_name: string
+          customer_phone: string | null
+          id: string
+          items: Json
+          notes: string | null
+          order_number: string
+          payment_id: string | null
+          payment_status: string | null
+          shipping_amount: number | null
+          status: string | null
+          store_id: string
+          subtotal: number
+          tax_amount: number | null
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_address?: Json | null
+          customer_email: string
+          customer_name: string
+          customer_phone?: string | null
+          id?: string
+          items: Json
+          notes?: string | null
+          order_number: string
+          payment_id?: string | null
+          payment_status?: string | null
+          shipping_amount?: number | null
+          status?: string | null
+          store_id: string
+          subtotal: number
+          tax_amount?: number | null
+          total_amount: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_address?: Json | null
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string | null
+          id?: string
+          items?: Json
+          notes?: string | null
+          order_number?: string
+          payment_id?: string | null
+          payment_status?: string | null
+          shipping_amount?: number | null
+          status?: string | null
+          store_id?: string
+          subtotal?: number
+          tax_amount?: number | null
+          total_amount?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          category: string | null
+          compare_at_price: number | null
+          created_at: string
+          description: string | null
+          dimensions: Json | null
+          id: string
+          images: string[] | null
+          inventory_quantity: number | null
+          name: string
+          price: number
+          seo_description: string | null
+          seo_title: string | null
+          sku: string | null
+          status: string | null
+          store_id: string
+          tags: string[] | null
+          track_inventory: boolean | null
+          updated_at: string
+          weight: number | null
+        }
+        Insert: {
+          category?: string | null
+          compare_at_price?: number | null
+          created_at?: string
+          description?: string | null
+          dimensions?: Json | null
+          id?: string
+          images?: string[] | null
+          inventory_quantity?: number | null
+          name: string
+          price: number
+          seo_description?: string | null
+          seo_title?: string | null
+          sku?: string | null
+          status?: string | null
+          store_id: string
+          tags?: string[] | null
+          track_inventory?: boolean | null
+          updated_at?: string
+          weight?: number | null
+        }
+        Update: {
+          category?: string | null
+          compare_at_price?: number | null
+          created_at?: string
+          description?: string | null
+          dimensions?: Json | null
+          id?: string
+          images?: string[] | null
+          inventory_quantity?: number | null
+          name?: string
+          price?: number
+          seo_description?: string | null
+          seo_title?: string | null
+          sku?: string | null
+          status?: string | null
+          store_id?: string
+          tags?: string[] | null
+          track_inventory?: boolean | null
+          updated_at?: string
+          weight?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -121,6 +266,68 @@ export type Database = {
             foreignKeyName: "store_assets_store_id_fkey"
             columns: ["store_id"]
             isOneToOne: false
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      store_settings: {
+        Row: {
+          analytics_id: string | null
+          created_at: string
+          currency: string | null
+          custom_css: string | null
+          free_shipping_threshold: number | null
+          id: string
+          razorpay_key_id: string | null
+          razorpay_key_secret: string | null
+          shipping_rate: number | null
+          store_id: string
+          tax_rate: number | null
+          updated_at: string
+          whatsapp_enabled: boolean | null
+          whatsapp_message: string | null
+          whatsapp_number: string | null
+        }
+        Insert: {
+          analytics_id?: string | null
+          created_at?: string
+          currency?: string | null
+          custom_css?: string | null
+          free_shipping_threshold?: number | null
+          id?: string
+          razorpay_key_id?: string | null
+          razorpay_key_secret?: string | null
+          shipping_rate?: number | null
+          store_id: string
+          tax_rate?: number | null
+          updated_at?: string
+          whatsapp_enabled?: boolean | null
+          whatsapp_message?: string | null
+          whatsapp_number?: string | null
+        }
+        Update: {
+          analytics_id?: string | null
+          created_at?: string
+          currency?: string | null
+          custom_css?: string | null
+          free_shipping_threshold?: number | null
+          id?: string
+          razorpay_key_id?: string | null
+          razorpay_key_secret?: string | null
+          shipping_rate?: number | null
+          store_id?: string
+          tax_rate?: number | null
+          updated_at?: string
+          whatsapp_enabled?: boolean | null
+          whatsapp_message?: string | null
+          whatsapp_number?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "store_settings_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: true
             referencedRelation: "stores"
             referencedColumns: ["id"]
           },

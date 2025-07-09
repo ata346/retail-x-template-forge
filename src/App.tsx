@@ -20,6 +20,9 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import StoreBuilder from "./pages/StoreBuilder";
 import AdminPanel from "./pages/AdminPanel";
+import ProductManager from "./pages/ProductManager";
+import StoreSettings from "./pages/StoreSettings";
+import OrderManager from "./pages/OrderManager";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ViewportOptimizer from "./components/ViewportOptimizer";
 import { ProgressProvider } from "./contexts/ProgressContext";
@@ -76,6 +79,9 @@ const App = () => {
                       <Route path="/dashboard" element={<Dashboard />} />
                       <Route path="/store-builder/:storeId" element={<StoreBuilder />} />
                       <Route path="/admin" element={<AdminPanel />} />
+                      <Route path="/products/:storeId" element={<ProductManager />} />
+                      <Route path="/store-settings/:storeId" element={<StoreSettings />} />
+                      <Route path="/orders/:storeId" element={<OrderManager />} />
                       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                       <Route path="*" element={<NotFound />} />
                     </Routes>
