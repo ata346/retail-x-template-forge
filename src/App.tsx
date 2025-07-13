@@ -23,6 +23,7 @@ import AdminPanel from "./pages/AdminPanel";
 import ProductManager from "./pages/ProductManager";
 import StoreSettings from "./pages/StoreSettings";
 import OrderManager from "./pages/OrderManager";
+import StoreFrontend from "./pages/StoreFrontend";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ViewportOptimizer from "./components/ViewportOptimizer";
 import { ProgressProvider } from "./contexts/ProgressContext";
@@ -82,6 +83,7 @@ const App = () => {
                       <Route path="/products/:storeId" element={<ProductManager />} />
                       <Route path="/store-settings/:storeId" element={<StoreSettings />} />
                       <Route path="/orders/:storeId" element={<OrderManager />} />
+                      <Route path="/store/:storeId" element={<StoreFrontend />} />
                       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                       <Route path="*" element={<NotFound />} />
                     </Routes>

@@ -194,14 +194,16 @@ const Templates = () => {
 
     try {
       // Create a new store with the selected template
+      const templateName = allTemplates.find(t => t.id === templateId)?.name || 'My Store';
+      
       const { data, error } = await supabase
         .from('stores')
         .insert({
           user_id: user.id,
-          name: `My Store ${Date.now()}`,
+          name: `${templateName} Store`,
           template_id: templateId,
-          configuration: {},
-          content: {},
+          configuration: { theme: 'default' },
+          content: { description: 'Welcome to my store' },
         })
         .select()
         .single();

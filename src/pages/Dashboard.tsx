@@ -194,15 +194,13 @@ const Dashboard = () => {
                       <Settings className="h-4 w-4 mr-2" />
                       Edit
                     </Button>
-                    {store.is_published && (
-                      <Button 
-                        variant="outline"
-                        onClick={() => window.open(`https://${store.subdomain}.retailx.app`, '_blank')}
-                      >
-                        <Globe className="h-4 w-4 mr-2" />
-                        View
-                      </Button>
-                    )}
+                    <Button 
+                      variant="outline"
+                      onClick={() => window.open(`/store/${store.id}`, '_blank')}
+                    >
+                      <Globe className="h-4 w-4 mr-2" />
+                      {store.is_published ? 'View Live' : 'Preview'}
+                    </Button>
                   </div>
                 </CardContent>
               </Card>

@@ -5,9 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Textarea } from '@/components/ui/textarea';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { ShoppingCart, Plus, Minus, Phone, Mail, MapPin } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
@@ -79,12 +78,11 @@ const StoreFrontend = () => {
 
   const fetchStoreData = async () => {
     try {
-      // Fetch store details
+      // Fetch store details (allow both published and unpublished for demo)
       const { data: storeData, error: storeError } = await supabase
         .from('stores')
         .select('*')
         .eq('id', storeId)
-        .eq('is_published', true)
         .single();
 
       if (storeError) throw new Error('Store not found');
@@ -109,10 +107,28 @@ const StoreFrontend = () => {
         .single();
 
       if (settingsError && settingsError.code !== 'PGRST116') {
-        throw settingsError;
+        // Create default settings if none exist
+        const defaultSettings = {
+          store_id: storeId,
+          currency: 'INR',
+          tax_rate: 0,
+          shipping_rate: 0,
+          whatsapp_enabled: false,
+          whatsapp_message: "Hi! I'm interested in your products."
+        };
+        
+        const { data: newSettings, error: createError } = await supabase
+          .from('store_settings')
+          .insert(defaultSettings)
+          .select()
+          .single();
+          
+        if (!createError) {
+          setSettings(newSettings);
+        }
+      } else {
+        setSettings(settingsData);
       }
-      
-      setSettings(settingsData);
 
     } catch (error) {
       console.error('Error fetching store data:', error);
@@ -170,89 +186,73 @@ const StoreFrontend = () => {
     };
   };
 
-  const handleCheckout = async () => {
-    if (!settings?.razorpay_key_id) {
+  const handleWhatsAppOrder = () => {
+    if (!settings?.whatsapp_enabled || !settings?.whatsapp_number) {
       toast({
         variant: "destructive",
-        title: "Payment not available",
-        description: "Online payment is not configured for this store",
+        title: "WhatsApp not available",
+        description: "WhatsApp ordering is not configured for this store",
       });
       return;
     }
 
-    try {
-      const orderData = {
-        customerInfo,
-        items: cart.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      };
+    const orderText = cart.map(item => 
+      `${item.name} - Qty: ${item.quantity} - ₹${item.price * item.quantity}`
+    ).join('\n');
+    
+    const totals = getCartTotal();
+    const message = `${settings.whatsapp_message}\n\nOrder Details:\n${orderText}\n\nTotal: ₹${totals.total.toFixed(2)}`;
+    
+    const whatsappUrl = `https://wa.me/${settings.whatsapp_number}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
-      const { data, error } = await supabase.functions.invoke('create-payment', {
-        body: { orderData, storeId }
-      });
+  const handleCheckout = async () => {
+    try {
+      const totals = getCartTotal();
+      const orderId = `ORD-${Date.now()}`;
+      
+      // Create order record
+      const { error } = await supabase
+        .from('orders')
+        .insert({
+          store_id: storeId,
+          order_number: orderId,
+          customer_name: customerInfo.name,
+          customer_email: customerInfo.email,
+          customer_phone: customerInfo.phone,
+          customer_address: customerInfo.address,
+          items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity
+          })),
+          subtotal: totals.subtotal,
+          tax_amount: totals.tax,
+          shipping_amount: totals.shipping,
+          total_amount: totals.total,
+          payment_status: 'pending',
+          status: 'confirmed'
+        });
 
       if (error) throw error;
 
-      // Initialize Razorpay
-      const options = {
-        key: data.keyId,
-        amount: Math.round(data.amount * 100),
-        currency: data.currency,
-        order_id: data.razorpayOrderId,
-        name: store?.name,
-        description: 'Order Payment',
-        handler: async (response: any) => {
-          try {
-            const { error: verifyError } = await supabase.functions.invoke('verify-payment', {
-              body: {
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_signature: response.razorpay_signature,
-                orderId: data.orderId
-              }
-            });
-
-            if (verifyError) throw verifyError;
-
-            toast({
-              title: "Payment successful",
-              description: "Your order has been placed successfully",
-            });
-            
-            setCart([]);
-            setShowCheckout(false);
-            setShowCart(false);
-            
-          } catch (error) {
-            console.error('Payment verification failed:', error);
-            toast({
-              variant: "destructive",
-              title: "Payment verification failed",
-              description: "Please contact support",
-            });
-          }
-        },
-        prefill: {
-          name: customerInfo.name,
-          email: customerInfo.email,
-          contact: customerInfo.phone
-        }
-      };
-
-      // @ts-ignore - Razorpay is loaded externally
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
+      toast({
+        title: "Order placed successfully!",
+        description: `Order #${orderId} has been created`,
+      });
+      
+      setCart([]);
+      setShowCheckout(false);
+      setShowCart(false);
 
     } catch (error) {
       console.error('Checkout error:', error);
       toast({
         variant: "destructive",
         title: "Checkout failed",
-        description: "Failed to process your order",
+        description: "Please try again or contact support",
       });
     }
   };
@@ -262,13 +262,13 @@ const StoreFrontend = () => {
     
     switch (theme) {
       case 'sketch':
-        return 'sketch-theme';
+        return 'bg-gray-50 text-gray-900';
       case 'colorful':
-        return 'colorful-theme';
+        return 'bg-gradient-to-br from-purple-50 to-pink-50';
       case 'dark-neon':
-        return 'dark-neon-theme';
+        return 'bg-gray-900 text-green-400';
       default:
-        return 'default-theme';
+        return 'bg-background';
     }
   };
 
@@ -288,7 +288,7 @@ const StoreFrontend = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Store not found</h1>
-          <p className="text-muted-foreground">This store is not available or has been unpublished.</p>
+          <p className="text-muted-foreground">This store is not available.</p>
         </div>
       </div>
     );
@@ -297,12 +297,19 @@ const StoreFrontend = () => {
   const totals = getCartTotal();
 
   return (
-    <div className={`min-h-screen bg-background ${applyThemeStyles()}`}>
+    <div className={`min-h-screen ${applyThemeStyles()}`}>
       {/* Header */}
-      <header className="bg-primary text-primary-foreground py-6">
+      <header className="bg-primary text-primary-foreground py-6 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div>
+              {store.content?.logoUrl && (
+                <img 
+                  src={store.content.logoUrl} 
+                  alt={`${store.name} logo`}
+                  className="h-12 w-auto mb-2"
+                />
+              )}
               <h1 className="text-3xl font-bold">{store.name}</h1>
               {store.content?.description && (
                 <p className="text-primary-foreground/80 mt-2">{store.content.description}</p>
@@ -328,42 +335,45 @@ const StoreFrontend = () => {
             <p className="text-muted-foreground">This store doesn't have any products yet.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product) => (
-              <Card key={product.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg">{product.name}</CardTitle>
-                  {product.category && (
-                    <Badge variant="outline">{product.category}</Badge>
-                  )}
-                </CardHeader>
-                <CardContent>
-                  {product.description && (
-                    <CardDescription className="mb-4 line-clamp-2">
-                      {product.description}
-                    </CardDescription>
-                  )}
-                  
-                  <div className="flex justify-between items-center mb-4">
-                    <div>
-                      <span className="text-xl font-bold">
-                        {settings?.currency === 'USD' ? '$' : '₹'}{product.price}
-                      </span>
-                      {product.compare_at_price && (
-                        <span className="text-sm text-muted-foreground line-through ml-2">
-                          {settings?.currency === 'USD' ? '$' : '₹'}{product.compare_at_price}
+          <>
+            <h2 className="text-2xl font-bold mb-8 text-center">Our Products</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {products.map((product) => (
+                <Card key={product.id} className="hover:shadow-lg transition-shadow">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg">{product.name}</CardTitle>
+                    {product.category && (
+                      <Badge variant="outline">{product.category}</Badge>
+                    )}
+                  </CardHeader>
+                  <CardContent>
+                    {product.description && (
+                      <CardDescription className="mb-4 line-clamp-2">
+                        {product.description}
+                      </CardDescription>
+                    )}
+                    
+                    <div className="flex justify-between items-center mb-4">
+                      <div>
+                        <span className="text-xl font-bold">
+                          {settings?.currency === 'USD' ? '$' : '₹'}{product.price}
                         </span>
-                      )}
+                        {product.compare_at_price && (
+                          <span className="text-sm text-muted-foreground line-through ml-2">
+                            {settings?.currency === 'USD' ? '$' : '₹'}{product.compare_at_price}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <Button onClick={() => addToCart(product)} className="w-full">
-                    Add to Cart
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                    
+                    <Button onClick={() => addToCart(product)} className="w-full">
+                      Add to Cart
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </>
         )}
       </div>
 
@@ -429,9 +439,20 @@ const StoreFrontend = () => {
                 </div>
               </div>
               
-              <Button onClick={() => setShowCheckout(true)} className="w-full">
-                Proceed to Checkout
-              </Button>
+              <div className="space-y-2">
+                <Button onClick={() => setShowCheckout(true)} className="w-full">
+                  Proceed to Checkout
+                </Button>
+                {settings?.whatsapp_enabled && settings?.whatsapp_number && (
+                  <Button 
+                    onClick={handleWhatsAppOrder} 
+                    variant="outline" 
+                    className="w-full"
+                  >
+                    Order via WhatsApp
+                  </Button>
+                )}
+              </div>
             </div>
           )}
         </DialogContent>
@@ -533,28 +554,39 @@ const StoreFrontend = () => {
             </div>
             
             <div className="border-t pt-4">
-              <div className="flex justify-between font-bold">
-                <span>Total: {settings?.currency === 'USD' ? '$' : '₹'}{totals.total.toFixed(2)}</span>
+              <div className="flex justify-between font-bold text-lg">
+                <span>Total:</span>
+                <span>{settings?.currency === 'USD' ? '$' : '₹'}{totals.total.toFixed(2)}</span>
               </div>
             </div>
             
-            <Button onClick={handleCheckout} className="w-full">
-              Pay Now
+            <Button 
+              onClick={handleCheckout} 
+              className="w-full"
+              disabled={!customerInfo.name || !customerInfo.email || !customerInfo.phone}
+            >
+              Place Order
             </Button>
           </div>
         </DialogContent>
       </Dialog>
 
       {/* WhatsApp Widget */}
-      {settings?.whatsapp_enabled && settings.whatsapp_number && (
+      {settings?.whatsapp_enabled && settings?.whatsapp_number && (
         <WhatsAppWidget
           phoneNumber={settings.whatsapp_number}
           message={settings.whatsapp_message}
         />
       )}
 
-      {/* Load Razorpay */}
-      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+      {/* Footer */}
+      <footer className="bg-muted mt-16 py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">
+            © 2024 {store.name}. Powered by RetailX.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

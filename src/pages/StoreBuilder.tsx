@@ -477,6 +477,10 @@ const StoreBuilder = () => {
                     <Settings className="h-4 w-4 mr-2" />
                     View Orders
                   </Button>
+                  <Button variant="outline" onClick={() => window.open(`/store/${storeId}`, '_blank')}>
+                    <Globe className="h-4 w-4 mr-2" />
+                    Preview Store
+                  </Button>
                 </div>
                 <p className="text-sm text-muted-foreground">
                   Add, edit, and organize your products. Manage inventory and pricing.

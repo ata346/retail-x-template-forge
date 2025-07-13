@@ -203,11 +203,15 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button size="lg" asChild className="text-sm sm:text-base bg-white text-brand-purple hover:bg-white/90 flex items-center justify-center gap-2 h-12 sm:h-auto touch-target">
-                <a href="https://forms.gle/8EfxuZgW5dMhondk7" target="_blank" rel="noopener noreferrer">
-                  Build Static Website <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
-                </a>
+                <Link to="/auth">
+                  Start Building Your Store <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                </Link>
               </Button>
-              <CommunityJoinButton variant="secondary" className="h-12 sm:h-auto" />
+              <Button size="lg" variant="outline" asChild className="text-sm sm:text-base bg-transparent text-white border-white hover:bg-white hover:text-brand-purple flex items-center justify-center gap-2 h-12 sm:h-auto touch-target">
+                <Link to="/templates">
+                  View Templates <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
