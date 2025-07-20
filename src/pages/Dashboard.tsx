@@ -194,10 +194,9 @@ const Dashboard = () => {
                       <Settings className="h-4 w-4 mr-2" />
                       Edit
                     </Button>
-                    <Button 
+                     <Button 
                       variant="outline"
                       onClick={() => window.open(`/store/${store.id}`, '_blank')}
-                      disabled={!store.is_published}
                     >
                       <Globe className="h-4 w-4 mr-2" />
                       {store.is_published ? 'View Live' : 'Preview'}

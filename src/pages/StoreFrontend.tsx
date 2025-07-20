@@ -208,6 +208,27 @@ const StoreFrontend = () => {
   };
 
   const handleCheckout = async () => {
+    // Validate required fields
+    if (!customerInfo.name.trim() || !customerInfo.email.trim()) {
+      toast({
+        variant: "destructive",
+        title: "Missing Information",
+        description: "Please fill in your name and email address",
+      });
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(customerInfo.email)) {
+      toast({
+        variant: "destructive",
+        title: "Invalid Email",
+        description: "Please enter a valid email address",
+      });
+      return;
+    }
+
     try {
       const totals = getCartTotal();
       const orderId = `ORD-${Date.now()}`;
@@ -218,9 +239,9 @@ const StoreFrontend = () => {
         .insert({
           store_id: storeId,
           order_number: orderId,
-          customer_name: customerInfo.name,
-          customer_email: customerInfo.email,
-          customer_phone: customerInfo.phone,
+          customer_name: customerInfo.name.trim(),
+          customer_email: customerInfo.email.trim(),
+          customer_phone: customerInfo.phone?.trim() || null,
           customer_address: customerInfo.address,
           items: cart.map(item => ({
             id: item.id,
@@ -240,10 +261,22 @@ const StoreFrontend = () => {
 
       toast({
         title: "Order placed successfully!",
-        description: `Order #${orderId} has been created`,
+        description: `Order #${orderId} has been created. You will receive a confirmation email shortly.`,
       });
       
+      // Reset form and close dialogs
       setCart([]);
+      setCustomerInfo({
+        name: '',
+        email: '',
+        phone: '',
+        address: {
+          street: '',
+          city: '',
+          state: '',
+          zipCode: ''
+        }
+      });
       setShowCheckout(false);
       setShowCart(false);
 
