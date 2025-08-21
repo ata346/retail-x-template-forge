@@ -8,12 +8,7 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
   return (
-    <NextThemesProvider 
-      attribute="data-theme" 
-      defaultTheme="default" 
-      themes={['default', 'sketch', 'colorful', 'dark-neon']}
-      enableSystem={false}
-    >
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
       {children}
     </NextThemesProvider>
   );

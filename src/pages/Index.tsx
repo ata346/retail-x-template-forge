@@ -12,7 +12,7 @@ import CommunitySection from "@/components/CommunitySection";
 import CommunityJoinButton from "@/components/CommunityJoinButton";
 import DualPlatformSection from "@/components/DualPlatformSection";
 import StaticWebsiteExplanation from "@/components/StaticWebsiteExplanation";
-import ElevenLabsWidget from "@/components/ElevenLabsWidget";
+
 const Index = () => {
   const {
     toast
@@ -41,7 +41,7 @@ const Index = () => {
     setSocialMetaTags(
       "Retail X - AI System for Static Websites & Static E-commerce", 
       "Retail X is an AI system that builds static websites and static e-commerce websites with advanced automation and SEO optimization.", 
-      "/lovable-uploads/714d8f7b-2ee5-4ed2-9762-740270cbb8d4.png", 
+      "/lovable-uploads/f6a19bd5-5b25-47bb-9a9c-e9531f6650ce.png", 
       officialLinks.website
     );
 
@@ -68,7 +68,14 @@ const Index = () => {
         "ratingValue": "4.8",
         "ratingCount": "127"
       },
-      "keywords": [...seoKeywords.primary, ...seoKeywords.secondary, ...seoKeywords.business, "static website builder", "static e-commerce platform", "AI static website creator"].slice(0, 25).join(', '),
+      "keywords": [
+        ...seoKeywords.primary, 
+        ...seoKeywords.secondary, 
+        ...seoKeywords.business,
+        "static website builder",
+        "static e-commerce platform",
+        "AI static website creator"
+      ].slice(0, 25).join(', '),
       "sameAs": [officialLinks.website, officialLinks.instagram, officialLinks.linkedin],
       "provider": {
         "@type": "Organization",
@@ -78,10 +85,12 @@ const Index = () => {
       },
       "applicationSubCategory": ["Static E-commerce Platform", "Static Website Builder", "AI Static Site Generator"]
     };
+    
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(enhancedStructuredData);
     document.head.appendChild(script);
+    
     return () => {
       if (document.head.contains(script)) {
         document.head.removeChild(script);
@@ -185,10 +194,8 @@ const Index = () => {
     title: "Rapid Static Deployment",
     description: "Launch static websites and static online stores faster than ever with our intelligent AI system handling technical setup and optimization automatically."
   }];
-  return <div className="flex flex-col min-h-screen">
-      {/* ElevenLabs Widget - positioned at top */}
-      
-
+  return (
+    <div className="flex flex-col min-h-screen">
       {/* Enhanced Hero Section for static website focus */}
       <section aria-labelledby="hero-heading" className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center bg-gradient-to-r from-brand-purple to-brand-purple/90 overflow-hidden">
         <div className="container relative z-10 mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-0">
@@ -203,15 +210,11 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button size="lg" asChild className="text-sm sm:text-base bg-white text-brand-purple hover:bg-white/90 flex items-center justify-center gap-2 h-12 sm:h-auto touch-target">
-                <Link to="/auth">
-                  Start Building Your Store <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Link>
+                <a href="https://forms.gle/8EfxuZgW5dMhondk7" target="_blank" rel="noopener noreferrer">
+                  Build Static Website <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-sm sm:text-base bg-transparent text-white border-white hover:bg-white hover:text-brand-purple flex items-center justify-center gap-2 h-12 sm:h-auto touch-target">
-                <Link to="/templates">
-                  View Templates <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Link>
-              </Button>
+              <CommunityJoinButton variant="secondary" className="h-12 sm:h-auto" />
             </div>
           </div>
         </div>
@@ -312,11 +315,13 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            {features.map((feature, index) => <div key={index} className="p-4 sm:p-5 md:p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+            {features.map((feature, index) => (
+              <div key={index} className="p-4 sm:p-5 md:p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                 <div className="mb-3 sm:mb-4" aria-hidden="true">{feature.icon}</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-brand-purple">{feature.title}</h3>
                 <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -344,10 +349,13 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-all duration-300 h-full">
                 <CardContent className="p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col h-full">
                   <div className="flex mb-3 sm:mb-4" aria-label={`Rating: ${testimonial.rating} out of 5 stars`}>
-                    {[...Array(5)].map((_, i) => <Star key={i} className={`h-4 w-4 sm:h-5 sm:w-5 ${i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"}`} />)}
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className={`h-4 w-4 sm:h-5 sm:w-5 ${i < testimonial.rating ? "text-brand-coral fill-brand-coral" : "text-gray-300"}`} />
+                    ))}
                   </div>
                   <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base text-gray-600 flex-grow">"{testimonial.content}"</p>
                   <div className="flex items-center mt-auto">
@@ -360,7 +368,8 @@ const Index = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -397,6 +406,8 @@ const Index = () => {
 
       {/* Floating Community Button for persistent engagement */}
       <CommunityJoinButton variant="floating" />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

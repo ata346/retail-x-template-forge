@@ -99,9 +99,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					purple: 'hsl(var(--brand-purple))',
-					peach: 'hsl(var(--secondary))',
-					coral: 'hsl(var(--brand-coral))',
+					purple: '#2D0A4D',
+					peach: '#FFB3A7',
+					coral: '#FF6B6B',
 				}
 			},
 			borderRadius: {
